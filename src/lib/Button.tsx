@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type ButtonProps = {
+interface Props {
   onClick: () => void;
   children: React.ReactNode;
 }
@@ -15,12 +15,11 @@ const StyledButton = styled.button`
   font-size: 16px;
 `;
 
-const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
-  return (
-    <StyledButton onClick={onClick}>
-      {children}
-    </StyledButton>
-  );
-}
+export function Button({onClick, children}: Props) {
 
-export default Button;
+    return (
+      <StyledButton onClick={onClick}>
+        {children}
+      </StyledButton>
+    );
+  }

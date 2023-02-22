@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import './App.css';
-import Button from './lib/Button';
+import { Button } from './lib/Button';
 
 const Title = styled.h1`
 font-size: 2rem;
@@ -19,8 +19,7 @@ function App() {
       <Title>
       Hello world
       </Title>
-      <Button onClick={handleClick}>Click me</Button>
-
+      <Button onClick={handleClick} children='Click me!'></Button>
     </div>
 
   )
