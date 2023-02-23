@@ -12,11 +12,11 @@ interface AstrologyData {
 function App() {
   const [astrologyData, setAstrologyData] = useState<AstrologyData | null>(null);
 
-  const fetchAstrologyData = async (sign: string) => {
+  const fetchAstrologyData = async (sign: string, day: string) => {
     const options: AxiosRequestConfig = {
       method: 'POST',
       url: 'https://sameer-kumar-aztro-v1.p.rapidapi.com/',
-      params: { sign, day: 'today' },
+      params: { sign, day },
       headers: {
         'X-RapidAPI-Key': 'b3616ca703msh7f91a1b391d3b37p14580cjsn9dd28c3d9990',
         'X-RapidAPI-Host': 'sameer-kumar-aztro-v1.p.rapidapi.com',
@@ -34,8 +34,8 @@ function App() {
   if (!astrologyData) {
     return (
       <div>
-        <Button onClick={() => fetchAstrologyData('aquarius')}>Aquarius</Button>
-        <Button onClick={() => fetchAstrologyData('cancer')}>Cancer</Button>
+        <Button onClick={() => fetchAstrologyData('aquarius', 'today')}>Aquarius</Button>
+        <Button onClick={() => fetchAstrologyData('cancer', 'tomorrow')}>Cancer</Button>
       </div>
     );
   }
