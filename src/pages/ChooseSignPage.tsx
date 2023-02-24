@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ZodiacSignCard from '../components/ZodiacSignCard';
-import { ZodiacSigns } from '../components/ZodiacSignsData';
+import { ZodiacSigns } from '../data/ZodiacSignsData';
 
 interface Props {
     zodiacSigns: Props[];
@@ -12,7 +12,7 @@ interface Props {
           {ZodiacSigns.map(ZodiacSign => (
             <ZodiacSignCard
               key={ZodiacSign.name}
-              image={ZodiacSign.imageKey}
+              image={ZodiacSign.image}
               name={ZodiacSign.name}
               color={ZodiacSign.color}
               date={ZodiacSign.date}      
