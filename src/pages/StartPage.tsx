@@ -1,6 +1,8 @@
+import HeaderStartPage from "../components/HeaderStartPage";
+
 function StartPage() {
     return (
-        <h1>StartPage</h1>
+        <HeaderStartPage />
     );
 }
 
