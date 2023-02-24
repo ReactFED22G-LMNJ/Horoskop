@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import HeaderStartPage from '../components/HeaderStartPage';
+import HeaderChooseYourSign from '../components/HeaderChooseYourSign';
 import ZodiacSignCard from '../components/ZodiacSignCard';
 import { ZodiacSigns } from '../data/ZodiacSignsData';
 
@@ -10,7 +10,7 @@ interface Props {
   function ChooseYourSign({ }: Props) {
     return (
       <div>
-        <HeaderStartPage />
+        <HeaderChooseYourSign />
         <ZodiacSignContainer>
           {ZodiacSigns.map(ZodiacSign => (
             <ZodiacSignCard
