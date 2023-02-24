@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Header from '../components/Header';
 import ZodiacSignCard from '../components/ZodiacSignCard';
 import { ZodiacSigns } from '../data/ZodiacSignsData';
 
@@ -8,6 +9,8 @@ interface Props {
   
   function ZodiacSignChart({ }: Props) {
     return (
+      <div>
+        <Header />
         <ZodiacSignContainer>
           {ZodiacSigns.map(ZodiacSign => (
             <ZodiacSignCard
@@ -19,6 +22,7 @@ interface Props {
             />
           ))}
         </ZodiacSignContainer>
+      </div>
       );
   }
   
