@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ZodiacSignCard from '../components/ZodiacSignCard';
-import { ZodiacSigns } from '../components/ZodiacSigns';
+import { ZodiacSigns } from '../components/ZodiacSignsData';
 
 interface Props {
     zodiacSigns: Props[];
