@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Moon from '/assets/moon.png';
 import Star from '/assets/star.png';
 
-function Header() {
+function HeaderStartPage() {
     return (
         <Wrapper>
             <ImageMoon>
@@ -64,4 +64,4 @@ const Title2 = styled.h1`
 `;
 
 
-export default Header;
+export default HeaderStartPage;
