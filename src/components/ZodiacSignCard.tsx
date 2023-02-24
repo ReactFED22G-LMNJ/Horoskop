@@ -5,8 +5,6 @@ interface Props {
     name: string;
     color: string;
     date: string;
-    imageKey?: string;
-    [key: string]: any; // add index signature to allow any string key
 }
 
 function ZodiacSignCard({ name, image, color, date }: Props) {
