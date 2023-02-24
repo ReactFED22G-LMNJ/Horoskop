@@ -7,7 +7,7 @@ interface Props {
     zodiacSigns: Props[];
   }
   
-  function ZodiacSignChart({ }: Props) {
+  function ChooseYourSign({ }: Props) {
     return (
       <div>
         <Header />
@@ -25,9 +25,6 @@ interface Props {
       </div>
       );
   }
-  
-export default ZodiacSignChart
-
 
 const ZodiacSignContainer = styled.div` 
     display: flex;
@@ -35,3 +32,5 @@ const ZodiacSignContainer = styled.div`
     align-items: center;
     flex-wrap: wrap;
 `;
+
+export default ChooseYourSign;
