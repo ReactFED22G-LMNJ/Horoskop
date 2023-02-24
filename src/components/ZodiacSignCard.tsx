@@ -36,9 +36,9 @@ const ZodiacSignColumn = styled.div`
   width: 10rem;
   background: #FFFFFF;
   padding: 1rem;
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-  box-shadow: 0 10px 6px -6px #777;
+  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem #777;
+  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem #777;
+  box-shadow: 0 0.625rem 0.375 -0.375rem #777;
 `;
 
 const ZodiacCircle = styled.div`
