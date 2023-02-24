@@ -6,7 +6,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export function Button({ onClick, children }: Props) {
+export function Button({ onClick, children}: Props) {
   return <StyledButton onClick={onClick}>{children}</StyledButton>;
 }
 
@@ -24,3 +24,5 @@ const StyledButton = styled.button`
     background-color: #e6e6e6;
   }
 `;
+
+

@@ -7,7 +7,15 @@ import { Button } from './components/Button';
 interface AstrologyData {
   date_range: string;
   description: string;
+  mood: string;
+  current_date: string;
 }
+
+//TODO:
+//Skapa en hook med astro-data.
+//Fixa en enklare horoskoptextsida.
+//Lägg till routing mellan tecken-knappar och textsida.
+//Koppla in rätt api beroende på knapptryck.
 
 function App() {
   const [astrologyData, setAstrologyData] = useState<AstrologyData | null>(null);
@@ -26,6 +34,7 @@ function App() {
     try {
       const response: AxiosResponse<AstrologyData> = await axios.request(options);
       setAstrologyData(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -35,7 +44,7 @@ function App() {
     return (
       <div>
         <Button onClick={() => fetchAstrologyData('aquarius', 'today')}>Aquarius</Button>
-        <Button onClick={() => fetchAstrologyData('cancer', 'tomorrow')}>Cancer</Button>
+        <Button onClick={() => fetchAstrologyData('cancer', 'tomorrow',)}>Cancer</Button>
       </div>
     );
   }
@@ -43,7 +52,9 @@ function App() {
   return (
     <div>
       <h1>{astrologyData.date_range}</h1>
+      <span>{astrologyData.current_date}</span>
       <p>{astrologyData.description}</p>
+      <p>{astrologyData.mood}</p>
     </div>
   );
 }
