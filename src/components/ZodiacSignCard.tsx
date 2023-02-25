@@ -5,13 +5,14 @@ interface Props {
     name: string;
     color: string;
     date: string;
+    onClick?: () => void;
 }
 
-function ZodiacSignCard({ name, image, color, date }: Props) {
+function ZodiacSignCard({ name, image, color, date, onClick }: Props) {
   return (
       <ZodiacSignColumn color={color}>
         <ZodiacCircle color={color}>
-          <Img src={image} alt={name} />
+          <Img src={image} alt={name} onClick={onClick} />
         </ZodiacCircle>
         <Name color={color}>{name}</Name>
         <DateText>{date}</DateText>
