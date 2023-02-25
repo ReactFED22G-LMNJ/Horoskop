@@ -9,9 +9,17 @@ function FormBox() {
 
             <FormContainer>
                 <Form>
-                    <h1>Enter your name</h1>
-                    <h1>Choose your sign</h1>
-                    <button>What's my sign?</button>
+                    <EnterYourNameInput>
+                        <label>Enter your name</label>
+                        <input type="text" />
+                    </EnterYourNameInput>
+                    <ChooseYourSignInput>
+                        <label>Choose your sign</label>
+                        <input type="text" />
+                    </ChooseYourSignInput>
+                    <ButtonDiv>
+                        <button>What's my sign?</button>
+                    </ButtonDiv>
                 </Form>
             </FormContainer>
 
@@ -28,6 +36,7 @@ const Container = styled.div`
     background-color: lightcoral;
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 `;
 
 const LeftSmallContainer = styled.div`
@@ -45,9 +54,30 @@ const FormContainer = styled.div`
 
 const Form = styled.div`
     background-color: white;
+    font-family: 'Tenor Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
     padding: 3rem;
+    gap: 2rem;
 `;
 
+const EnterYourNameInput = styled.div`
+    background-color: firebrick;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+`;
+
+const ChooseYourSignInput = styled.div`
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+`;
+
+const ButtonDiv = styled.div`
+    display: flex;
+    justify-content: center;
+`;
 
 
 export default FormBox;
