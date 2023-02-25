@@ -1,8 +1,12 @@
+import FormBox from "../components/FormBox";
 import HeaderStartPage from "../components/HeaderStartPage";
 
 function StartPage() {
     return (
-        <HeaderStartPage />
+        <div>
+            <HeaderStartPage />
+            <FormBox />
+        </div>
     );
 }
 
