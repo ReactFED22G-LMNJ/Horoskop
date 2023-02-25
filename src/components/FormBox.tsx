@@ -149,6 +149,11 @@ const Form = styled.div`
 const Input = styled.input`
     padding: 0.3rem;
     font-family: 'Tenor Sans', sans-serif;
+    border: 0.05rem solid grey;
+    border-radius: 0.3rem;
+    box-shadow: 0px 0.5px 1px 0px rgba(0,0,0,0.61);
+    -webkit-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
 `;
 
 const EnterYourNameInput = styled.div`
@@ -177,6 +182,9 @@ const Btn = styled.button`
     padding: 0.5rem;
     padding-right: 0.7rem;
     padding-left: 0.7rem;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
 `;
 
 
