@@ -8,7 +8,11 @@ function FormBox() {
             </LeftSmallContainer>
 
             <FormContainer>
-                <h1>Här ska form vara</h1>
+                <Form>
+                    <h1>Enter your name</h1>
+                    <h1>Choose your sign</h1>
+                    <button>What's my sign?</button>
+                </Form>
             </FormContainer>
 
             <RightSmallContainer>
@@ -35,7 +39,13 @@ const RightSmallContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
+    background-color: lightgreen;
+    padding: 2rem;
+`;
+
+const Form = styled.div`
     background-color: white;
+    padding: 3rem;
 `;
 
 
