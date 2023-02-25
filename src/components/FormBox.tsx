@@ -23,14 +23,14 @@ function FormBox() {
                 <Form>
                     <EnterYourNameInput>
                         <label>Enter your name</label>
-                        <input type="text" />
+                        <Input type="text" />
                     </EnterYourNameInput>
                     <ChooseYourSignInput>
                         <label>Choose your sign</label>
-                        <input type="text" />
+                        <Input type="text" />
                     </ChooseYourSignInput>
                     <ButtonDiv>
-                        <button>What's my sign?</button>
+                        <Btn>What's my sign?</Btn>
                     </ButtonDiv>
                 </Form>
             </FormContainer>
@@ -146,6 +146,11 @@ const Form = styled.div`
     gap: 2rem;
 `;
 
+const Input = styled.input`
+    padding: 0.3rem;
+    font-family: 'Tenor Sans', sans-serif;
+`;
+
 const EnterYourNameInput = styled.div`
     display: flex;
     justify-content: space-between;
@@ -160,6 +165,18 @@ const ChooseYourSignInput = styled.div`
 const ButtonDiv = styled.div`
     display: flex;
     justify-content: center;
+`;
+
+const Btn = styled.button`
+    color: white;
+    background-color: black;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.5rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
 `;
 
 
