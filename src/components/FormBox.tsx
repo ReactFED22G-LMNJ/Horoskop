@@ -1,10 +1,22 @@
 import styled from "styled-components";
+import Sun from '/assets/sun.png';
+import Circle from '/assets/circle-pattern.png';
+import MiniStar from '/assets/ministar.png';
+import MoonStar from '/assets/moonstar.png';
+import BigMoon from '/assets/bigMoon.png';
+import ThreeStars from '/assets/threesmallstars.png';
 
 function FormBox() {
     return(
         <Container>
             <LeftSmallContainer>
-                <h1>här är en liten låda</h1>
+                <ImageSun>
+                    <SunPic src={Sun} alt="sun" />
+                </ImageSun>
+
+                <ImageCircle>
+                    <CirclePic src={Circle} alt="circle" />
+                </ImageCircle>
             </LeftSmallContainer>
 
             <FormContainer>
@@ -24,7 +36,18 @@ function FormBox() {
             </FormContainer>
 
             <RightSmallContainer>
-            <h1>här är en liten låda</h1>
+                <ImageMiniStar>
+                    <MiniStarPic src={MiniStar} alt="ministar" />
+                </ImageMiniStar>
+
+                <ImageMoonStar>
+                    <MoonStarPic src={MoonStar} alt="moonstar" />
+                </ImageMoonStar>
+
+                <ImageBigMoonAndThreeStars>
+                    <ThreeStarsPic src={ThreeStars} alt="threestars" />
+                    <BigMoonPic src={BigMoon} alt="bigmoon" />
+                </ImageBigMoonAndThreeStars>
             </RightSmallContainer>
         </Container>
         
@@ -33,43 +56,99 @@ function FormBox() {
 }
 
 const Container = styled.div`
-    background-color: lightcoral;
     display: flex;
     justify-content: center;
     margin-top: 1rem;
 `;
 
 const LeftSmallContainer = styled.div`
-    background-color: lightblue;
+
+`;
+
+const ImageSun = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const ImageCircle = styled.div`
+    display: flex;
+    align-items: flex-start;
+`;
+
+const SunPic = styled.img`
+    width: 45%;
+`;
+
+const CirclePic = styled.img`
+    padding-top: 2rem;
+    width: 80%;
 `;
 
 const RightSmallContainer = styled.div`
-    background-color: lightpink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;
 
+const ImageMiniStar = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`;
+
+const MiniStarPic = styled.img`
+    width: 20%;
+    padding-right: 3rem;
+`;
+
+const ImageMoonStar = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const MoonStarPic = styled.img`
+    width: 30%;
+    padding-right: 8rem;
+`;  
+
+const ImageBigMoonAndThreeStars = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const BigMoonPic = styled.img`
+    width: 40%;
+`;  
+
+const ThreeStarsPic = styled.img`
+    width: 30%;
+    height: 60%;
+`;  
+
 const FormContainer = styled.div`
-    background-color: lightgreen;
     padding: 2rem;
+    display: flex;
+    align-items: center;
 `;
 
 const Form = styled.div`
     background-color: white;
     font-family: 'Tenor Sans', sans-serif;
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
-    padding: 3rem;
+    border-radius: 0.5rem;
+    padding: 5rem;
     gap: 2rem;
 `;
 
 const EnterYourNameInput = styled.div`
-    background-color: firebrick;
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    min-width: 23rem;
 `;
 
 const ChooseYourSignInput = styled.div`
-    background-color: yellow;
     display: flex;
     justify-content: space-between;
 `;
