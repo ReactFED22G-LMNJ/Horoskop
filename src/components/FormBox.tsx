@@ -134,11 +134,15 @@ const FormContainer = styled.div`
 const Form = styled.div`
     background-color: white;
     font-family: 'Tenor Sans', sans-serif;
+    box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
     font-size: 1.4rem;
+    margin-bottom: 4rem;
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
-    padding: 5rem;
+    padding: 4.5rem;
     gap: 2rem;
 `;
 
