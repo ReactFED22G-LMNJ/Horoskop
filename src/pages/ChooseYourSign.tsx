@@ -1,26 +1,21 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import HeaderStartPage from "../components/HeaderStartPage";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
+import { setSelectedZodiacSign } from "./selectedZodiacSign";
 
 interface Props {
   zodiacSigns: Props[];
 }
 
 function ChooseYourSign({}: Props) {
-  const [selectedZodiacSign, setSelectedZodiacSign] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleZodiacSignClick = (name: string) => {
     setSelectedZodiacSign(name);
     navigate(`/dailyhoroscope/${name.toLowerCase()}`);
   };
-
-  useEffect(() => {
-    console.log(selectedZodiacSign);
-  }, [selectedZodiacSign]);
 
   return (
     <div>
