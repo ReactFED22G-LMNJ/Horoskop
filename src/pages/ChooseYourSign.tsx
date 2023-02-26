@@ -1,35 +1,24 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import HeaderStartPage from "../components/HeaderStartPage";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
-import { setSelectedZodiacSign } from "./selectedZodiacSign";
 
-interface Props {
-  zodiacSigns: Props[];
-}
-
-function ChooseYourSign({}: Props) {
-  const navigate = useNavigate();
-
-  const handleZodiacSignClick = (name: string) => {
-    setSelectedZodiacSign(name);
-    navigate(`/dailyhoroscope/${name.toLowerCase()}`);
-  };
+function ChooseYourSign() {
 
   return (
     <div>
       <HeaderStartPage />
       <ZodiacSignContainer>
-        {ZodiacSigns.map((ZodiacSign) => (
-          <ZodiacSignCard
-            key={ZodiacSign.name}
-            image={ZodiacSign.image}
-            name={ZodiacSign.name}
-            color={ZodiacSign.color}
-            date={ZodiacSign.date}
-            onClick={() => handleZodiacSignClick(ZodiacSign.name)}
-          />
+        {ZodiacSigns.map((zodiacSign) => (
+          <Link key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}`}>
+            <ZodiacSignCard
+              image={zodiacSign.image}
+              name={zodiacSign.name}
+              color={zodiacSign.color}
+              date={zodiacSign.date}
+            />
+          </Link>
         ))}
       </ZodiacSignContainer>
     </div>

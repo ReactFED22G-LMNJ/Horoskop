@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 interface AstrologyData {
-    sign: string;
-    day: string;
-    date_range: string;
-    description: string;
+    sign?: string;
+    day?: string;
+    date_range?: string;
+    description?: string;
     mood?: string;
+    current_date?: string;
     color?: string;
     lucky_number?: string;
     lucky_time?: string;

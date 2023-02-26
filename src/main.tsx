@@ -13,10 +13,10 @@ const router = createBrowserRouter (
   <Route>
     <Route index element={<StartPage />}/> 
     {/* <Route index element={<App />}/>  */}
-    <Route path="dailyhoroscope" element={<DailyHoroscope />}>
+    <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope />}>
       {/* <Route paht=":day" element={} /> */}
     </Route> 
-    <Route path="chooseyoursign" element={<ChooseYourSign zodiacSigns={[]}/>}/> 
+    <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
     <Route path="*" element={<h3>404 Not Found</h3>}/> 
   </Route>
   )

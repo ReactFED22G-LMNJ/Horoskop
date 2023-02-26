@@ -4,28 +4,35 @@ import styled from "styled-components";
 import HeaderStartPage from "../components/HeaderStartPage";
 import { useAstrologyData } from "../useAstrologyData";
 
-function DailyHoroscope() {
+//Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
 
+function DailyHoroscope() {
+  const { sign, day = 'today' } = useParams<{ sign: string, day: string }>();
   const { astrologyData, fetchAstrologyData } = useAstrologyData();
   const [isLoading, setIsLoading] = useState(true);
-  const { sign = "today" } = useParams();
 
   useEffect(() => {
     async function fetchData() {
       if (sign) {
-        await fetchAstrologyData(sign, "today");
+        await fetchAstrologyData(sign, day);
         setIsLoading(false);
       }
     }
     fetchData();
-  }, [sign, fetchAstrologyData]);
+    console.log(sign);
+    console.log(day);
+  }, [sign]);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>
       <HeaderStartPage />
       <HoroscopeContainer>
-        <h1>{astrologyData?.date_range}</h1>
-        <span>{astrologyData?.day}</span>
+        <h1>{sign?.toUpperCase()}</h1>
+        <span>{astrologyData?.current_date}</span>
         <p>{astrologyData?.description}</p>
         <p>{astrologyData?.mood}</p>
       </HoroscopeContainer>
