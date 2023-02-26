@@ -81,6 +81,7 @@ const DropdownContent = styled.div`
   padding: 0.75rem 1rem;
   margin-top: 0.5rem;
   font-family: 'Tenor Sans', sans-serif;
+  border-radius: 0.5rem;
 `;
 
 const ZodiacSign = styled.div`
