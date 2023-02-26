@@ -4,21 +4,22 @@ import Star from '/assets/star.png';
 
 function HeaderStartPage() {
     return (
-        <Wrapper>
-            <ImageMoon>
-                <MoonPic src={Moon} alt="moon" />
-            </ImageMoon>
-            <Titels>
+        <Container>
+            <MoonImgContainer>
+                <MoonImg src={Moon} alt="moon" />
+            </MoonImgContainer>
+            <TitelContainer>
                 <Title1>Welcome to your</Title1>
                 <Title2>DAILY HOROSCOPE</Title2>
-            </Titels>
-            <ImageStar>
-                <StarPic src={Star} alt="star" />
-            </ImageStar>
-        </Wrapper>
+            </TitelContainer>
+            <StarImgContainer>
+                <StarImg src={Star} alt="star" />
+            </StarImgContainer>
+        </Container>
     );
 }
 
+// BREAKPOINTS (kanske flytta dessa till en egen fil?)
 const size = {
     mobileS: '320px',
     mobileM: '375px',
@@ -47,7 +48,7 @@ export const device = {
 };
 
 // STYLING
-const Wrapper = styled.header`
+const Container = styled.header`
     display: flex;
     justify-content: space-evenly;
 
@@ -61,7 +62,7 @@ const Wrapper = styled.header`
     }
 `;
 
-const ImageMoon = styled.div`
+const MoonImgContainer = styled.div`
     display: flex;
     align-items: center;
 
@@ -72,7 +73,7 @@ const ImageMoon = styled.div`
     }
 `;
 
-const ImageStar = styled.div`
+const StarImgContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -87,7 +88,7 @@ const ImageStar = styled.div`
     }
 `;
 
-const MoonPic = styled.img`
+const MoonImg = styled.img`
     height: 50%;
 
     @media ${device.mobileXXL} {
@@ -99,7 +100,7 @@ const MoonPic = styled.img`
     }
 `;
 
-const StarPic = styled.img`
+const StarImg = styled.img`
     height: 55%;
 
     @media ${device.mobileXXL} {
@@ -111,7 +112,7 @@ const StarPic = styled.img`
     }
 `;
 
-const Titels = styled.div`
+const TitelContainer = styled.div`
     display: flex;
     flex-direction: column;
 `;
