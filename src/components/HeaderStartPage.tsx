@@ -51,6 +51,7 @@ export const device = {
 const Container = styled.header`
     display: flex;
     justify-content: space-evenly;
+    margin-top: 1rem;
 
     @media ${device.mobileXXL} {
        margin-top: 2rem;
