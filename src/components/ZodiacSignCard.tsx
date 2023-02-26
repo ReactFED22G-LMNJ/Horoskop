@@ -41,6 +41,7 @@ const ZodiacSignColumn = styled.div`
   &:hover {
     cursor: pointer;
     background-color: #fffaf0;
+    color: #0343f3;
   }
 `;
 
