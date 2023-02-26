@@ -1,28 +1,26 @@
 import styled from "styled-components";
 import BigMoon from '/assets/bigMoon.png';
+import MiddleStar from '/assets/middlestar.png';
 import MiniStar from '/assets/ministar.png';
 import MoonStar from '/assets/moonstar.png';
 import Sun from '/assets/sun.png';
 import ThreeStars from '/assets/threesmallstars.png';
-import MiddleStar from '/assets/middlestar.png';
 
 function FormBox() {
     return(
         <Container>
             <LeftSmallContainer >
-                <ImageSun>
-                    <SunPic src={Sun} alt="sun" />
-                </ImageSun>
+                <SunImgContainer>
+                    <SunImg src={Sun} alt="sun" />
+                </SunImgContainer>
 
-                <ImageMiddleStar>
-                    <MiddleStarPic src={MiddleStar} alt="middlestar" />
-                    
-                </ImageMiddleStar>
+                <MiddleStarImgContainer>
+                    <MiddleStarImg src={MiddleStar} alt="middlestar" />
+                </MiddleStarImgContainer>
 
-                <ImageThreeStarsLeft>
-                    <ThreeStarsPicLeft src={ThreeStars} alt="threestars" />
-                </ImageThreeStarsLeft>
-
+                <ThreeStarsImgContainer>
+                    <ThreeStarsImgLeft src={ThreeStars} alt="threestars" />
+                </ThreeStarsImgContainer>
             </LeftSmallContainer >
 
             <FormContainer>
@@ -35,30 +33,31 @@ function FormBox() {
                         <label>Choose your sign</label>
                         <Input type="text" />
                     </ChooseYourSignInput>
-                    <ButtonDiv>
+                    <BtnContainer>
                         <Btn>What's my sign?</Btn>
-                    </ButtonDiv>
+                    </BtnContainer>
                 </Form>
             </FormContainer>
 
             <RightSmallContainer>
-                <ImageMiniStar>
-                    <MiniStarPic src={MiniStar} alt="ministar" />
-                </ImageMiniStar>
+                <MiniStarContainer>
+                    <MiniStarImg src={MiniStar} alt="ministar" />
+                </MiniStarContainer>
 
-                <ImageMoonStar>
-                    <MoonStarPic src={MoonStar} alt="moonstar" />
-                </ImageMoonStar>
+                <MoonStarContainer>
+                    <MoonStarImg src={MoonStar} alt="moonstar" />
+                </MoonStarContainer>
 
-                <ImageBigMoonAndThreeStars>
-                    <ThreeStarsPic src={ThreeStars} alt="threestars" />
-                    <BigMoonPic src={BigMoon} alt="bigmoon" />
-                </ImageBigMoonAndThreeStars>
+                <BigMoonAndThreeStarsImgContainer>
+                    <ThreeStarsImgRight src={ThreeStars} alt="threestars" />
+                    <BigMoonImg src={BigMoon} alt="bigmoon" />
+                </BigMoonAndThreeStarsImgContainer>
             </RightSmallContainer>
         </Container>
     );
 }
 
+// BREAKINGPOINTS (kanske flytta detta till en egen fil?)
 const size = {
     mobileS: '320px',
     mobileM: '375px',
@@ -86,6 +85,7 @@ export const device = {
     desktopL: `(max-width: ${size.desktop})`
 };
 
+// STYLING
 const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -96,6 +96,7 @@ const Container = styled.div`
     }
 `;
 
+// EVERYTHING IN LEFT COINTAINER
 const LeftSmallContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -115,7 +116,7 @@ const LeftSmallContainer = styled.div`
     }
 `;
 
-const ImageSun = styled.div`
+const SunImgContainer = styled.div`
     display: flex;
     justify-content: center;
 
@@ -125,7 +126,7 @@ const ImageSun = styled.div`
     }
 `;
 
-const SunPic = styled.img`
+const SunImg = styled.img`
     width: 45%;
 
     @media ${device.tabletXL} {
@@ -137,7 +138,7 @@ const SunPic = styled.img`
     }
 `;
 
-const ImageMiddleStar = styled.div`
+const MiddleStarImgContainer = styled.div`
     display: flex;
     align-items: flex-start;
 
@@ -146,7 +147,7 @@ const ImageMiddleStar = styled.div`
     }
 `;
 
-const MiddleStarPic = styled.img`
+const MiddleStarImg = styled.img`
     width: 20%;
 
     @media ${device.tabletXL} {
@@ -158,7 +159,7 @@ const MiddleStarPic = styled.img`
     }
 `;
 
-const ImageThreeStarsLeft = styled.div`
+const ThreeStarsImgContainer = styled.div`
     display: flex;
     justify-content: center;
 
@@ -168,109 +169,11 @@ const ImageThreeStarsLeft = styled.div`
     }
 `;
 
-const ThreeStarsPicLeft = styled.img`
+const ThreeStarsImgLeft = styled.img`
     width: 40%;
 `;
 
-const RightSmallContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    @media ${device.tabletXL} {
-        justify-content: space-evenly;
-    }
-
-    @media ${device.mobileL} {
-        display: none;
-    }
-`;
-
-const ImageMiniStar = styled.div`
-    display: flex;
-    justify-content: flex-end;
-`;
-
-const MiniStarPic = styled.img`
-    width: 15%;
-    padding-right: 3rem;
-
-    @media ${device.tabletXL} {
-        width: 20%;
-    }
-
-    @media ${device.mobileXXL} {
-        width: 30%;
-    }
-
-    @media ${device.mobileXXL} {
-        width: 40%;
-    }
-`;
-
-const ImageMoonStar = styled.div`
-    display: flex;
-    justify-content: center;
-
-    @media ${device.tabletXL} {
-        padding-left: 10%;
-    }
-
-    @media ${device.tabletXL} {
-        padding-left: 0%;
-        justify-content: flex-start;
-    }
-`;
-
-const MoonStarPic = styled.img`
-    width: 30%;
-    padding-right: 8%;
-
-    @media ${device.tabletXL} {
-        width: 40%;
-    }
-
-    @media ${device.mobileXXL} {
-        width: 50%;
-    }
-`;  
-
-const ImageBigMoonAndThreeStars = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    @media ${device.mobileXXL} {
-        justify-content: flex-start;
-        padding-left: 12%;
-    }
-`;
-
-const BigMoonPic = styled.img`
-    width: 40%;
-
-    @media ${device.mobileXXL} {
-        width: 55%;
-    }
-
-    @media ${device.mobileXL} {
-        display: none;
-    }
-`;  
-
-const ThreeStarsPic = styled.img`
-    width: 30%;
-    height: 60%;
-
-    @media ${device.mobileXXL} {
-        height: 45%;
-    }
-
-    @media ${device.mobileXL} {
-        height: 100%;
-    }
-`;  
-
+// EVERYTHING IN FORMCONTAINER
 const FormContainer = styled.div`
     display: flex;
     align-items: center;
@@ -341,7 +244,7 @@ const ChooseYourSignInput = styled.div`
     }
 `;
 
-const ButtonDiv = styled.div`
+const BtnContainer = styled.div`
     display: flex;
     justify-content: center;
 `;
@@ -366,5 +269,104 @@ const Btn = styled.button`
     }
 `;
 
+// EVERYTHING IN RIGHT COINTAINER
+const RightSmallContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media ${device.tabletXL} {
+        justify-content: space-evenly;
+    }
+
+    @media ${device.mobileL} {
+        display: none;
+    }
+`;
+
+const MiniStarContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`;
+
+const MiniStarImg = styled.img`
+    width: 15%;
+    padding-right: 3rem;
+
+    @media ${device.tabletXL} {
+        width: 20%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 30%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 40%;
+    }
+`;
+
+const MoonStarContainer = styled.div`
+    display: flex;
+    justify-content: center;
+
+    @media ${device.tabletXL} {
+        padding-left: 10%;
+    }
+
+    @media ${device.tabletXL} {
+        padding-left: 0%;
+        justify-content: flex-start;
+    }
+`;
+
+const MoonStarImg = styled.img`
+    width: 30%;
+    padding-right: 8%;
+
+    @media ${device.tabletXL} {
+        width: 40%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 50%;
+    }
+`;  
+
+const BigMoonAndThreeStarsImgContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media ${device.mobileXXL} {
+        justify-content: flex-start;
+        padding-left: 12%;
+    }
+`;
+
+const BigMoonImg = styled.img`
+    width: 40%;
+
+    @media ${device.mobileXXL} {
+        width: 55%;
+    }
+
+    @media ${device.mobileXL} {
+        display: none;
+    }
+`;  
+
+const ThreeStarsImgRight = styled.img`
+    width: 30%;
+    height: 60%;
+
+    @media ${device.mobileXXL} {
+        height: 45%;
+    }
+
+    @media ${device.mobileXL} {
+        height: 100%;
+    }
+`;  
 
 export default FormBox;
