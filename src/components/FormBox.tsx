@@ -1,23 +1,29 @@
 import styled from "styled-components";
-import Sun from '/assets/sun.png';
-import Circle from '/assets/circle-pattern.png';
+import BigMoon from '/assets/bigMoon.png';
 import MiniStar from '/assets/ministar.png';
 import MoonStar from '/assets/moonstar.png';
-import BigMoon from '/assets/bigMoon.png';
+import Sun from '/assets/sun.png';
 import ThreeStars from '/assets/threesmallstars.png';
+import MiddleStar from '/assets/middlestar.png';
 
 function FormBox() {
     return(
         <Container>
-            <LeftSmallContainer>
+            <LeftSmallContainer >
                 <ImageSun>
                     <SunPic src={Sun} alt="sun" />
                 </ImageSun>
 
-                <ImageCircle>
-                    <CirclePic src={Circle} alt="circle" />
-                </ImageCircle>
-            </LeftSmallContainer>
+                <ImageMiddleStar>
+                    <MiddleStarPic src={MiddleStar} alt="middlestar" />
+                    
+                </ImageMiddleStar>
+
+                <ImageThreeStarsLeft>
+                    <ThreeStarsPicLeft src={ThreeStars} alt="threestars" />
+                </ImageThreeStarsLeft>
+
+            </LeftSmallContainer >
 
             <FormContainer>
                 <Form>
@@ -50,44 +56,134 @@ function FormBox() {
                 </ImageBigMoonAndThreeStars>
             </RightSmallContainer>
         </Container>
-        
-    )
-    
+    );
 }
+
+const size = {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    mobileXL: '524px',
+    mobileXXL: '592px',
+    tablet: '768px',
+    tabletXL: '809px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '2560px'
+}
+
+export const device = {
+    mobileS: `(max-width: ${size.mobileS})`,
+    mobileM: `(max-width: ${size.mobileM})`,
+    mobileL: `(max-width: ${size.mobileL})`,
+    mobileXL: `(max-width: ${size.mobileXL})`,
+    mobileXXL: `(max-width: ${size.mobileXXL})`,
+    tablet: `(max-width: ${size.tablet})`,
+    tabletXL: `(max-width: ${size.tabletXL})`,
+    laptop: `(max-width: ${size.laptop})`,
+    laptopL: `(max-width: ${size.laptopL})`,
+    desktop: `(max-width: ${size.desktop})`,
+    desktopL: `(max-width: ${size.desktop})`
+};
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
+
+    @media ${device.mobileXXL} {
+        margin-top: 1.5rem;
+    }
 `;
 
 const LeftSmallContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 34%;
 
+    @media ${device.tabletXL} {
+        width: 52%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 75%;
+    }
+
+    @media ${device.mobileL} {
+        display: none;
+    }
 `;
 
 const ImageSun = styled.div`
     display: flex;
     justify-content: center;
-`;
 
-const ImageCircle = styled.div`
-    display: flex;
-    align-items: flex-start;
+    @media ${device.mobileXXL} {
+       justify-content: flex-end;
+       padding-right: 10%;
+    }
 `;
 
 const SunPic = styled.img`
     width: 45%;
+
+    @media ${device.tabletXL} {
+        width: 70%;
+    }
+
+    @media ${device.mobileXL} {
+        width: 50%;
+    }
 `;
 
-const CirclePic = styled.img`
-    padding-top: 2rem;
-    width: 80%;
+const ImageMiddleStar = styled.div`
+    display: flex;
+    align-items: flex-start;
+
+    @media ${device.tabletXL} {
+        justify-content: center;
+    }
+`;
+
+const MiddleStarPic = styled.img`
+    width: 20%;
+
+    @media ${device.tabletXL} {
+        width: 30%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 25%;
+    }
+`;
+
+const ImageThreeStarsLeft = styled.div`
+    display: flex;
+    justify-content: center;
+
+    @media ${device.mobileXXL} {
+       justify-content: flex-end;
+       padding-right: 10%;
+    }
+`;
+
+const ThreeStarsPicLeft = styled.img`
+    width: 40%;
 `;
 
 const RightSmallContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media ${device.tabletXL} {
+        justify-content: space-evenly;
+    }
+
+    @media ${device.mobileL} {
+        display: none;
+    }
 `;
 
 const ImageMiniStar = styled.div`
@@ -96,37 +192,86 @@ const ImageMiniStar = styled.div`
 `;
 
 const MiniStarPic = styled.img`
-    width: 20%;
+    width: 15%;
     padding-right: 3rem;
+
+    @media ${device.tabletXL} {
+        width: 20%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 30%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 40%;
+    }
 `;
 
 const ImageMoonStar = styled.div`
     display: flex;
     justify-content: center;
+
+    @media ${device.tabletXL} {
+        padding-left: 10%;
+    }
+
+    @media ${device.tabletXL} {
+        padding-left: 0%;
+        justify-content: flex-start;
+    }
 `;
 
 const MoonStarPic = styled.img`
     width: 30%;
-    padding-right: 8rem;
+    padding-right: 8%;
+
+    @media ${device.tabletXL} {
+        width: 40%;
+    }
+
+    @media ${device.mobileXXL} {
+        width: 50%;
+    }
 `;  
 
 const ImageBigMoonAndThreeStars = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+
+    @media ${device.mobileXXL} {
+        justify-content: flex-start;
+        padding-left: 12%;
+    }
 `;
 
 const BigMoonPic = styled.img`
     width: 40%;
+
+    @media ${device.mobileXXL} {
+        width: 55%;
+    }
+
+    @media ${device.mobileXL} {
+        display: none;
+    }
 `;  
 
 const ThreeStarsPic = styled.img`
     width: 30%;
     height: 60%;
+
+    @media ${device.mobileXXL} {
+        height: 45%;
+    }
+
+    @media ${device.mobileXL} {
+        height: 100%;
+    }
 `;  
 
 const FormContainer = styled.div`
-    padding: 2rem;
     display: flex;
     align-items: center;
 `;
@@ -144,6 +289,18 @@ const Form = styled.div`
     border-radius: 0.5rem;
     padding: 4.5rem;
     gap: 2rem;
+
+    @media ${device.tabletXL} {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    @media ${device.mobileXXL} {
+        font-size: 1.2rem;
+        padding: 3rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
 `;
 
 const Input = styled.input`
@@ -154,17 +311,34 @@ const Input = styled.input`
     box-shadow: 0px 0.5px 1px 0px rgba(0,0,0,0.61);
     -webkit-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
     -moz-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
+
+    @media ${device.tabletXL} {
+        padding: 0.4rem;
+    }
 `;
 
 const EnterYourNameInput = styled.div`
     display: flex;
     justify-content: space-between;
     min-width: 23rem;
+
+    @media ${device.tabletXL} {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      min-width: 15rem;
+    }
 `;
 
 const ChooseYourSignInput = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media ${device.tabletXL} {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
 `;
 
 const ButtonDiv = styled.div`
@@ -186,6 +360,10 @@ const Btn = styled.button`
     -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
     -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
     cursor: pointer;
+
+    @media ${device.mobileXXL} {
+        font-size: 1rem;
+    }
 `;
 
 

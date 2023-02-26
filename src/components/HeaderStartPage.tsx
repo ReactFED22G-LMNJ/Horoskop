@@ -24,7 +24,7 @@ const size = {
     mobileM: '375px',
     mobileL: '425px',
     mobileXL: '524px',
-    mobileXtraXL: '592px',
+    mobileXXL: '592px',
     tablet: '768px',
     tabletXL: '809px',
     laptop: '1024px',
@@ -37,7 +37,7 @@ export const device = {
     mobileM: `(max-width: ${size.mobileM})`,
     mobileL: `(max-width: ${size.mobileL})`,
     mobileXL: `(max-width: ${size.mobileXL})`,
-    mobileXtraXL: `(max-width: ${size.mobileXtraXL})`,
+    mobileXXL: `(max-width: ${size.mobileXXL})`,
     tablet: `(max-width: ${size.tablet})`,
     tabletXL: `(max-width: ${size.tabletXL})`,
     laptop: `(max-width: ${size.laptop})`,
@@ -51,7 +51,7 @@ const Wrapper = styled.header`
     display: flex;
     justify-content: space-evenly;
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        margin-top: 2rem;
        gap: 5%;
     }
@@ -65,7 +65,7 @@ const ImageMoon = styled.div`
     display: flex;
     align-items: center;
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        margin-top: 1rem;
        align-items: flex-start;
        justify-content: flex-end;
@@ -77,12 +77,12 @@ const ImageStar = styled.div`
     justify-content: center;
     align-items: flex-end;
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        align-items: center;
        justify-content: flex-start;
     }
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        justify-content: flex-start;
     }
 `;
@@ -90,7 +90,7 @@ const ImageStar = styled.div`
 const MoonPic = styled.img`
     height: 50%;
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        height: 40%;
     }
 
@@ -102,7 +102,7 @@ const MoonPic = styled.img`
 const StarPic = styled.img`
     height: 55%;
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        height: 45%;
     }
 
@@ -126,7 +126,7 @@ const Title1 = styled.h1`
        font-size: 3.6rem;
     }
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        font-size: 2.8rem;
     }
 
@@ -153,7 +153,7 @@ const Title2 = styled.h1`
        font-size: 2.3rem;
     }
 
-    @media ${device.mobileXtraXL} {
+    @media ${device.mobileXXL} {
        font-size: 2rem;
     }
 
