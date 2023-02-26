@@ -43,7 +43,7 @@ const StarPics = styled.img`
 `;
 
 const EmptyDiv = styled.div`
-    width: 11rem;
+    width: 4rem;
 `;
 
 const TitelTop = styled.div`
