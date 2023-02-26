@@ -264,6 +264,11 @@ const Btn = styled.button`
     -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
     cursor: pointer;
 
+    &:hover {
+        background-color: #F3E7DC;
+        color: black;
+    }
+
     @media ${device.mobileXXL} {
         font-size: 1rem;
     }
