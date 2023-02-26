@@ -12,7 +12,6 @@ function HeaderChooseYourSign() {
             <TitelBottom>
                 <Title2>ZODIAC SIGN</Title2>
             </TitelBottom>
-            <EmptyDiv/>
             <ImageStars>
                 <StarPics src={Stars} alt="stars" />
             </ImageStars>
@@ -44,7 +43,8 @@ const StarPics = styled.img`
 `;
 
 const EmptyDiv = styled.div`
-    width: 4rem;
+    width: 10rem;
+    border: 0.01rem solid;
 `;
 
 const TitelTop = styled.div`
