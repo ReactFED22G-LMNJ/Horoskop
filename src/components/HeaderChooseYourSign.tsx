@@ -5,12 +5,14 @@ import Stars from '/assets/stars.png';
 function HeaderChooseYourSign() {
     return (
         <Wrapper>
+            <EmptyDiv/>
             <TitelTop>
                 <Title1>Hello, choose your</Title1>
             </TitelTop>
             <TitelBottom>
                 <Title2>ZODIAC SIGN</Title2>
             </TitelBottom>
+            <EmptyDiv/>
             <ImageStars>
                 <StarPics src={Stars} alt="stars" />
             </ImageStars>
@@ -39,6 +41,10 @@ const ImageStars = styled.div`
 
 const StarPics = styled.img`
     height: 100%;
+`;
+
+const EmptyDiv = styled.div`
+    width: 4rem;
 `;
 
 const TitelTop = styled.div`
