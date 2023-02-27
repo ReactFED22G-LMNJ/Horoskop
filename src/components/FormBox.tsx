@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ZodiacDropdown from "./DropDown";
 import BigMoon from '/assets/bigMoon.png';
 import MiddleStar from '/assets/middlestar.png';
 import MiniStar from '/assets/ministar.png';
@@ -31,7 +32,7 @@ function FormBox() {
                     </EnterYourNameInput>
                     <ChooseYourSignInput>
                         <label>Choose your sign</label>
-                        <Input type="text" />
+                        <ZodiacDropdown/>
                     </ChooseYourSignInput>
                     <BtnContainer>
                         <Btn>What's my sign?</Btn>
