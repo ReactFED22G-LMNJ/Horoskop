@@ -27,6 +27,13 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     return () => window.removeEventListener('click', handleClickOutsideDropdown);
   }, []);
 
+  const handleScrollDown = () => {
+    const dropdownContent = dropdownRef.current?.querySelector('.dropdown-content');
+    if (dropdownContent) {
+      dropdownContent.scrollTop += 50; 
+    }
+  };
+
   const zodiacs = [
     'Aries',
     'Taurus',    
@@ -46,9 +53,9 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     <Dropdown ref={dropdownRef}>
       <DropdownButton onClick={() => setShowDropdown(!showDropdown)}>
         {selectedZodiac || label }
-      <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
+        <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
       </DropdownButton>
-      <DropdownContent show={showDropdown}>
+      <DropdownContent show={showDropdown} onClick={handleScrollDown}>
         {zodiacs.map((zodiac: string) => (
           <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
             {zodiac}
@@ -85,7 +92,7 @@ const DropdownButton = styled.button`
 
 const TriangleArrowIcon = styled.img`
     height: 1.2rem;
-`;
+`; 
 
 const DropdownContent = styled.div`
   display: ${(props: { show: boolean }) => (props.show ? 'block' : 'none')};
@@ -99,6 +106,9 @@ const DropdownContent = styled.div`
   font-family: 'Tenor Sans', sans-serif;
   border-radius: 0.5rem;
   font-size: 1rem;
+  max-height: 12rem;
+  overflow: auto;
+  scroll-behavior: smooth;
 `;
 
 const ZodiacSign = styled.div`
@@ -108,4 +118,3 @@ const ZodiacSign = styled.div`
     border-radius: 0.5rem;
   }
 `;
-
