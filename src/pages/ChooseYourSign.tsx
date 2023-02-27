@@ -1,40 +1,36 @@
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import ZodiacDropdown from '../components/DropDown';
-import HeaderStartPage from '../components/HeaderStartPage';
-import ZodiacSignCard from '../components/ZodiacSignCard';
-import { ZodiacSigns } from '../data/ZodiacSignsData';
-
-interface Props {
-    zodiacSigns: Props[];
-  }
+import styled from "styled-components";
+import HeaderStartPage from "../components/HeaderStartPage";
+import ZodiacSignCard from "../components/ZodiacSignCard";
+import { ZodiacSigns } from "../data/ZodiacSignsData";
   
-  function ChooseYourSign({ }: Props) {
-    return (
-      <div>
-        <HeaderStartPage />
-        <ZodiacDropdown/>
-        <ZodiacSignContainer>
-          {ZodiacSigns.map(ZodiacSign => (
+function ChooseYourSign() {
+  return (
+    <div>
+      <HeaderStartPage />
+      <ZodiacSignContainer>
+        {ZodiacSigns.map((zodiacSign) => (
+          <Link key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}`}>
             <ZodiacSignCard
-              key={ZodiacSign.name}
-              image={ZodiacSign.image}
-              name={ZodiacSign.name}
-              color={ZodiacSign.color}
-              date={ZodiacSign.date}      
+              image={zodiacSign.image}
+              name={zodiacSign.name}
+              color={zodiacSign.color}
+              date={zodiacSign.date}
             />
-          ))}
-        </ZodiacSignContainer>
-      </div>
-      );
-  }
+          </Link>
+        ))}
+      </ZodiacSignContainer>
+    </div>
+  );
+}
 
-const ZodiacSignContainer = styled.div` 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1280px;
+const ZodiacSignContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1280px;
 `;
- 
 
 export default ChooseYourSign;
