@@ -13,7 +13,7 @@ function HeaderDailyHoroscope() {
             <DropDownAndStarsImgContainer>
                 <StarsImg src={Stars} alt="stars" />
                 <DropDownContainer>
-                    <ZodiacDropdown />
+                    <ZodiacDropdown label="Change sign" />
                 </DropDownContainer>
             </DropDownAndStarsImgContainer>
             <MoonStarContainer>
