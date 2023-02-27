@@ -89,8 +89,9 @@ const StarsImg = styled.img`
     }  
 
     @media ${device.mobileXL} {
-      width: 30%;
+      width: 20%;
       padding-top: 0.8rem;
+      padding-bottom: 0.7rem;
     }  
 
     @media ${device.mobileL} {
@@ -149,7 +150,7 @@ const Title1 = styled.h1`
     }  
 
     @media ${device.mobileXL} {
-      font-size: 2.4rem;
+      font-size: 2.8rem;
     }  
 `;
 
@@ -174,7 +175,7 @@ const Title2 = styled.h1`
     }  
 
     @media ${device.mobileXL} {
-      font-size: 1.6rem;
+      font-size: 2rem;
     }  
 
     @media ${device.mobileL} {
