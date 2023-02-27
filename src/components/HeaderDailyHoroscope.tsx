@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import { device } from './Breakpoints';
 import ZodiacDropdown from "./DropDown";
 import MoonStar from '/assets/moonstar.png';
 import Stars from '/assets/treStars.png';
-import { device } from './Breakpoints';
 
 function HeaderDailyHoroscope() {
     return (
@@ -14,7 +14,7 @@ function HeaderDailyHoroscope() {
             <DropDownAndStarsImgContainer>
                 <StarsImg src={Stars} alt="stars" />
                 <DropDownContainer>
-                    <ZodiacDropdown />
+                    <ZodiacDropdown label="Change sign"/>
                 </DropDownContainer>
             </DropDownAndStarsImgContainer>
             <MoonStarContainer>
