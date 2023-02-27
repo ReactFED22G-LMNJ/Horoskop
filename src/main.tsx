@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
-  createRoutesFromElements,
-  createBrowserRouter,
-  Route, RouterProvider
+  createBrowserRouter, createRoutesFromElements, Route, RouterProvider
 } from 'react-router-dom';
 import './index.css';
 import ChooseYourSign from './pages/ChooseYourSign';
@@ -14,10 +12,11 @@ const router = createBrowserRouter (
   createRoutesFromElements (
   <Route>
     <Route index element={<StartPage />}/> 
-    <Route path="dailyhoroscope" element={<DailyHoroscope />}>
+    {/* <Route index element={<App />}/>  */}
+    <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope />}>
       {/* <Route paht=":day" element={} /> */}
     </Route> 
-    <Route path="chooseyoursign" element={<ChooseYourSign zodiacSigns={[]}/>}/> 
+    <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
     <Route path="*" element={<h3>404 Not Found</h3>}/> 
   </Route>
   )
