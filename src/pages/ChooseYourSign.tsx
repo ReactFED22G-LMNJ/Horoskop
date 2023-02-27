@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import ZodiacDropdown from '../components/DropDown';
 import styled from "styled-components";
 import HeaderStartPage from "../components/HeaderStartPage";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
-
   
 function ChooseYourSign() {
   return (
