@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import ZodiacDropdown from '../components/DropDown';
 import styled from "styled-components";
-import HeaderStartPage from "../components/HeaderStartPage";
+import HeaderChooseYourSign from "../components/HeaderChooseYourSign";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
   
 function ChooseYourSign() {
   return (
     <div>
-      <HeaderStartPage />
+      <HeaderChooseYourSign />
       <ZodiacSignContainer>
         {ZodiacSigns.map((zodiacSign) => (
           <Link key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}`}>
