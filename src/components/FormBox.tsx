@@ -111,7 +111,7 @@ const LeftSmallContainer = styled.div`
         width: 75%;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.mobileXL} {
         display: none;
     }
 `;
@@ -131,10 +131,6 @@ const SunImg = styled.img`
 
     @media ${device.tabletXL} {
         width: 70%;
-    }
-
-    @media ${device.mobileXL} {
-        width: 50%;
     }
 `;
 
@@ -284,7 +280,7 @@ const RightSmallContainer = styled.div`
         justify-content: space-evenly;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.mobileXL} {
         display: none;
     }
 `;
@@ -305,10 +301,6 @@ const MiniStarImg = styled.img`
     @media ${device.mobileXXL} {
         width: 30%;
     }
-
-    @media ${device.mobileXXL} {
-        width: 40%;
-    }
 `;
 
 const MoonStarContainer = styled.div`
@@ -317,10 +309,6 @@ const MoonStarContainer = styled.div`
 
     @media ${device.tabletXL} {
         padding-left: 10%;
-    }
-
-    @media ${device.tabletXL} {
-        padding-left: 0%;
         justify-content: flex-start;
     }
 `;
@@ -367,10 +355,6 @@ const ThreeStarsImgRight = styled.img`
 
     @media ${device.mobileXXL} {
         height: 45%;
-    }
-
-    @media ${device.mobileXL} {
-        height: 100%;
     }
 `;  
 
