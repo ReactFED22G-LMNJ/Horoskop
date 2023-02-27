@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import HeaderStartPage from "../components/HeaderStartPage";
+import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import { useAstrologyData } from "../useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
@@ -29,7 +29,7 @@ function DailyHoroscope() {
 
   return (
     <div>
-      <HeaderStartPage />
+      <HeaderDailyHoroscope />
       <HoroscopeContainer>
         <h1>{sign?.toUpperCase()}</h1>
         <span>{astrologyData?.current_date}</span>
