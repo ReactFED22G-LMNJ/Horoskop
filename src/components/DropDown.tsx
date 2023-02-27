@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import TriangleArrow from '/assets/triangle-arrow.png';
 
@@ -46,9 +47,11 @@ const ZodiacDropdown = () => {
       </DropdownButton>
       <DropdownContent show={showDropdown}>
         {zodiacs.map((zodiac: string) => (
+          <Link key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}`}>
           <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
             {zodiac}
           </ZodiacSign>
+          </Link>
         ))}
       </DropdownContent>
     </Dropdown>
