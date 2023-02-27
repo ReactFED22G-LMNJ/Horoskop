@@ -32,7 +32,7 @@ function FormBox() {
                     </EnterYourNameInput>
                     <ChooseYourSignInput>
                         <label>Choose your sign</label>
-                        <ZodiacDropdown/>
+                        <ZodiacDropdown label="Zodiac Sign" />
                     </ChooseYourSignInput>
                     <BtnContainer>
                         <Btn>What's my sign?</Btn>
