@@ -4,8 +4,8 @@ import HeaderStartPage from "../components/HeaderStartPage";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
 
+  
 function ChooseYourSign() {
-
   return (
     <div>
       <HeaderStartPage />
