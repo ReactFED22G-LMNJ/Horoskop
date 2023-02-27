@@ -24,9 +24,9 @@ const Wrapper = styled.header`
     display: flex;
     justify-content: center;
     height: 8rem;
-    -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem #777;
-    -moz-box-shadow: 0 0.625rem 0.375 -0.375rem #777;
-    box-shadow: 0 0.625rem 0.375 -0.375rem #777;
+    -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
+    -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
+    box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
     padding-top: 1.4rem;
     padding-bottom: 1.4rem;
     margin-bottom: 1.8rem;
