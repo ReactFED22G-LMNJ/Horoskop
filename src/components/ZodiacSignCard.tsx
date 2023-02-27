@@ -5,13 +5,14 @@ interface Props {
     name: string;
     color: string;
     date: string;
+    onClick?: () => void;
 }
 
-function ZodiacSignCard({ name, image, color, date }: Props) {
+function ZodiacSignCard({ name, image, color, date, onClick }: Props) {
   return (
       <ZodiacSignColumn color={color}>
         <ZodiacCircle color={color}>
-          <Img src={image} alt={name} />
+          <Img src={image} alt={name} onClick={onClick} />
         </ZodiacCircle>
         <Name color={color}>{name}</Name>
         <DateText>{date}</DateText>
@@ -37,6 +38,12 @@ const ZodiacSignColumn = styled.div`
   -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem #777;
   -moz-box-shadow: 0 0.625rem 0.375 -0.375rem #777;
   box-shadow: 0 0.625rem 0.375 -0.375rem #777;
+  border-radius: 0.5rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #fffaf0;
+    color: #0343f3;
+  }
 `;
 
 const ZodiacCircle = styled.div`
