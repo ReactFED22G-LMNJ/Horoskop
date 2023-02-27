@@ -1,15 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import TriangleArrow from '/assets/triangle-arrow.png';
 
 const ZodiacDropdown = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleZodiacSelect = (zodiac: string) => {
     setSelectedZodiac(zodiac);
     setShowDropdown(false);
   };
+
+  const handleClickOutsideDropdown = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setShowDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', handleClickOutsideDropdown);
+    return () => window.removeEventListener('click', handleClickOutsideDropdown);
+  }, []);
 
   const zodiacs = [
     'Aries',
@@ -27,15 +39,15 @@ const ZodiacDropdown = () => {
     ];
 
   return (
-    <Dropdown>
+    <Dropdown ref={dropdownRef}>
       <DropdownButton onClick={() => setShowDropdown(!showDropdown)}>
         {selectedZodiac || 'Zodiac Sign'}
-        <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon"/>
+      <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
       </DropdownButton>
       <DropdownContent show={showDropdown}>
         {zodiacs.map((zodiac: string) => (
-            <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
-                {zodiac}
+          <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
+            {zodiac}
           </ZodiacSign>
         ))}
       </DropdownContent>
