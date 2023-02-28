@@ -47,7 +47,7 @@ const ZodiacDropdown = () => {
       </DropdownButton>
       <DropdownContent show={showDropdown}>
         {zodiacs.map((zodiac: string) => (
-          <Link key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}`}>
+          <Link key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}/today`}>
           <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
             {zodiac}
           </ZodiacSign>
