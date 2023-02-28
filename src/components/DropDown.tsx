@@ -59,11 +59,11 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
       </DropdownButton>
       <DropdownContent show={showDropdown} onClick={handleScrollDown}>
         {zodiacs.map((zodiac: string) => (
-          <Link key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}/${day || 'today'}`}>
+          <ZodiacLink key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}/${day || 'today'}`}>
           <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
             {zodiac}
           </ZodiacSign>
-          </Link>
+          </ZodiacLink>
         ))}
       </DropdownContent>
     </Dropdown>
@@ -97,6 +97,11 @@ const DropdownButton = styled.button`
 const TriangleArrowIcon = styled.img`
     height: 1.2rem;
 `; 
+
+export const ZodiacLink = styled(Link)`
+   color: #000000;
+   text-decoration: none;
+`;
 
 const DropdownContent = styled.div`
   display: ${(props: { show: boolean }) => (props.show ? 'block' : 'none')};
