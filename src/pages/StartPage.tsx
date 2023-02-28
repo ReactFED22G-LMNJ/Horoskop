@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import FormBox from "../components/FormBox";
 import HeaderStartPage from "../components/HeaderStartPage";
 
-export const handleSubmit = (name: string) => {
+const handleSubmit = (name: string) => {
     console.log(`The submitted name is: ${name}`);
 };
 

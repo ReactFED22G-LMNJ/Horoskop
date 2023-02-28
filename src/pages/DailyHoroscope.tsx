@@ -29,7 +29,7 @@ function DailyHoroscope() {
 
   return (
     <div>
-      <HeaderDailyHoroscope name="" />
+      <HeaderDailyHoroscope name={""} />
       <HoroscopeContainer>
         <h1>{sign?.toUpperCase()}</h1>
         <span>{astrologyData?.current_date}</span>
