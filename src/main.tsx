@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter, createRoutesFromElements, Route, RouterProvider
@@ -8,22 +8,29 @@ import ChooseYourSign from './pages/ChooseYourSign';
 import DailyHoroscope from './pages/DailyHoroscope';
 import StartPage from './pages/StartPage';
 
-const router = createBrowserRouter (
-  createRoutesFromElements (
-  <Route>
-    <Route index element={<StartPage />}/> 
-    {/* <Route index element={<App />}/>  */}
-    <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope />}>
-      {/* <Route paht=":day" element={} /> */}
-    </Route> 
-    <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
-    <Route path="*" element={<h3>404 Not Found</h3>}/> 
-  </Route>
-  )
-);
+
+function App() {
+  const [name, setName] = useState("");
+
+  const router = createBrowserRouter (
+    createRoutesFromElements (
+    <Route>
+      <Route index element={<StartPage name={name} onName={setName} />}/> 
+      {/* <Route index element={<App />}/>  */}
+      <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope name={name} />}>
+        {/* <Route paht=":day" element={} /> */}
+      </Route> 
+      <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
+      <Route path="*" element={<h3>404 Not Found</h3>}/> 
+    </Route>
+    )
+  );
+
+  return <RouterProvider router={router}/>
+}
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <App />
   </React.StrictMode>,
 );

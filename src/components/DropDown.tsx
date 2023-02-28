@@ -15,19 +15,21 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     setSelectedZodiac(zodiac);
     setShowDropdown(false);
   };
-
-  const handleClickOutsideDropdown = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setShowDropdown(false);
-    }
-  };
-
+  
   useEffect(() => {
+    const handleClickOutsideDropdown = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+
     window.addEventListener('click', handleClickOutsideDropdown);
     return () => window.removeEventListener('click', handleClickOutsideDropdown);
   }, []);
 
   const handleScrollDown = () => {
+    console.log(dropdownRef.current)
+
     const dropdownContent = dropdownRef.current?.querySelector('.dropdown-content');
     if (dropdownContent) {
       dropdownContent.scrollTop += 50; 
