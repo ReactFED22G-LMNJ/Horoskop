@@ -17,7 +17,7 @@ function ChooseYourSign() {
               color={zodiacSign.color}
               date={zodiacSign.date}
             />
-          </Link>
+          </ZodiacLink>
         ))}
       </ZodiacSignContainer>
     </div>
@@ -30,6 +30,11 @@ const ZodiacSignContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   max-width: 1280px;
+`;
+
+export const ZodiacLink = styled(Link)`
+   color: #000000;
+   text-decoration: none;
 `;
 
 export default ChooseYourSign;

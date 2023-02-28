@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import TriangleArrow from '/assets/triangle-arrow.png';
 
-const ZodiacDropdown = () => {
+interface Props {
+  label: string;
+}
+
+const ZodiacDropdown: React.FC<Props> = ({ label }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -24,6 +28,13 @@ const ZodiacDropdown = () => {
     return () => window.removeEventListener('click', handleClickOutsideDropdown);
   }, []);
 
+  const handleScrollDown = () => {
+    const dropdownContent = dropdownRef.current?.querySelector('.dropdown-content');
+    if (dropdownContent) {
+      dropdownContent.scrollTop += 50; 
+    }
+  };
+
   const zodiacs = [
     'Aries',
     'Taurus',    
@@ -42,10 +53,10 @@ const ZodiacDropdown = () => {
   return (
     <Dropdown ref={dropdownRef}>
       <DropdownButton onClick={() => setShowDropdown(!showDropdown)}>
-        {selectedZodiac || 'Zodiac Sign'}
-      <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
+        {selectedZodiac || label }
+        <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
       </DropdownButton>
-      <DropdownContent show={showDropdown}>
+      <DropdownContent show={showDropdown} onClick={handleScrollDown}>
         {zodiacs.map((zodiac: string) => (
           <Link key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}/today`}>
           <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
@@ -84,7 +95,7 @@ const DropdownButton = styled.button`
 
 const TriangleArrowIcon = styled.img`
     height: 1.2rem;
-`;
+`; 
 
 const DropdownContent = styled.div`
   display: ${(props: { show: boolean }) => (props.show ? 'block' : 'none')};
@@ -97,6 +108,10 @@ const DropdownContent = styled.div`
   margin-top: 0.5rem;
   font-family: 'Tenor Sans', sans-serif;
   border-radius: 0.5rem;
+  font-size: 1rem;
+  max-height: 12rem;
+  overflow: auto;
+  scroll-behavior: smooth;
 `;
 
 const ZodiacSign = styled.div`
@@ -106,4 +121,3 @@ const ZodiacSign = styled.div`
     border-radius: 0.5rem;
   }
 `;
-

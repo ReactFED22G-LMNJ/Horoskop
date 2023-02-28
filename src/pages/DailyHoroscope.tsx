@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import HeaderStartPage from "../components/HeaderStartPage";
+import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import Navbar from "../components/Navbar";
 import { useAstrologyData } from "../useAstrologyData";
 
@@ -47,7 +47,7 @@ function DailyHoroscope() {
 
   return (
     <div>
-      <HeaderStartPage />
+      <HeaderDailyHoroscope />
       <Navbar sign={sign} onDaySelect={handleDaySelect} />
       <HoroscopeContainer>
         <h1>{sign?.toUpperCase()}</h1>
