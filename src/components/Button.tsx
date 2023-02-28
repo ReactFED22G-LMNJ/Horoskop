@@ -1,46 +1,28 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { device } from "./Breakpoints";
 
 interface Props {
+  onClick: () => void;
   children: React.ReactNode;
-  to: string;
 }
 
-export function Button({ to, children}: Props) {
-  return <Btn to={``}>{children}</Btn>;
+export function Button({ onClick, children}: Props) {
+  return <StyledButton onClick={onClick}>{children}</StyledButton>;
 }
 
 //-------------Styling-------------//
 
-const Btn = styled(NavLink)`
-    color: white;
-    background-color: black;
-    font-family: 'Tenor Sans', sans-serif;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    border: none;
-    padding: 0.5rem;
-    padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
-    cursor: pointer;
+const StyledButton = styled.button`
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
 
-    &:hover {
-        background-color: #F3E7DC;
-        color: black;
-    }
-
-    &.active {
-    background-color: grey;
+  &:hover {
+    background-color: #e6e6e6;
   }
-
-    @media ${device.mobileXXL} {
-        font-size: 1rem;
-    }
 `;
 
 
