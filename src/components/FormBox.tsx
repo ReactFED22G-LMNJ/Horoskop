@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { device } from "./Breakpoints";
 import ZodiacDropdown from "./DropDown";
@@ -8,7 +9,22 @@ import MoonStar from '/assets/moonstar.png';
 import Sun from '/assets/sun.png';
 import ThreeStars from '/assets/threesmallstars.png';
 
-function FormBox() {
+interface Props {
+  onSubmit: (name: string) => void;
+}
+
+function FormBox({ onSubmit }: Props) {
+    const [name, setName] = useState("");
+
+     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setName(event.target.value);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit(name);
+  };
+
     return(
         <Container>
             <LeftSmallContainer >
@@ -26,11 +42,12 @@ function FormBox() {
             </LeftSmallContainer >
 
             <FormContainer>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <EnterYourNameInput>
                         <label>Enter your name</label>
-                        <Input type="text" />
+                        <input type="text" value={name} onChange={handleChange} />
                     </EnterYourNameInput>
+                    <input type="submit" value="Submit" />
                     <ChooseYourSignInput>
                         <label>Choose your sign</label>
                         <ZodiacDropdown label="Zodiac Sign" />
