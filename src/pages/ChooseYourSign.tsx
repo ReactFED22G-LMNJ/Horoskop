@@ -10,7 +10,7 @@ function ChooseYourSign() {
       <HeaderChooseYourSign />
       <ZodiacSignContainer>
         {ZodiacSigns.map((zodiacSign) => (
-          <ZodiacLink key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}`}>
+          <Link key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}/today`}>
             <ZodiacSignCard
               image={zodiacSign.image}
               name={zodiacSign.name}

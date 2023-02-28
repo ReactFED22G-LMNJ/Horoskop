@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import TriangleArrow from '/assets/triangle-arrow.png';
 
@@ -57,9 +58,11 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
       </DropdownButton>
       <DropdownContent show={showDropdown} onClick={handleScrollDown}>
         {zodiacs.map((zodiac: string) => (
+          <Link key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}/today`}>
           <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
             {zodiac}
           </ZodiacSign>
+          </Link>
         ))}
       </DropdownContent>
     </Dropdown>

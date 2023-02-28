@@ -2,15 +2,24 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
+import Navbar from "../components/Navbar";
 import { useAstrologyData } from "../useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
 
+/**
+ * Displays the daily horoscope for the given zodiac sign.
+ * @param sign - The zodiac sign.
+ */
 function DailyHoroscope() {
-  const { sign, day = 'today' } = useParams<{ sign: string, day: string }>();
+  const { sign } = useParams<{ sign: string}>();
+  const [day, setDay] = useState('today');
   const { astrologyData, fetchAstrologyData } = useAstrologyData();
   const [isLoading, setIsLoading] = useState(true);
 
+  /**
+   * Fetches astrology data when component mounts or `sign` or `day` change.
+   */
   useEffect(() => {
     async function fetchData() {
       if (sign) {
@@ -21,15 +30,25 @@ function DailyHoroscope() {
     fetchData();
     console.log(sign);
     console.log(day);
-  }, [sign]);
+  }, [sign, day]);
 
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
+  /**
+   * Handles the selection of a new day, and updates the component state accordingly.
+   * 
+   * @param newDay The new day to select.
+   */
+  function handleDaySelect(newDay: string) {
+    setDay(newDay);
+  }
+
   return (
     <div>
       <HeaderDailyHoroscope />
+      <Navbar sign={sign} onDaySelect={handleDaySelect} />
       <HoroscopeContainer>
         <h1>{sign?.toUpperCase()}</h1>
         <span>{astrologyData?.current_date}</span>
