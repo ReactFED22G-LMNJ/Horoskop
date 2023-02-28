@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "./Breakpoints";
+import { Button } from "./Button";
 import ZodiacDropdown from "./DropDown";
 import BigMoon from '/assets/bigMoon.png';
 import MiddleStar from '/assets/middlestar.png';
@@ -36,7 +37,7 @@ function FormBox() {
                         <ZodiacDropdown label="Zodiac Sign" />
                     </ChooseYourSignInput>
                     <BtnContainer>
-                        <Btn>What's my sign?</Btn>
+                        <Button to={"chooseyoursign"}>What's my sign?</Button>
                     </BtnContainer>
                 </Form>
             </FormContainer>
