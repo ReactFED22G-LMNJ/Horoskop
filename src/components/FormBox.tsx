@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "./Breakpoints";
+import { Button } from "./Button";
 import ZodiacDropdown from "./DropDown";
 import BigMoon from '/assets/bigMoon.png';
 import MiddleStar from '/assets/middlestar.png';
@@ -36,7 +37,7 @@ function FormBox() {
                         <ZodiacDropdown label="Zodiac Sign" />
                     </ChooseYourSignInput>
                     <BtnContainer>
-                        <Btn>What's my sign?</Btn>
+                        <Button to="chooseyoursign">What's my sign?</Button>
                     </BtnContainer>
                 </Form>
             </FormContainer>
@@ -217,31 +218,6 @@ const ChooseYourSignInput = styled.div`
 const BtnContainer = styled.div`
     display: flex;
     justify-content: center;
-`;
-
-const Btn = styled.button`
-    color: white;
-    background-color: black;
-    font-family: 'Tenor Sans', sans-serif;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    border: none;
-    padding: 0.5rem;
-    padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.61);
-    cursor: pointer;
-
-    &:hover {
-        background-color: #F3E7DC;
-        color: black;
-    }
-
-    @media ${device.mobileXXL} {
-        font-size: 1rem;
-    }
 `;
 
 // EVERYTHING IN RIGHT COINTAINER
