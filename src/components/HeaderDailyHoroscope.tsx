@@ -1,3 +1,4 @@
+import { useParams } from "react-router";
 import styled from "styled-components";
 import { device } from './Breakpoints';
 import ZodiacDropdown from "./DropDown";
@@ -5,11 +6,13 @@ import MoonStar from '/assets/moonstar.png';
 import Stars from '/assets/treStars.png';
 
 function HeaderDailyHoroscope() {
+  const { sign } = useParams<{ sign: string}>();
+
     return (
         <Container>
             <TitelsContainer>
                 <Title1>Hello, here's your</Title1> 
-                <Title2>LIBRA HOROSCOPE</Title2>
+                <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
             </TitelsContainer>
             <DropDownAndStarsImgContainer>
                 <StarsImg src={Stars} alt="stars" />
