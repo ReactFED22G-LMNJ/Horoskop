@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import TriangleArrow from '/assets/triangle-arrow.png';
 
@@ -10,6 +11,7 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { day } = useParams<{ day: string}>();
 
   const handleZodiacSelect = (zodiac: string) => {
     setSelectedZodiac(zodiac);
@@ -59,9 +61,11 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
       </DropdownButton>
       <DropdownContent show={showDropdown} onClick={handleScrollDown}>
         {zodiacs.map((zodiac: string) => (
+          <ZodiacLink key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}/${day || 'today'}`}>
           <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
             {zodiac}
           </ZodiacSign>
+          </ZodiacLink>
         ))}
       </DropdownContent>
     </Dropdown>
@@ -95,6 +99,11 @@ const DropdownButton = styled.button`
 const TriangleArrowIcon = styled.img`
     height: 1.2rem;
 `; 
+
+export const ZodiacLink = styled(Link)`
+   color: #000000;
+   text-decoration: none;
+`;
 
 const DropdownContent = styled.div`
   display: ${(props: { show: boolean }) => (props.show ? 'block' : 'none')};
