@@ -35,14 +35,14 @@ const ZodiacSignColumn = styled.div`
   width: 10rem;
   background: #FFFFFF;
   padding: 1rem;
-  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem #777;
-  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem #777;
-  box-shadow: 0 0.625rem 0.375 -0.375rem #777;
+  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
+  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
+  box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
   border-radius: 0.5rem;
   &:hover {
     cursor: pointer;
     background-color: #fffaf0;
-    color: #0343f3;
+    color: #163952;
   }
 `;
 

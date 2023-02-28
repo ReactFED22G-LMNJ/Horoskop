@@ -10,14 +10,14 @@ function ChooseYourSign() {
       <HeaderChooseYourSign />
       <ZodiacSignContainer>
         {ZodiacSigns.map((zodiacSign) => (
-          <Link key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}`}>
+          <ZodiacLink key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}`}>
             <ZodiacSignCard
               image={zodiacSign.image}
               name={zodiacSign.name}
               color={zodiacSign.color}
               date={zodiacSign.date}
             />
-          </Link>
+          </ZodiacLink>
         ))}
       </ZodiacSignContainer>
     </div>
@@ -30,6 +30,11 @@ const ZodiacSignContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   max-width: 1280px;
+`;
+
+export const ZodiacLink = styled(Link)`
+   color: #000000;
+   text-decoration: none;
 `;
 
 export default ChooseYourSign;
