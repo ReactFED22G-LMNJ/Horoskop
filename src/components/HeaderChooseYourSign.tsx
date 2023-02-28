@@ -1,14 +1,18 @@
 import styled from 'styled-components';
-import Stars from '/assets/stars.png';
 import { device } from './Breakpoints';
+import Stars from '/assets/stars.png';
 
-function HeaderChooseYourSign() {
+interface Props {
+    name: string;
+}  
+
+function HeaderChooseYourSign({ name }: Props) {
     return (
         <Container>
             <EmptyDiv/>
             <TitelsContainer>
                 <TitelTop>
-                    <Title1>Hello, choose your</Title1>
+                    <Title1>{name}, choose your</Title1>
                 </TitelTop>
                 <TitelBottom>
                     <Title2>ZODIAC SIGN</Title2>

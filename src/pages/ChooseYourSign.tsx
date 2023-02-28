@@ -3,7 +3,7 @@ import styled from "styled-components";
 import HeaderChooseYourSign from "../components/HeaderChooseYourSign";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
-  
+
 function ChooseYourSign() {
   return (
     <div>

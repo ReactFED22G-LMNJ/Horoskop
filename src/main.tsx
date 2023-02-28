@@ -8,7 +8,6 @@ import ChooseYourSign from './pages/ChooseYourSign';
 import DailyHoroscope from './pages/DailyHoroscope';
 import StartPage from './pages/StartPage';
 
-
 function App() {
   const [name, setName] = useState("");
 
@@ -20,7 +19,7 @@ function App() {
       <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope name={name} />}>
         {/* <Route paht=":day" element={} /> */}
       </Route> 
-      <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
+      <Route path="chooseyoursign" element={<ChooseYourSign name={name} />}/> 
       <Route path="*" element={<h3>404 Not Found</h3>}/> 
     </Route>
     )

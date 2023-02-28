@@ -4,11 +4,15 @@ import ZodiacDropdown from "./DropDown";
 import MoonStar from '/assets/moonstar.png';
 import Stars from '/assets/treStars.png';
 
-function HeaderDailyHoroscope() {
+interface Props {
+  name: string;
+}
+
+function HeaderDailyHoroscope({ name }: Props) {
     return (
         <Container>
             <TitelsContainer>
-                <Title1>Hello, here's your</Title1> 
+                <Title1>{name}, here's your</Title1> 
                 <Title2>LIBRA HOROSCOPE</Title2>
             </TitelsContainer>
             <DropDownAndStarsImgContainer>
