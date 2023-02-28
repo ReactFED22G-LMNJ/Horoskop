@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import Footer from "../components/Footer";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import Navbar from "../components/Navbar";
 import { useAstrologyData } from "../useAstrologyData";
@@ -55,6 +56,7 @@ function DailyHoroscope() {
         <p>{astrologyData?.description}</p>
         <p>{astrologyData?.mood}</p>
       </HoroscopeContainer>
+      <Footer/>
     </div>
   );
 }
