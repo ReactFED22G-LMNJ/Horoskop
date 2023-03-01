@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "./Breakpoints";
 import { Button } from "./Button";
-import ZodiacDropdown from "./DropDown";
+import ZodiacDropdown from "./ZodiacDropDown";
 import BigMoon from '/assets/bigMoon.png';
 import MiddleStar from '/assets/middlestar.png';
 import MiniStar from '/assets/ministar.png';
