@@ -13,7 +13,7 @@ function HeaderDailyHoroscope() {
     return (
         <Container>
             <TitelsContainer>
-                <Title1>Hello, here's your</Title1> 
+                <Title1>Hello, here is your</Title1> 
                 <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
             </TitelsContainer>
             <DropDownAndStarsImgContainer>
@@ -74,10 +74,14 @@ const DropDownContainer = styled.div`
     align-items: center;
     padding-bottom: 2rem;
 
+    @media ${device.laptopL} {
+      padding-bottom: 2rem;
+    }
+    
     @media ${device.laptop} {
       padding-bottom: 0.6rem;
     }
-    
+  
     @media ${device.tablet} {
       padding-bottom: 0.1rem;
     } 
@@ -91,6 +95,10 @@ const DropDownContainer = styled.div`
 
 const StarsImg = styled.img`
     width: 60%;
+
+    @media ${device.laptopL} {
+      padding-bottom: 1.1rem;
+    }
 
     @media ${device.tabletXXL} {
       width: 45%;
@@ -122,7 +130,12 @@ const MoonStarContainer = styled.div`
 `;
 
 const MoonStarImg = styled.img`
-    width: 90%;
+    width: 73%;
+
+    @media ${device.laptopL} {
+      width: 95%;
+      height: 95%;
+    }   
 
     @media ${device.laptop} {
       width: 100%;
