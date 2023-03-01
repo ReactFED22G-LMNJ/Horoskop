@@ -12,9 +12,7 @@ const router = createBrowserRouter (
   createRoutesFromElements (
   <Route>
     <Route index element={<StartPage />}/> 
-    {/* <Route index element={<App />}/>  */}
-    <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope />}>
-      {/* <Route paht=":day" element={} /> */}
+    <Route path="dailyhoroscope/:sign/:day/" element={<DailyHoroscope />}>
     </Route> 
     <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
     <Route path="*" element={<h3>404 Not Found</h3>}/> 

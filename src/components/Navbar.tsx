@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { device } from './Breakpoints';
+import { Button } from "./Button";
+
 
 interface Props {
   sign: string | undefined;
@@ -16,9 +17,9 @@ function Navbar({ sign, onDaySelect }: Props) {
   
   return (
     <NavContainer>
-      <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/yesterday`} onClick={() => onDaySelect('yesterday')}>Yesterday</NavLinkStyled>
-      <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/today`} onClick={() => onDaySelect('today')}>Today</NavLinkStyled>
-      <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/tomorrow`} onClick={() => onDaySelect('tomorrow')}>Tomorrow</NavLinkStyled>
+      <Button to={`/dailyhoroscope/${sign?.toLowerCase()}/yesterday`} onClick={() => onDaySelect('yesterday')}>Yesterday</Button>
+      <Button to={`/dailyhoroscope/${sign?.toLowerCase()}/today`} onClick={() => onDaySelect('today')}>Today</Button>
+      <Button to={`/dailyhoroscope/${sign?.toLowerCase()}/tomorrow`} onClick={() => onDaySelect('tomorrow')}>Tomorrow</Button>
     </NavContainer>
   );
 }

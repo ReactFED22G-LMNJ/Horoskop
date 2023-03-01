@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import Navbar from "../components/Navbar";
 import { useAstrologyData } from "../useAstrologyData";
@@ -28,8 +29,6 @@ function DailyHoroscope() {
       }
     }
     fetchData();
-    console.log(sign);
-    console.log(day);
   }, [sign, day]);
 
   if (isLoading) {
@@ -50,17 +49,33 @@ function DailyHoroscope() {
       <HeaderDailyHoroscope />
       <Navbar sign={sign} onDaySelect={handleDaySelect} />
       <HoroscopeContainer>
-        <h1>{sign?.toUpperCase()}</h1>
-        <span>{astrologyData?.current_date}</span>
-        <p>{astrologyData?.description}</p>
-        <p>{astrologyData?.mood}</p>
+        <HStatsContainer>
+          <p>Mood: {astrologyData?.mood}</p>
+          <p>Compatible with: {astrologyData?.compatibility}</p>
+          <p>Color: {astrologyData?.color}</p>
+          <p>Lucky Number: {astrologyData?.lucky_number}</p>
+        </HStatsContainer>
+        <HDescriptionContainer>
+          <SignTitle>{sign?.toUpperCase()}</SignTitle>
+          <p>
+          <span>{astrologyData?.current_date}</span>
+          {astrologyData?.description}</p>
+        </HDescriptionContainer>
       </HoroscopeContainer>
+      <Button to="/">Back</Button>
     </div>
   );
 }
 
 const HoroscopeContainer = styled.div`
+display: flex;
+justify-content: center;
+margin: 3rem;
+`;
+
+const HDescriptionContainer = styled.div`
   display: flex;
+  flex-grow: 2;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -68,5 +83,16 @@ const HoroscopeContainer = styled.div`
   margin: 0 auto;
   padding: 2rem;
 `;
+
+const HStatsContainer = styled.div`
+flex-grow: 1;
+padding: 2rem;
+  
+`;
+
+const SignTitle = styled.h1`
+  
+`;
+
 
 export default DailyHoroscope;
