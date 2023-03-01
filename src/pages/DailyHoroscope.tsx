@@ -69,6 +69,7 @@ function DailyHoroscope() {
                   name={zodiacSign.name}
                   color={zodiacSign.color}
                 >
+                  <SignName>{sign?.toUpperCase()}</SignName>
                   <p>Mood: {astrologyData?.mood}</p>
                   <p>Lucky Number: {astrologyData?.lucky_number}</p>
                   <p>Compatible with: {astrologyData?.compatibility}</p>
@@ -106,6 +107,12 @@ const HDescriptionContainer = styled.div`
 
 const HStatsContainer = styled.div`
   padding: 2rem;
+`;
+
+const SignName = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
 `;
 
 const AstrologyDataContainer = styled.div`
