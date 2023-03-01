@@ -18,11 +18,13 @@ function FormBox({ onSubmit }: Props) {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
+    console.log(name);
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(name);
+    console.log(name);
   };
 
     return(
@@ -47,7 +49,6 @@ function FormBox({ onSubmit }: Props) {
                         <label>Enter your name</label>
                         <input type="text" value={name} onChange={handleChange} />
                     </EnterYourNameInput>
-                    <input type="submit" value="Submit" />
                     <ChooseYourSignInput>
                         <label>Choose your sign</label>
                         <ZodiacDropdown label="Zodiac Sign" />
