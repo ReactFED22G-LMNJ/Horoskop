@@ -32,14 +32,18 @@ const Container = styled.header`
     display: flex;
     justify-content: center;
     padding-top: 1.4rem;
-    padding-bottom: 1.4rem;
+    padding-bottom: 1rem;
+    flex-wrap: wrap;
     -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
     -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
     box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
 
     @media ${device.mobileXL} {
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }  
 `;
 
