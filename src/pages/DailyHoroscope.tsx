@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
+import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
 import { useAstrologyData } from "../useAstrologyData";
 
@@ -50,10 +51,7 @@ function DailyHoroscope() {
       <Navbar sign={sign} onDaySelect={handleDaySelect} />
       <HoroscopeContainer>
         <HStatsContainer>
-          <p>Mood: {astrologyData?.mood}</p>
-          <p>Compatible with: {astrologyData?.compatibility}</p>
-          <p>Color: {astrologyData?.color}</p>
-          <p>Lucky Number: {astrologyData?.lucky_number}</p>
+          <HoroscopeStatCards />
         </HStatsContainer>
         <HDescriptionContainer>
           <SignTitle>{sign?.toUpperCase()}</SignTitle>
