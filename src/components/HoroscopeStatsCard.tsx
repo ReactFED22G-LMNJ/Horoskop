@@ -4,9 +4,10 @@ interface Props {
     image: string;
     color: string;
     name: string;
+    children: React.ReactNode;
 }
 
-function HoroscopeStatCards({ image, color, name }: Props) {
+function HoroscopeStatCards({ image, color, name, children }: Props) {
 
     return(
         <StatCardContainer> 
@@ -14,19 +15,11 @@ function HoroscopeStatCards({ image, color, name }: Props) {
                 <Img src={image} alt={name}/>
             </SignHeader>
             <StatsContainer>
-                <p>Mood: </p>
-                <p>Compatible with: </p>
-                <p>Color: </p>
-                <p>Lucky Number: </p>
+                {children}
             </StatsContainer>
         </StatCardContainer>
     );
 } 
-
-{/* <p>Mood: {astrologyData?.mood}</p>
-<p>Compatible with: {astrologyData?.compatibility}</p>
-<p>Color: {astrologyData?.color}</p>
-<p>Lucky Number: {astrologyData?.lucky_number}</p> */}
 
 interface Props {
     color: string;
@@ -50,6 +43,7 @@ const StatsContainer = styled.div`
 
 const Img = styled.img`
     padding: 1.5rem;
+    width: 4rem;
 `;
 
 
