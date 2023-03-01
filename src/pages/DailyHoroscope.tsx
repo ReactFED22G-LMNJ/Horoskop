@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { device } from "../components/Breakpoints";
+import { Button } from "../components/Button";
+import FooterDailyHoroscope from "../components/FooterDailyHoroscope";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
+import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
+import { ZodiacSigns } from "../data/ZodiacSignsData";
+import ErrorBoundary from "../ErrorBoundry";
 import { useAstrologyData } from "../useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
@@ -12,8 +18,8 @@ import { useAstrologyData } from "../useAstrologyData";
  * @param sign - The zodiac sign.
  */
 function DailyHoroscope() {
-  const { sign } = useParams<{ sign: string}>();
-  const [day, setDay] = useState('today');
+  const { sign } = useParams<{ sign: string }>();
+  const [day, setDay] = useState("today");
   const { astrologyData, fetchAstrologyData } = useAstrologyData();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,7 +35,8 @@ function DailyHoroscope() {
     }
     fetchData();
     console.log(sign);
-    console.log(day);
+    //console.log(ZodiacSigns[0].image)
+    console.log(ZodiacSigns[0].name);
   }, [sign, day]);
 
   if (isLoading) {
@@ -38,7 +45,7 @@ function DailyHoroscope() {
 
   /**
    * Handles the selection of a new day, and updates the component state accordingly.
-   * 
+   *
    * @param newDay The new day to select.
    */
   function handleDaySelect(newDay: string) {
@@ -47,26 +54,95 @@ function DailyHoroscope() {
 
   return (
     <div>
-      <HeaderDailyHoroscope />
-      <Navbar sign={sign} onDaySelect={handleDaySelect} />
-      <HoroscopeContainer>
-        <h1>{sign?.toUpperCase()}</h1>
-        <span>{astrologyData?.current_date}</span>
-        <p>{astrologyData?.description}</p>
-        <p>{astrologyData?.mood}</p>
-      </HoroscopeContainer>
+      <ErrorBoundary>
+        <HeaderDailyHoroscope />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Navbar sign={sign} onDaySelect={handleDaySelect} />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <HoroscopeContainer>
+          <HStatsContainer>
+            {ZodiacSigns.map((zodiacSign) =>
+              zodiacSign.name === sign ? (
+                <HoroscopeStatCards
+                  key={zodiacSign.image}
+                  image={`${window.location.origin}${zodiacSign.image}`}
+                  name={zodiacSign.name}
+                  color={zodiacSign.color}
+                >
+                  <SignName>{sign?.toUpperCase()}</SignName>
+                  <p>Mood: {astrologyData?.mood}</p>
+                  <p>Lucky Number: {astrologyData?.lucky_number}</p>
+                  <p>Compatible with: {astrologyData?.compatibility}</p>
+                </HoroscopeStatCards>
+              ) : null
+            )}
+          </HStatsContainer>
+          <HDescriptionContainer>
+            <AstrologyDataContainer>
+              <AstologyDate>{astrologyData?.current_date} - </AstologyDate>
+              {astrologyData?.description}
+            </AstrologyDataContainer>
+          </HDescriptionContainer>
+        </HoroscopeContainer>
+      </ErrorBoundary>
+
+      <FooterDailyHoroscope/>
     </div>
   );
 }
 
 const HoroscopeContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  max-width: 1280px;
-  margin: 0 auto;
+  /* align-items: center; */
+  background-color: white;
+
+  @media ${device.tablet} {
+      flex-direction: column;
+        align-items: center;
+    }
+`;
+
+const HDescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-top: 2rem;
+
+  @media ${device.tablet} {
+      width: 70%;
+      padding-top: 0;
+      padding-bottom: 2rem;
+    }
+
+  @media ${device.mobileM} {
+      width: 80%;
+    }
+`;
+
+const HStatsContainer = styled.div`
   padding: 2rem;
+`;
+
+const SignName = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+`;
+
+const AstrologyDataContainer = styled.div`
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+  width: 100%;
+`;
+
+const AstologyDate = styled.span`
+  font-family: 'Lora', serif;
+  font-weight: 700;
 `;
 
 export default DailyHoroscope;

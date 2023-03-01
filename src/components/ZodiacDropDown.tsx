@@ -11,6 +11,7 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownContentRef = useRef<HTMLDivElement>(null);
   const { day } = useParams<{ day: string}>();
 
   const handleZodiacSelect = (zodiac: string) => {
@@ -28,6 +29,23 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     window.addEventListener('click', handleClickOutsideDropdown);
     return () => window.removeEventListener('click', handleClickOutsideDropdown);
   }, []);
+
+  useEffect(() => {
+    if (selectedZodiac !== null) {
+      const timer = setTimeout(() => {
+        setSelectedZodiac(null);
+      }, 500); // delay 500 milliseconds for the menu to close once the user has chosen their sign when the user is on page /dailyhoroscope
+      return () => clearTimeout(timer);
+    }
+  }, [selectedZodiac]);
+
+  useEffect(() => {
+    if (dropdownContentRef.current && showDropdown && selectedZodiac !== null) {
+      setShowDropdown(false);
+      setSelectedZodiac(null);
+    }
+  }, [showDropdown, selectedZodiac]);
+
 
   const handleScrollDown = () => {
     console.log(dropdownRef.current)

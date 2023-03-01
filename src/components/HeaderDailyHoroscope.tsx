@@ -2,47 +2,52 @@ import { useParams } from "react-router";
 import styled from "styled-components";
 import { useLocalStorageState } from "../UseLocalStorageState";
 import { device } from "./Breakpoints";
-import ZodiacDropdown from "./DropDown";
-import MoonStar from "/assets/moonstar.png";
-import Stars from "/assets/treStars.png";
+import ZodiacDropdown from "./ZodiacDropDown";
+import MoonStar from '/assets/moonstar.png';
+import Stars from '/assets/treStars.png';
 
 function HeaderDailyHoroscope() {
-  const { sign } = useParams<{ sign: string }>();
-
+  const { sign } = useParams<{ sign: string}>();
   const [storedName] = useLocalStorageState("", "name");
 
-  return (
-    <Container>
-      <TitelsContainer>
-        <Title1>Hello {storedName}, here's your</Title1>
-        <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
-      </TitelsContainer>
-      <DropDownAndStarsImgContainer>
-        <StarsImg src={Stars} alt="stars" />
-        <DropDownContainer>
-          <ZodiacDropdown label="Change sign" />
-        </DropDownContainer>
-      </DropDownAndStarsImgContainer>
-      <MoonStarContainer>
-        <MoonStarImg src={MoonStar} alt="moonstar" />
-      </MoonStarContainer>
-    </Container>
-  );
+    return (
+        <Container>
+            <TitelsContainer>
+                <Title1>Hello {storedName}, here's your</Title1> 
+                <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
+            </TitelsContainer>
+            <DropDownAndStarsImgContainer>
+                <StarsImg src={Stars} alt="stars" />
+                <DropDownContainer>
+                    <ZodiacDropdown label="Change sign" />
+                </DropDownContainer>
+            </DropDownAndStarsImgContainer>
+            <MoonStarContainer>
+                <MoonStarImg src={MoonStar} alt="moonstar" />
+            </MoonStarContainer>
+        </Container>
+    );
 }
 export default HeaderDailyHoroscope;
 
 // STYLING
 const Container = styled.header`
-  display: flex;
-  justify-content: center;
-  padding-top: 1.4rem;
-  padding-bottom: 1.4rem;
-  margin-bottom: 1.8rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.4rem;
+    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
+    -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
+    box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
 
-  @media ${device.mobileXL} {
-    flex-direction: column;
-    align-items: center;
-  }
+    @media ${device.mobileXL} {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }  
 `;
 
 const DropDownAndStarsImgContainer = styled.div`
@@ -64,28 +69,37 @@ const DropDownAndStarsImgContainer = styled.div`
 `;
 
 const DropDownContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 2.4rem;
-
-  @media ${device.laptop} {
-    padding-bottom: 0.6rem;
-  }
-
-  @media ${device.tablet} {
-    padding-bottom: 0.1rem;
-  }
-
-  @media ${device.mobileXL} {
+    width: 100%;
+    display: flex;
     justify-content: center;
-    width: fit-content;
-    padding-left: 5rem;
-  }
+    align-items: center;
+    padding-bottom: 2rem;
+
+    @media ${device.laptopL} {
+      padding-bottom: 2rem;
+    }
+    
+    @media ${device.laptop} {
+      padding-bottom: 0.6rem;
+    }
+  
+    @media ${device.tablet} {
+      padding-bottom: 0.1rem;
+    } 
+    
+    @media ${device.mobileXL} {
+      justify-content: center;
+      width: fit-content;
+      padding-left: 5rem;
+    } 
 `;
 
 const StarsImg = styled.img`
-  width: 60%;
+    width: 60%;
+
+    @media ${device.laptopL} {
+      padding-bottom: 1.1rem;
+    }
 
   @media ${device.tabletXXL} {
     width: 45%;
@@ -117,7 +131,12 @@ const MoonStarContainer = styled.div`
 `;
 
 const MoonStarImg = styled.img`
-  width: 90%;
+    width: 73%;
+
+    @media ${device.laptopL} {
+      width: 95%;
+      height: 95%;
+    }   
 
   @media ${device.laptop} {
     width: 100%;
