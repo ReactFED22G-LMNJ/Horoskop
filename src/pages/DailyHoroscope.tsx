@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
+import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
 import ErrorBoundary from "../ErrorBoundry";
+import { ZodiacSigns } from "../data/ZodiacSignsData";
 import { useAstrologyData } from "../useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
@@ -30,6 +32,9 @@ function DailyHoroscope() {
       }
     }
     fetchData();
+    console.log(sign);
+    //console.log(ZodiacSigns[0].image)
+    console.log(ZodiacSigns[0].name);
   }, [sign, day]);
 
   if (isLoading) {
@@ -56,12 +61,21 @@ function DailyHoroscope() {
       <ErrorBoundary>
         <HoroscopeContainer>
           <HStatsContainer>
-            <p>Mood: {astrologyData?.mood}</p>
-            <p>Compatible with: {astrologyData?.compatibility}</p>
-            <p>Color: {astrologyData?.color}</p>
-            <p>Lucky Number: {astrologyData?.lucky_number}</p>
-          </HStatsContainer>
-          <HDescriptionContainer>
+          {ZodiacSigns.map((zodiacSign) =>
+            zodiacSign.name === sign ? (
+              <HoroscopeStatCards
+                key={zodiacSign.image}
+                image={`${window.location.origin}${zodiacSign.image}`}
+                name={zodiacSign.name}
+                color={zodiacSign.color}
+              >
+                <p>Mood: {astrologyData?.mood}</p>
+                <p>Lucky Number: {astrologyData?.lucky_number}</p>
+                <p>Compatible with: {astrologyData?.compatibility}</p>
+              </HoroscopeStatCards>
+            ) : null
+          )}
+        </HStatsContainer>
             <SignTitle>{sign?.toUpperCase()}</SignTitle>
             <p>
               <span>{astrologyData?.current_date}</span>
@@ -70,6 +84,7 @@ function DailyHoroscope() {
           </HDescriptionContainer>
         </HoroscopeContainer>
       </ErrorBoundary>
+
       <Button to="/">Back</Button>
     </div>
   );
