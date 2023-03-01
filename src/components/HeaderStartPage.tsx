@@ -4,8 +4,8 @@ import Moon from '/assets/moon.png';
 import Star from '/assets/star.png';
 
 function HeaderStartPage() {
-    return (
-        <Container>
+   return (
+      <Container>
             <MoonImgContainer>
                 <MoonImg src={Moon} alt="moon" />
             </MoonImgContainer>
@@ -18,7 +18,9 @@ function HeaderStartPage() {
             </StarImgContainer>
         </Container>
     );
-}
+   }
+   
+export default HeaderStartPage;
 
 // STYLING
 const Container = styled.header`
@@ -137,5 +139,3 @@ const Title2 = styled.h1`
    }
 `;
 
-
-export default HeaderStartPage;

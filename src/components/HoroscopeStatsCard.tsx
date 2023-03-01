@@ -21,6 +21,8 @@ function HoroscopeStatCards({ image, color, name, children }: Props) {
     );
 } 
 
+export default HoroscopeStatCards;
+
 interface Props {
     color: string;
 }
@@ -52,5 +54,3 @@ const StatsContainer = styled.div`
     flex-direction: column;
 `;
 
-
-export default HoroscopeStatCards;

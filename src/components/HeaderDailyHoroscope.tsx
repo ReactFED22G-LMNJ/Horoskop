@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import styled from "styled-components";
-import { useLocalStorageState } from "../UseLocalStorageState";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { device } from "./Breakpoints";
 import ZodiacDropdown from "./ZodiacDropDown";
 import MoonStar from '/assets/moonstar.png';

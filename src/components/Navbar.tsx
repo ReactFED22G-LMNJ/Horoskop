@@ -26,6 +26,8 @@ function Navbar({ sign, onDaySelect }: Props) {
   );
 }
 
+export default Navbar;
+
 const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
@@ -70,4 +72,3 @@ const NavLinkStyled = styled(NavLink)`
     }
 `;
 
-export default Navbar;

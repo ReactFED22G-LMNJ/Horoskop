@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useLocalStorageState } from '../UseLocalStorageState';
+import { useLocalStorageState } from '../hooks/useLocalStorageState';
 import { device } from './Breakpoints';
 import Stars from '/assets/stars.png';
 
@@ -27,6 +27,8 @@ function HeaderChooseYourSign() {
         </Container>
     );
 }
+
+export default HeaderChooseYourSign;
 
 // STYLING
 const Container = styled.header`
@@ -174,5 +176,3 @@ const Title2 = styled.h1`
     }
 `;
 
-
-export default HeaderChooseYourSign;

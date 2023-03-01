@@ -33,6 +33,8 @@ function ChooseYourSign() {
   );
 }
 
+export default ChooseYourSign;
+
 const ZodiacSignContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -46,4 +48,3 @@ export const ZodiacLink = styled(Link)`
   text-decoration: none;
 `;
 
-export default ChooseYourSign;

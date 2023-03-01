@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { device } from "../components/Breakpoints";
-import { Button } from "../components/Button";
 import FooterDailyHoroscope from "../components/FooterDailyHoroscope";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
 import ErrorBoundary from "../ErrorBoundry";
-import { useAstrologyData } from "../useAstrologyData";
+import { useAstrologyData } from "../hooks/useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
 
@@ -70,14 +69,14 @@ function DailyHoroscope() {
                   image={`${window.location.origin}${zodiacSign.image}`}
                   name={zodiacSign.name}
                   color={zodiacSign.color}
-                >
+                  >
                   <SignName>{sign?.toUpperCase()}</SignName>
                   <p>Mood: {astrologyData?.mood}</p>
                   <p>Lucky Number: {astrologyData?.lucky_number}</p>
                   <p>Compatible with: {astrologyData?.compatibility}</p>
                 </HoroscopeStatCards>
               ) : null
-            )}
+              )}
           </HStatsContainer>
           <HDescriptionContainer>
             <AstrologyDataContainer>
@@ -92,6 +91,8 @@ function DailyHoroscope() {
     </div>
   );
 }
+
+export default DailyHoroscope;
 
 const HoroscopeContainer = styled.div`
   display: flex;
@@ -145,4 +146,3 @@ const AstologyDate = styled.span`
   font-weight: 700;
 `;
 
-export default DailyHoroscope;

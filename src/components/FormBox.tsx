@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useLocalStorageState } from "../UseLocalStorageState";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { device } from "./Breakpoints";
 import { Button } from "./Button";
 import ZodiacDropdown from "./ZodiacDropDown";
@@ -77,6 +77,8 @@ function FormBox({ onSubmit }: Props) {
         </Container>
     );
 }
+
+export default FormBox;
 
 // STYLING
 const Container = styled.div`
@@ -325,5 +327,3 @@ const ThreeStarsImgRight = styled.img`
         height: 45%;
     }
 `;  
-
-export default FormBox;

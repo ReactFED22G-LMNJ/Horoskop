@@ -92,7 +92,6 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
 
 export default ZodiacDropdown;
 
-
 const Dropdown = styled.div`
   position: relative;
   display: inline-block;
