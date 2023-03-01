@@ -5,6 +5,7 @@ import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
+import ErrorBoundary from "../ErrorBoundry";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
 import { useAstrologyData } from "../useAstrologyData";
 
@@ -51,10 +52,15 @@ function DailyHoroscope() {
 
   return (
     <div>
-      <HeaderDailyHoroscope />
-      <Navbar sign={sign} onDaySelect={handleDaySelect} />
-      <HoroscopeContainer>
-        <HStatsContainer>
+      <ErrorBoundary>
+        <HeaderDailyHoroscope />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Navbar sign={sign} onDaySelect={handleDaySelect} />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <HoroscopeContainer>
+          <HStatsContainer>
           {ZodiacSigns.map((zodiacSign) =>
             zodiacSign.name === sign ? (
               <HoroscopeStatCards
@@ -70,14 +76,15 @@ function DailyHoroscope() {
             ) : null
           )}
         </HStatsContainer>
-        <HDescriptionContainer>
-          <SignTitle>{sign?.toUpperCase()}</SignTitle>
-          <p>
-            <span>{astrologyData?.current_date}</span>
-            {astrologyData?.description}
-          </p>
-        </HDescriptionContainer>
-      </HoroscopeContainer>
+            <SignTitle>{sign?.toUpperCase()}</SignTitle>
+            <p>
+              <span>{astrologyData?.current_date}</span>
+              {astrologyData?.description}
+            </p>
+          </HDescriptionContainer>
+        </HoroscopeContainer>
+      </ErrorBoundary>
+
       <Button to="/">Back</Button>
     </div>
   );
