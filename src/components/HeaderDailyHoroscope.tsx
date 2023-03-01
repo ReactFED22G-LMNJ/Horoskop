@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import styled from "styled-components";
 import { device } from './Breakpoints';
-import ZodiacDropdown from "./DropDown";
+import ZodiacDropdown from "./ZodiacDropDown";
 import MoonStar from '/assets/moonstar.png';
 import Stars from '/assets/treStars.png';
 
