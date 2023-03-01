@@ -5,7 +5,9 @@ import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
+import { ZodiacSigns } from "../data/ZodiacSignsData";
 import { useAstrologyData } from "../useAstrologyData";
+import { ZodiacLink } from "./ChooseYourSign";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
 
@@ -14,7 +16,7 @@ import { useAstrologyData } from "../useAstrologyData";
  * @param sign - The zodiac sign.
  */
 function DailyHoroscope() {
-  const { sign } = useParams<{ sign: string}>();
+  const { sign } = useParams<{ sign: string }>();
   const [day, setDay] = useState('today');
   const { astrologyData, fetchAstrologyData } = useAstrologyData();
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +53,14 @@ function DailyHoroscope() {
       <Navbar sign={sign} onDaySelect={handleDaySelect} />
       <HoroscopeContainer>
         <HStatsContainer>
-          <HoroscopeStatCards />
+          {ZodiacSigns.map((zodiacSign) => (
+              <HoroscopeStatCards 
+                key={zodiacSign.image}
+                image={zodiacSign.image}
+                name={zodiacSign.name}
+                color={zodiacSign.color}
+              />
+          ))}
         </HStatsContainer>
         <HDescriptionContainer>
           <SignTitle>{sign?.toUpperCase()}</SignTitle>

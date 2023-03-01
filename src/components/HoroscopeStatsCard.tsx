@@ -1,16 +1,17 @@
 import styled from "styled-components";
-import { ZodiacSigns } from "../data/ZodiacSignsData";
 
 interface Props {
-    sign: string;
+    image: string;
+    color: string;
+    name: string;
 }
 
-function HoroscopeStatCards({ sign }: Props) {
+function HoroscopeStatCards({ image, color, name }: Props) {
 
     return(
         <StatCardContainer> 
             <SignHeader color={color}>
-                <Img src={image}/>
+                <Img src={image} alt={name}/>
             </SignHeader>
             <StatsContainer>
                 <p>Mood: </p>
@@ -23,21 +24,27 @@ function HoroscopeStatCards({ sign }: Props) {
 } 
 
 {/* <p>Mood: {astrologyData?.mood}</p>
-    <p>Compatible with: {astrologyData?.compatibility}</p>
-    <p>Color: {astrologyData?.color}</p>
-    <p>Lucky Number: {astrologyData?.lucky_number}</p> */}
+<p>Compatible with: {astrologyData?.compatibility}</p>
+<p>Color: {astrologyData?.color}</p>
+<p>Lucky Number: {astrologyData?.lucky_number}</p> */}
+
+interface Props {
+    color: string;
+}
 
 const StatCardContainer = styled.div`
     background-color: white;
 `;
 
 const SignHeader = styled.header`
+    background: ${props => props.color};
     padding: 1rem;
     display: flex;
     justify-content: center;
 `;
 
 const StatsContainer = styled.div`
+/* background-color: pink; */
     padding: 1.5rem;
 `;
 
