@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { device } from "../components/Breakpoints";
 import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
@@ -94,15 +95,30 @@ function DailyHoroscope() {
 const HoroscopeContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   background-color: white;
+
+  @media ${device.tablet} {
+      flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const HDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 40%;
-  height: 17.4rem;
+  padding-top: 2rem;
+
+  @media ${device.tablet} {
+      width: 70%;
+      padding-top: 0;
+      padding-bottom: 2rem;
+    }
+
+  @media ${device.mobileM} {
+      width: 80%;
+    }
 `;
 
 const HStatsContainer = styled.div`
