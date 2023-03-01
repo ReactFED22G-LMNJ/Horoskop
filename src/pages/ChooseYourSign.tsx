@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "../components/Button";
 import HeaderChooseYourSign from "../components/HeaderChooseYourSign";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
@@ -20,6 +21,7 @@ function ChooseYourSign() {
           </ZodiacLink>
         ))}
       </ZodiacSignContainer>
+      <Button to="/">Back</Button>
     </div>
   );
 }

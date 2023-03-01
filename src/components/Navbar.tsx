@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 interface Props {
   sign: string | undefined;
@@ -15,9 +15,9 @@ function Navbar({ sign, onDaySelect }: Props) {
   
   return (
     <NavContainer>
-      <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/yesterday`} onClick={() => onDaySelect('yesterday')}>Yesterday</NavLinkStyled>
-      <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/today`} onClick={() => onDaySelect('today')}>Today</NavLinkStyled>
-      <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/tomorrow`} onClick={() => onDaySelect('tomorrow')}>Tomorrow</NavLinkStyled>
+      <Button to={`/dailyhoroscope/${sign?.toLowerCase()}/yesterday`} onClick={() => onDaySelect('yesterday')}>Yesterday</Button>
+      <Button to={`/dailyhoroscope/${sign?.toLowerCase()}/today`} onClick={() => onDaySelect('today')}>Today</Button>
+      <Button to={`/dailyhoroscope/${sign?.toLowerCase()}/tomorrow`} onClick={() => onDaySelect('tomorrow')}>Tomorrow</Button>
     </NavContainer>
   );
 }
@@ -26,23 +26,6 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
   margin: 1rem 0;
-`;
-
-const NavLinkStyled = styled(NavLink)`
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: #fff;
-  background-color: black;
-  border-radius: 5px;
-  margin: 0 1rem;
-
-  &:hover {
-    background-color: #283593;
-  }
-
-  &.active {
-    background-color: grey;
-  }
 `;
 
 export default Navbar;
