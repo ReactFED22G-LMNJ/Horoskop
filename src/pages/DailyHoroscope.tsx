@@ -61,27 +61,26 @@ function DailyHoroscope() {
       <ErrorBoundary>
         <HoroscopeContainer>
           <HStatsContainer>
-          {ZodiacSigns.map((zodiacSign) =>
-            zodiacSign.name === sign ? (
-              <HoroscopeStatCards
-                key={zodiacSign.image}
-                image={`${window.location.origin}${zodiacSign.image}`}
-                name={zodiacSign.name}
-                color={zodiacSign.color}
-              >
-                <p>Mood: {astrologyData?.mood}</p>
-                <p>Lucky Number: {astrologyData?.lucky_number}</p>
-                <p>Compatible with: {astrologyData?.compatibility}</p>
-              </HoroscopeStatCards>
-            ) : null
-          )}
-        </HStatsContainer>
-        <HDescriptionContainer>
-            <SignTitle>{sign?.toUpperCase()}</SignTitle>
-            <p>
-              <span>{astrologyData?.current_date}</span>
+            {ZodiacSigns.map((zodiacSign) =>
+              zodiacSign.name === sign ? (
+                <HoroscopeStatCards
+                  key={zodiacSign.image}
+                  image={`${window.location.origin}${zodiacSign.image}`}
+                  name={zodiacSign.name}
+                  color={zodiacSign.color}
+                >
+                  <p>Mood: {astrologyData?.mood}</p>
+                  <p>Lucky Number: {astrologyData?.lucky_number}</p>
+                  <p>Compatible with: {astrologyData?.compatibility}</p>
+                </HoroscopeStatCards>
+              ) : null
+            )}
+          </HStatsContainer>
+          <HDescriptionContainer>
+            <AstrologyDataContainer>
+              <AstologyDate>{astrologyData?.current_date} - </AstologyDate>
               {astrologyData?.description}
-            </p>
+            </AstrologyDataContainer>
           </HDescriptionContainer>
         </HoroscopeContainer>
       </ErrorBoundary>
@@ -94,25 +93,32 @@ function DailyHoroscope() {
 const HoroscopeContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 3rem;
+  align-items: center;
+  background-color: white;
 `;
 
 const HDescriptionContainer = styled.div`
   display: flex;
-  flex-grow: 2;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 40%;
+  height: 17.4rem;
 `;
 
 const HStatsContainer = styled.div`
-  flex-grow: 1;
   padding: 2rem;
 `;
 
-const SignTitle = styled.h1``;
+const AstrologyDataContainer = styled.div`
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 2.2rem;
+  width: 100%;
+`;
+
+const AstologyDate = styled.span`
+  font-family: 'Lora', serif;
+  font-weight: 700;
+`;
 
 export default DailyHoroscope;

@@ -13,7 +13,7 @@ function HeaderDailyHoroscope() {
     return (
         <Container>
             <TitelsContainer>
-                <Title1>Hello, here's your</Title1> 
+                <Title1>Hello, here is your</Title1> 
                 <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
             </TitelsContainer>
             <DropDownAndStarsImgContainer>
