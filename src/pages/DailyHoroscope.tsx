@@ -64,8 +64,8 @@ function DailyHoroscope() {
                 color={zodiacSign.color}
               >
                 <p>Mood: {astrologyData?.mood}</p>
-                <p>Compatible with: {astrologyData?.compatibility}</p>
                 <p>Lucky Number: {astrologyData?.lucky_number}</p>
+                <p>Compatible with: {astrologyData?.compatibility}</p>
               </HoroscopeStatCards>
             ) : null
           )}

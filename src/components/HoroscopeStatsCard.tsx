@@ -27,6 +27,13 @@ interface Props {
 
 const StatCardContainer = styled.div`
     background-color: white;
+    box-shadow: -1px 6px 5px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 6px 5px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 6px 5px -4px rgba(0,0,0,0.75);
+`;
+
+const Img = styled.img`
+    width: 4rem;
 `;
 
 const SignHeader = styled.header`
@@ -37,13 +44,10 @@ const SignHeader = styled.header`
 `;
 
 const StatsContainer = styled.div`
-/* background-color: pink; */
-    padding: 1.5rem;
-`;
-
-const Img = styled.img`
-    padding: 1.5rem;
-    width: 4rem;
+    padding: 1rem;
+    width: 14rem;
+    display: flex;
+    flex-direction: column;
 `;
 
 
