@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
 import { device } from './Breakpoints';
@@ -9,13 +10,20 @@ import Stars from '/assets/treStars.png';
 interface Props {
   name: string;
 }
+
 function HeaderDailyHoroscope({ name }: Props) {
   const { sign } = useParams<{ sign: string}>();
+  
+  useEffect(() => {
+    console.log("Name changed:", name);
+  }, [name]);
+
+  console.log("Current name:", name);
 
     return (
         <Container>
             <TitelsContainer>
-                <Title1>{name}, here's your</Title1> 
+                <Title1>Hello {name}, here's your</Title1> 
                 <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
             </TitelsContainer>
             <DropDownAndStarsImgContainer>
@@ -30,6 +38,7 @@ function HeaderDailyHoroscope({ name }: Props) {
         </Container>
     );
 }
+export default HeaderDailyHoroscope;
 
 // STYLING
 const Container = styled.header`
@@ -190,4 +199,3 @@ const Title2 = styled.h1`
     }  
 `;
 
-export default HeaderDailyHoroscope;
