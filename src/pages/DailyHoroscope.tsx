@@ -118,7 +118,7 @@ const SignName = styled.div`
 const AstrologyDataContainer = styled.div`
   font-family: 'Lora', serif;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 2.2rem;
   width: 100%;
 `;
