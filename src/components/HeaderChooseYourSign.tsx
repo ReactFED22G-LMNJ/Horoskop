@@ -1,18 +1,21 @@
 import styled from 'styled-components';
+import { useLocalStorageState } from '../UseLocalStorageState';
 import { device } from './Breakpoints';
 import Stars from '/assets/stars.png';
 
-interface Props {
-    name: string;
-}  
 
-function HeaderChooseYourSign({ name }: Props) {
+
+function HeaderChooseYourSign() {
+    
+    const [storedName] = useLocalStorageState("", "name");  
+
+      
     return (
         <Container>
             <EmptyDiv/>
             <TitelsContainer>
                 <TitelTop>
-                    <Title1>{name}, choose your</Title1>
+                    <Title1>{storedName}, choose your</Title1>
                 </TitelTop>
                 <TitelBottom>
                     <Title2>ZODIAC SIGN</Title2>

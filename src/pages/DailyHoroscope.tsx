@@ -47,7 +47,7 @@ function DailyHoroscope() {
 
   return (
     <div>
-      <HeaderDailyHoroscope name={""} />
+      <HeaderDailyHoroscope />
       <Navbar sign={sign} onDaySelect={handleDaySelect} />
       <HoroscopeContainer>
         <h1>{sign?.toUpperCase()}</h1>

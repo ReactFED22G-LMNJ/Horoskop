@@ -1,5 +1,5 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { useLocalStorageState } from "../UseLocalStorageState";
 import { device } from "./Breakpoints";
 import ZodiacDropdown from "./DropDown";
 import BigMoon from '/assets/bigMoon.png';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 function FormBox({ onSubmit }: Props) {
-    const [name, setName] = useState("");
+    const [name, setName] = useLocalStorageState('', 'name');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);

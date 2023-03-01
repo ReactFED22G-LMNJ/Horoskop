@@ -7,7 +7,7 @@ import { ZodiacSigns } from "../data/ZodiacSignsData";
 function ChooseYourSign() {
   return (
     <div>
-      <HeaderChooseYourSign name={""} />
+      <HeaderChooseYourSign />
       <ZodiacSignContainer>
         {ZodiacSigns.map((zodiacSign) => (
           <ZodiacLink key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}/today`}>
