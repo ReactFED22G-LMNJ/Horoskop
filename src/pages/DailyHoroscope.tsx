@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import Navbar from "../components/Navbar";
+import ErrorBoundary from "../ErrorBoundry";
 import { useAstrologyData } from "../useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
@@ -13,8 +14,8 @@ import { useAstrologyData } from "../useAstrologyData";
  * @param sign - The zodiac sign.
  */
 function DailyHoroscope() {
-  const { sign } = useParams<{ sign: string}>();
-  const [day, setDay] = useState('today');
+  const { sign } = useParams<{ sign: string }>();
+  const [day, setDay] = useState("today");
   const { astrologyData, fetchAstrologyData } = useAstrologyData();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -37,7 +38,7 @@ function DailyHoroscope() {
 
   /**
    * Handles the selection of a new day, and updates the component state accordingly.
-   * 
+   *
    * @param newDay The new day to select.
    */
   function handleDaySelect(newDay: string) {
@@ -46,8 +47,13 @@ function DailyHoroscope() {
 
   return (
     <div>
-      <HeaderDailyHoroscope />
-      <Navbar sign={sign} onDaySelect={handleDaySelect} />
+      <ErrorBoundary>
+        <HeaderDailyHoroscope />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Navbar sign={sign} onDaySelect={handleDaySelect} />
+      </ErrorBoundary>
+      <ErrorBoundary>
       <HoroscopeContainer>
         <HStatsContainer>
           <p>Mood: {astrologyData?.mood}</p>
@@ -58,19 +64,21 @@ function DailyHoroscope() {
         <HDescriptionContainer>
           <SignTitle>{sign?.toUpperCase()}</SignTitle>
           <p>
-          <span>{astrologyData?.current_date}</span>
-          {astrologyData?.description}</p>
+            <span>{astrologyData?.current_date}</span>
+            {astrologyData?.description}
+          </p>
         </HDescriptionContainer>
       </HoroscopeContainer>
+      </ErrorBoundary>
       <Button to="/">Back</Button>
     </div>
   );
 }
 
 const HoroscopeContainer = styled.div`
-display: flex;
-justify-content: center;
-margin: 3rem;
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
 `;
 
 const HDescriptionContainer = styled.div`
@@ -85,14 +93,10 @@ const HDescriptionContainer = styled.div`
 `;
 
 const HStatsContainer = styled.div`
-flex-grow: 1;
-padding: 2rem;
-  
+  flex-grow: 1;
+  padding: 2rem;
 `;
 
-const SignTitle = styled.h1`
-  
-`;
-
+const SignTitle = styled.h1``;
 
 export default DailyHoroscope;

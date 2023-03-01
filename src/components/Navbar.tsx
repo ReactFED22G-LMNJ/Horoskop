@@ -12,6 +12,8 @@ interface Props {
  * @param onDaySelect Callback function to handle selection of the day to display
  */
 function Navbar({ sign, onDaySelect }: Props) {
+
+  //throw new Error('Ops....');
   
   return (
     <NavContainer>

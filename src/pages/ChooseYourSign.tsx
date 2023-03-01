@@ -4,11 +4,14 @@ import { Button } from "../components/Button";
 import HeaderChooseYourSign from "../components/HeaderChooseYourSign";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
+import ErrorBoundary from "../ErrorBoundry";
   
 function ChooseYourSign() {
   return (
     <div>
+      <ErrorBoundary>
       <HeaderChooseYourSign />
+      </ErrorBoundary>
       <ZodiacSignContainer>
         {ZodiacSigns.map((zodiacSign) => (
           <ZodiacLink key={zodiacSign.name} to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}/today`}>

@@ -8,6 +8,8 @@ import Stars from '/assets/treStars.png';
 function HeaderDailyHoroscope() {
   const { sign } = useParams<{ sign: string}>();
 
+  //throw new Error('Ops....');
+
     return (
         <Container>
             <TitelsContainer>
