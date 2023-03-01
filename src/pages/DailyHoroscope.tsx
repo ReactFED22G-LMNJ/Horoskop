@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { Button } from "../components/Button";
+import FooterDailyHoroscope from "../components/FooterDailyHoroscope";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
@@ -86,7 +86,7 @@ function DailyHoroscope() {
         </HoroscopeContainer>
       </ErrorBoundary>
 
-      <Button to="/">Back</Button>
+      <FooterDailyHoroscope/>
     </div>
   );
 }
