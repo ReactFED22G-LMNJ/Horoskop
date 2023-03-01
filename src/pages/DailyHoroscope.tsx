@@ -5,8 +5,8 @@ import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
-import ErrorBoundary from "../ErrorBoundry";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
+import ErrorBoundary from "../ErrorBoundry";
 import { useAstrologyData } from "../useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
@@ -76,6 +76,7 @@ function DailyHoroscope() {
             ) : null
           )}
         </HStatsContainer>
+        <HDescriptionContainer>
             <SignTitle>{sign?.toUpperCase()}</SignTitle>
             <p>
               <span>{astrologyData?.current_date}</span>
