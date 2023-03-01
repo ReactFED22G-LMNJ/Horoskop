@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
+import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
+import { ZodiacSigns } from "../data/ZodiacSignsData";
 import { useAstrologyData } from "../useAstrologyData";
 
 //Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
@@ -13,8 +15,8 @@ import { useAstrologyData } from "../useAstrologyData";
  * @param sign - The zodiac sign.
  */
 function DailyHoroscope() {
-  const { sign } = useParams<{ sign: string}>();
-  const [day, setDay] = useState('today');
+  const { sign } = useParams<{ sign: string }>();
+  const [day, setDay] = useState("today");
   const { astrologyData, fetchAstrologyData } = useAstrologyData();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,6 +31,9 @@ function DailyHoroscope() {
       }
     }
     fetchData();
+    console.log(sign);
+    //console.log(ZodiacSigns[0].image)
+    console.log(ZodiacSigns[0].name);
   }, [sign, day]);
 
   if (isLoading) {
@@ -37,7 +42,7 @@ function DailyHoroscope() {
 
   /**
    * Handles the selection of a new day, and updates the component state accordingly.
-   * 
+   *
    * @param newDay The new day to select.
    */
   function handleDaySelect(newDay: string) {
@@ -50,16 +55,27 @@ function DailyHoroscope() {
       <Navbar sign={sign} onDaySelect={handleDaySelect} />
       <HoroscopeContainer>
         <HStatsContainer>
-          <p>Mood: {astrologyData?.mood}</p>
-          <p>Compatible with: {astrologyData?.compatibility}</p>
-          <p>Color: {astrologyData?.color}</p>
-          <p>Lucky Number: {astrologyData?.lucky_number}</p>
+          {ZodiacSigns.map((zodiacSign) =>
+            zodiacSign.name === sign ? (
+              <HoroscopeStatCards
+                key={zodiacSign.image}
+                image={`${window.location.origin}${zodiacSign.image}`}
+                name={zodiacSign.name}
+                color={zodiacSign.color}
+              >
+                <p>Mood: {astrologyData?.mood}</p>
+                <p>Lucky Number: {astrologyData?.lucky_number}</p>
+                <p>Compatible with: {astrologyData?.compatibility}</p>
+              </HoroscopeStatCards>
+            ) : null
+          )}
         </HStatsContainer>
         <HDescriptionContainer>
           <SignTitle>{sign?.toUpperCase()}</SignTitle>
           <p>
-          <span>{astrologyData?.current_date}</span>
-          {astrologyData?.description}</p>
+            <span>{astrologyData?.current_date}</span>
+            {astrologyData?.description}
+          </p>
         </HDescriptionContainer>
       </HoroscopeContainer>
       <Button to="/">Back</Button>
@@ -68,9 +84,9 @@ function DailyHoroscope() {
 }
 
 const HoroscopeContainer = styled.div`
-display: flex;
-justify-content: center;
-margin: 3rem;
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
 `;
 
 const HDescriptionContainer = styled.div`
@@ -85,14 +101,10 @@ const HDescriptionContainer = styled.div`
 `;
 
 const HStatsContainer = styled.div`
-flex-grow: 1;
-padding: 2rem;
-  
+  flex-grow: 1;
+  padding: 2rem;
 `;
 
-const SignTitle = styled.h1`
-  
-`;
-
+const SignTitle = styled.h1``;
 
 export default DailyHoroscope;
