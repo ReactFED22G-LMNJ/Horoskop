@@ -54,21 +54,21 @@ function DailyHoroscope() {
         <Navbar sign={sign} onDaySelect={handleDaySelect} />
       </ErrorBoundary>
       <ErrorBoundary>
-      <HoroscopeContainer>
-        <HStatsContainer>
-          <p>Mood: {astrologyData?.mood}</p>
-          <p>Compatible with: {astrologyData?.compatibility}</p>
-          <p>Color: {astrologyData?.color}</p>
-          <p>Lucky Number: {astrologyData?.lucky_number}</p>
-        </HStatsContainer>
-        <HDescriptionContainer>
-          <SignTitle>{sign?.toUpperCase()}</SignTitle>
-          <p>
-            <span>{astrologyData?.current_date}</span>
-            {astrologyData?.description}
-          </p>
-        </HDescriptionContainer>
-      </HoroscopeContainer>
+        <HoroscopeContainer>
+          <HStatsContainer>
+            <p>Mood: {astrologyData?.mood}</p>
+            <p>Compatible with: {astrologyData?.compatibility}</p>
+            <p>Color: {astrologyData?.color}</p>
+            <p>Lucky Number: {astrologyData?.lucky_number}</p>
+          </HStatsContainer>
+          <HDescriptionContainer>
+            <SignTitle>{sign?.toUpperCase()}</SignTitle>
+            <p>
+              <span>{astrologyData?.current_date}</span>
+              {astrologyData?.description}
+            </p>
+          </HDescriptionContainer>
+        </HoroscopeContainer>
       </ErrorBoundary>
       <Button to="/">Back</Button>
     </div>
