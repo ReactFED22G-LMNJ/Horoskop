@@ -14,6 +14,7 @@ interface AstrologyData {
     color?: string;
     lucky_number?: string;
     lucky_time?: string;
+    compatibility?: string;
   }
 
 /**
