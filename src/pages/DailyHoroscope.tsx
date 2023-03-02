@@ -98,6 +98,9 @@ function DailyHoroscope() {
 
 export default DailyHoroscope;
 
+
+//-------------Styling-------------//
+
 const HoroscopeContainer = styled.div`
   display: flex;
   justify-content: center;
