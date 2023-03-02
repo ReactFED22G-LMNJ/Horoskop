@@ -1,25 +1,38 @@
-import styled from 'styled-components';
-import { device } from './Breakpoints';
-import Stars from '/assets/stars.png';
+import { useEffect } from "react";
+import styled from "styled-components";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
+import { device } from "./Breakpoints";
+import Stars from "/assets/stars.png";
+
 
 function HeaderChooseYourSign() {
-    return (
-        <Container>
-            <EmptyDiv/>
-            <TitelsContainer>
-                <TitelTop>
-                    <Title1>Hello, choose your</Title1>
-                </TitelTop>
-                <TitelBottom>
-                    <Title2>ZODIAC SIGN</Title2>
-                </TitelBottom>
-            </TitelsContainer>
-            <StarImgContainer>
-                <StarsImg src={Stars} alt="stars" />
-            </StarImgContainer>
-        </Container>
-    );
+  const [storedName, setStoredName] = useLocalStorageState("", "name");
+
+  useEffect(() => {
+    if (storedName === "") {
+      setStoredName("Hello");
+    }
+  }, [storedName]);
+
+  return (
+    <Container>
+      <EmptyDiv />
+      <TitelsContainer>
+        <TitelTop>
+          <Title1>{storedName}, choose your</Title1>
+        </TitelTop>
+        <TitelBottom>
+          <Title2>ZODIAC SIGN</Title2>
+        </TitelBottom>
+      </TitelsContainer>
+      <StarImgContainer>
+        <StarsImg src={Stars} alt="stars" />
+      </StarImgContainer>
+    </Container>
+  );
 }
+
+export default HeaderChooseYourSign;
 
 // STYLING
 const Container = styled.header`
@@ -40,133 +53,130 @@ const Container = styled.header`
 `;
 
 const StarImgContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 
-    @media ${device.mobileXL} {
-        align-items: center;
-        margin-left: 1rem;
-    }
+  @media ${device.mobileXL} {
+    align-items: center;
+    margin-left: 1rem;
+  }
 `;
 
 const StarsImg = styled.img`
-    height: 100%;
+  height: 100%;
 
-    @media ${device.tabletXXL} {
-        height: 80%;
-    }
+  @media ${device.tabletXXL} {
+    height: 80%;
+  }
 
-    @media ${device.tablet} {
-        height: 70%;
-    } 
+  @media ${device.tablet} {
+    height: 70%;
+  }
 
-    @media ${device.mobileXL} {
-        height: 60%;
-    }
+  @media ${device.mobileXL} {
+    height: 60%;
+  }
 
-    @media ${device.mobileM} {
-        height: 45%;
-    }
+  @media ${device.mobileM} {
+    height: 45%;
+  }
 `;
 
 const EmptyDiv = styled.div`
-    width: 4rem;
+  width: 4rem;
 
-    @media ${device.mobileL} {
-        width: 2rem;
-    }
+  @media ${device.mobileL} {
+    width: 2rem;
+  }
 `;
 
 const TitelsContainer = styled.div`
-    display: flex;
+  display: flex;
 
-    @media ${device.tablet} {
-        flex-direction: column;
-    }
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
 
-    @media ${device.mobileM} {
-        padding-top: 0.8rem;
-    }
+  @media ${device.mobileM} {
+    padding-top: 0.8rem;
+  }
 `;
 
 const TitelTop = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 
 const TitelBottom = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
-    @media ${device.tablet} {
-        padding-left: 5rem;
-    }
+  @media ${device.tablet} {
+    padding-left: 5rem;
+  }
 
-    @media ${device.mobileXL} {
-        padding-left: 1rem;
-    }
+  @media ${device.mobileXL} {
+    padding-left: 1rem;
+  }
 `;
 
 const Title1 = styled.h1`
-    font-family: 'Monsieur La Doulaise';
-    font-size: 4rem;
-    font-weight: 400;
-    margin: 0;
+  font-family: "Monsieur La Doulaise";
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 0;
 
-    @media ${device.tabletXXL} {
-        font-size: 3.4rem;
-    }
+  @media ${device.tabletXXL} {
+    font-size: 3.4rem;
+  }
 
-    @media ${device.tabletXL} {
-        font-size: 3.1rem;
-    }
+  @media ${device.tabletXL} {
+    font-size: 3.1rem;
+  }
 
-    @media ${device.tablet} {
-        font-size: 2.9rem;
-    }
+  @media ${device.tablet} {
+    font-size: 2.9rem;
+  }
 
-    @media ${device.mobileXL} {
-        font-size: 2.6rem;
-    }
+  @media ${device.mobileXL} {
+    font-size: 2.6rem;
+  }
 
-    @media ${device.mobileL} {
-        font-size: 2.3rem;
-    }
+  @media ${device.mobileL} {
+    font-size: 2.3rem;
+  }
 `;
 
 const Title2 = styled.h1`
-    font-family: 'Tenor Sans', sans-serif;
-    font-size: 3rem;
-    font-weight: 300;
-    margin: 0;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0;
 
-    @media ${device.tabletXXL} {
-        font-size: 2.5rem;
-    }
+  @media ${device.tabletXXL} {
+    font-size: 2.5rem;
+  }
 
-    @media ${device.tabletXL} {
-        font-size: 2.4rem;
-    }
+  @media ${device.tabletXL} {
+    font-size: 2.4rem;
+  }
 
-    @media ${device.tablet} {
-        font-size: 2.3rem;
-    }
+  @media ${device.tablet} {
+    font-size: 2.3rem;
+  }
 
-    @media ${device.mobileXXL} {
-        font-size: 2.1rem;
-    }
+  @media ${device.mobileXXL} {
+    font-size: 2.1rem;
+  }
 
-    @media ${device.mobileXL} {
-        font-size: 1.9rem;
-    }
+  @media ${device.mobileXL} {
+    font-size: 1.9rem;
+  }
 
-    @media ${device.mobileL} {
-        font-size: 1.7rem;
-    }
+  @media ${device.mobileL} {
+    font-size: 1.7rem;
+  }
 `;
-
-
-export default HeaderChooseYourSign;

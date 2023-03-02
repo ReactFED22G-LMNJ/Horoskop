@@ -35,11 +35,14 @@ function ChooseYourSign() {
   );
 }
 
+export default ChooseYourSign;
+
  const ZodiacZignWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
  `;
+
 
 const ZodiacSignContainer = styled.div`
   display: flex;
@@ -57,4 +60,3 @@ export const ZodiacLink = styled(Link)`
   text-decoration: none;
 `;
 
-export default ChooseYourSign;
