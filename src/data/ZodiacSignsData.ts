@@ -1,3 +1,4 @@
+// Data of zodiac zigns
 
 interface ZodiacSigns {
     name: string;
