@@ -45,7 +45,7 @@ export default FormBox;
 
 
 const Form = styled.form`
-    background-color:#FFFFFF;
+    background-color: #FFFFFF;
     font-family: 'Tenor Sans', sans-serif;
     box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
     -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
@@ -58,9 +58,12 @@ const Form = styled.form`
     padding: 4.5rem;
     gap: 2rem;
 
+    @media ${device.laptop} {
+        padding: 3rem 2rem ;
+    }
+
     @media ${device.tabletXL} {
-        padding-right: 2rem;
-        padding-left: 2rem;
+        padding: 3rem 2rem ;
     }
 
     @media ${device.mobileXXL} {

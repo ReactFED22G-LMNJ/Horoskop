@@ -34,11 +34,6 @@ const Container = styled.header`
 
    @media ${device.mobileXXL} {
       margin-top: 2rem;
-      gap: 5%;
-   }
-
-   @media ${device.mobileM} {
-      gap: 2%;
    }
 `;
 
@@ -50,6 +45,11 @@ const MoonImgContainer = styled.div`
       margin-top: 1rem;
       align-items: flex-start;
       justify-content: flex-end;
+      width: 19%;
+   }
+
+   @media ${device.mobileL} {
+      display: none;
    }
 `;
 
@@ -57,14 +57,12 @@ const StarImgContainer = styled.div`
    display: flex;
    justify-content: center;
    align-items: flex-end;
+   width: 20%;
 
    @media ${device.mobileXXL} {
       align-items: center;
       justify-content: flex-start;
-   }
-
-   @media ${device.mobileXXL} {
-      justify-content: flex-start;
+      width: 15%;
    }
 `;
 
@@ -74,7 +72,7 @@ const MoonImg = styled.img`
    @media ${device.mobileXXL} {
       height: 40%;
    }
-
+   
    @media ${device.mobileL} {
       height: 30%;
    }
@@ -87,14 +85,30 @@ const StarImg = styled.img`
        height: 45%;
    }
 
+   @media ${device.mobileXL} {
+       height: 40%;
+   }
+
    @media ${device.mobileL} {
-       height: 35%;
+       height: 30%;
    }
 `;
 
 const TitelContainer = styled.div`
    display: flex;
    flex-direction: column;
+
+   @media ${device.mobileXXL} {
+      justify-content: center;
+   }
+
+   @media ${device.mobileXL} {
+      justify-content: center;
+   }
+
+   @media ${device.mobileL} {
+      padding-left: 0.5rem;
+   }
 `;
 
 const Title1 = styled.h1`
@@ -112,7 +126,7 @@ const Title1 = styled.h1`
    }
 
    @media ${device.mobileXL} {
-      font-size: 2.6rem;
+      font-size: 2.3rem;
    }
 
    @media ${device.mobileL} {
@@ -135,11 +149,19 @@ const Title2 = styled.h1`
    }
 
    @media ${device.mobileXXL} {
-      font-size: 2rem;
+      font-size: 1.4rem;
+   }
+
+   @media ${device.mobileXL} {
+      font-size: 1.2rem;
    }
 
    @media ${device.mobileL} {
       font-size: 1.8rem;
+   }
+
+   @media ${device.mobileM} {
+      font-size: 1.5rem;
    }
 `;
 
