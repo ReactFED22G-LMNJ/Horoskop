@@ -48,7 +48,7 @@ function FormBox({ onSubmit }: Props) {
                 <Form onSubmit={handleSubmit}>
                     <EnterYourNameInput>
                         <label>Enter your name</label>
-                        <input type="text" value={name} onChange={handleChange} />
+                        <Input type="text" value={name} onChange={handleChange} />
                     </EnterYourNameInput>
                     <ChooseYourSignInput>
                         <label>Choose your sign</label>
@@ -198,17 +198,15 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-    padding: 0.3rem;
+    padding: 0.5rem;
+    width: 8.9rem;
+    font-size: 1rem;
     font-family: 'Tenor Sans', sans-serif;
-    border: 0.05rem solid grey;
+    border: 0.05rem solid black;
     border-radius: 0.3rem;
     box-shadow: 0px 0.5px 1px 0px rgba(0,0,0,0.61);
     -webkit-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
     -moz-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
-
-    @media ${device.tabletXL} {
-        padding: 0.4rem;
-    }
 `;
 
 const EnterYourNameInput = styled.div`
