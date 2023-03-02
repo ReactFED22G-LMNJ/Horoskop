@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { device } from '../data/Breakpoints';
 
+/** Navigation bar */
 
 interface Props {
   sign: string | undefined;
@@ -15,8 +16,6 @@ interface Props {
  */
 function Navbar({ sign, onDaySelect }: Props) {
 
-  //throw new Error('Ops....');
-  
   return (
     <NavContainer>
     <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/yesterday`} onClick={() => onDaySelect('yesterday')}>Yesterday</NavLinkStyled>
@@ -27,6 +26,9 @@ function Navbar({ sign, onDaySelect }: Props) {
 }
 
 export default Navbar;
+
+
+//-------------Styling-------------//
 
 const NavContainer = styled.nav`
   display: flex;
