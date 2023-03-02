@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { device } from "./Breakpoints";
@@ -10,21 +11,22 @@ import MoonStar from '/assets/moonstar.png';
 import Sun from '/assets/sun.png';
 import ThreeStars from '/assets/threesmallstars.png';
 
-interface Props {
-  onSubmit: (name: string) => void;
-}
 
-function FormBox({ onSubmit }: Props) {
+function FormBox() {
     const [name, setName] = useLocalStorageState('', 'name');
+
+    useEffect(() => {
+        if (name === "Hello") {
+          setName("");
+        }
+      }, [name]);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
-    console.log(name);
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(name);
     console.log(name);
   };
 

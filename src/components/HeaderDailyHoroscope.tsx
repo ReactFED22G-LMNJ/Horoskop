@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
@@ -8,12 +9,18 @@ import Stars from '/assets/treStars.png';
 
 function HeaderDailyHoroscope() {
   const { sign } = useParams<{ sign: string}>();
-  const [storedName] = useLocalStorageState("", "name");
+  const [storedName, setStoredName] = useLocalStorageState("", "name");
+
+  useEffect(() => {
+    if (storedName === "") {
+      setStoredName("Hello");
+    }
+  }, [storedName]);
 
     return (
         <Container>
             <TitelsContainer>
-                <Title1>Hello {storedName}, here is your</Title1> 
+                <Title1>{storedName}, here is your</Title1> 
                 <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
             </TitelsContainer>
             <DropDownAndStarsImgContainer>

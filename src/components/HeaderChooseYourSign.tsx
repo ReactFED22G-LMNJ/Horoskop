@@ -1,178 +1,180 @@
-import styled from 'styled-components';
-import { useLocalStorageState } from '../hooks/useLocalStorageState';
-import { device } from './Breakpoints';
-import Stars from '/assets/stars.png';
-
-
+import { useEffect } from "react";
+import styled from "styled-components";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
+import { device } from "./Breakpoints";
+import Stars from "/assets/stars.png";
 
 function HeaderChooseYourSign() {
-    
-    const [storedName] = useLocalStorageState("", "name");  
+  const [storedName, setStoredName] = useLocalStorageState("", "name");
 
-      
-    return (
-        <Container>
-            <EmptyDiv/>
-            <TitelsContainer>
-                <TitelTop>
-                    <Title1>{storedName}, choose your</Title1>
-                </TitelTop>
-                <TitelBottom>
-                    <Title2>ZODIAC SIGN</Title2>
-                </TitelBottom>
-            </TitelsContainer>
-            <StarImgContainer>
-                <StarsImg src={Stars} alt="stars" />
-            </StarImgContainer>
-        </Container>
-    );
+  useEffect(() => {
+    if (storedName === "") {
+      setStoredName("Hello");
+    }
+  }, [storedName]);
+
+  return (
+    <Container>
+      <EmptyDiv />
+      <TitelsContainer>
+        <TitelTop>
+          <Title1>{storedName}, choose your</Title1>
+        </TitelTop>
+        <TitelBottom>
+          <Title2>ZODIAC SIGN</Title2>
+        </TitelBottom>
+      </TitelsContainer>
+      <StarImgContainer>
+        <StarsImg src={Stars} alt="stars" />
+      </StarImgContainer>
+    </Container>
+  );
 }
 
 export default HeaderChooseYourSign;
 
 // STYLING
 const Container = styled.header`
-    display: flex;
-    justify-content: center;
-    height: 8rem;
-    -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
-    -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
-    box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
-    padding-top: 1.4rem;
-    padding-bottom: 1.4rem;
-    margin-bottom: 1.8rem;
+  display: flex;
+  justify-content: center;
+  height: 8rem;
+  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0, 0, 0, 0.37);
+  box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0, 0, 0, 0.37);
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
 
-    @media ${device.mobileXL} {
-        padding-bottom: 0;
-    }
+  @media ${device.mobileXL} {
+    padding-bottom: 0;
+  }
 `;
 
 const StarImgContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 
-    @media ${device.mobileXL} {
-        align-items: center;
-        margin-left: 1rem;
-    }
+  @media ${device.mobileXL} {
+    align-items: center;
+    margin-left: 1rem;
+  }
 `;
 
 const StarsImg = styled.img`
-    height: 100%;
+  height: 100%;
 
-    @media ${device.tabletXXL} {
-        height: 80%;
-    }
+  @media ${device.tabletXXL} {
+    height: 80%;
+  }
 
-    @media ${device.tablet} {
-        height: 70%;
-    } 
+  @media ${device.tablet} {
+    height: 70%;
+  }
 
-    @media ${device.mobileXL} {
-        height: 60%;
-    }
+  @media ${device.mobileXL} {
+    height: 60%;
+  }
 
-    @media ${device.mobileM} {
-        height: 45%;
-    }
+  @media ${device.mobileM} {
+    height: 45%;
+  }
 `;
 
 const EmptyDiv = styled.div`
-    width: 4rem;
+  width: 4rem;
 
-    @media ${device.mobileL} {
-        width: 2rem;
-    }
+  @media ${device.mobileL} {
+    width: 2rem;
+  }
 `;
 
 const TitelsContainer = styled.div`
-    display: flex;
+  display: flex;
 
-    @media ${device.tablet} {
-        flex-direction: column;
-    }
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
 
-    @media ${device.mobileM} {
-        padding-top: 0.8rem;
-    }
+  @media ${device.mobileM} {
+    padding-top: 0.8rem;
+  }
 `;
 
 const TitelTop = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 
 const TitelBottom = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
-    @media ${device.tablet} {
-        padding-left: 5rem;
-    }
+  @media ${device.tablet} {
+    padding-left: 5rem;
+  }
 
-    @media ${device.mobileXL} {
-        padding-left: 1rem;
-    }
+  @media ${device.mobileXL} {
+    padding-left: 1rem;
+  }
 `;
 
 const Title1 = styled.h1`
-    font-family: 'Monsieur La Doulaise';
-    font-size: 4rem;
-    font-weight: 400;
-    margin: 0;
+  font-family: "Monsieur La Doulaise";
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 0;
 
-    @media ${device.tabletXXL} {
-        font-size: 3.4rem;
-    }
+  @media ${device.tabletXXL} {
+    font-size: 3.4rem;
+  }
 
-    @media ${device.tabletXL} {
-        font-size: 3.1rem;
-    }
+  @media ${device.tabletXL} {
+    font-size: 3.1rem;
+  }
 
-    @media ${device.tablet} {
-        font-size: 2.9rem;
-    }
+  @media ${device.tablet} {
+    font-size: 2.9rem;
+  }
 
-    @media ${device.mobileXL} {
-        font-size: 2.6rem;
-    }
+  @media ${device.mobileXL} {
+    font-size: 2.6rem;
+  }
 
-    @media ${device.mobileL} {
-        font-size: 2.3rem;
-    }
+  @media ${device.mobileL} {
+    font-size: 2.3rem;
+  }
 `;
 
 const Title2 = styled.h1`
-    font-family: 'Tenor Sans', sans-serif;
-    font-size: 3rem;
-    font-weight: 300;
-    margin: 0;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0;
 
-    @media ${device.tabletXXL} {
-        font-size: 2.5rem;
-    }
+  @media ${device.tabletXXL} {
+    font-size: 2.5rem;
+  }
 
-    @media ${device.tabletXL} {
-        font-size: 2.4rem;
-    }
+  @media ${device.tabletXL} {
+    font-size: 2.4rem;
+  }
 
-    @media ${device.tablet} {
-        font-size: 2.3rem;
-    }
+  @media ${device.tablet} {
+    font-size: 2.3rem;
+  }
 
-    @media ${device.mobileXXL} {
-        font-size: 2.1rem;
-    }
+  @media ${device.mobileXXL} {
+    font-size: 2.1rem;
+  }
 
-    @media ${device.mobileXL} {
-        font-size: 1.9rem;
-    }
+  @media ${device.mobileXL} {
+    font-size: 1.9rem;
+  }
 
-    @media ${device.mobileL} {
-        font-size: 1.7rem;
-    }
+  @media ${device.mobileL} {
+    font-size: 1.7rem;
+  }
 `;
-
