@@ -52,18 +52,27 @@ const Container = styled.header`
 const DropDownAndStarsImgContainer = styled.div`
     display: flex;
     flex-direction: column;
+    height: 10rem;
     align-items: flex-end;
     justify-content: space-between;
 
-    @media ${device.mobileXL} {
+    @media ${device.laptop} {
+      height: 9rem;
+    } 
+
+    @media ${device.tabletXXL} {
+      height: 7.7rem;
+    } 
+
+    @media ${device.tablet} {
+      height: 6.5rem;
+    } 
+
+    @media ${device.mobileXXL} {
       align-items: center;
       gap: 1rem;
       flex-direction: row-reverse;
       justify-content: center;
-    }  
-
-    @media ${device.mobileL} {
-      gap: 1rem;
     }  
 `;
 
@@ -81,12 +90,8 @@ const DropDownContainer = styled.div`
     @media ${device.laptop} {
       padding-bottom: 0.6rem;
     }
-  
-    @media ${device.tablet} {
-      padding-bottom: 0.1rem;
-    } 
     
-    @media ${device.mobileXL} {
+    @media ${device.mobileXXL} {
       justify-content: center;
       width: fit-content;
       padding-left: 5rem;
@@ -100,22 +105,27 @@ const StarsImg = styled.img`
       padding-bottom: 1.1rem;
     }
 
+    @media ${device.laptop} {
+      padding-bottom: 0.9rem;
+    } 
+
     @media ${device.tabletXXL} {
+      padding-bottom: 1.2rem;
       width: 45%;
-    }   
+    }    
+
+    @media ${device.tabletXL} {
+      padding-bottom: 0.7rem;
+    }    
 
     @media ${device.tablet} {
       width: 35%;
+      padding-bottom: 0;
     }  
 
-    @media ${device.mobileXL} {
+    @media ${device.mobileXXL} {
       width: 20%;
       padding-top: 0.8rem;
-      padding-bottom: 0.7rem;
-    }  
-
-    @media ${device.mobileL} {
-      width: 20%;
       padding-bottom: 0.7rem;
     }  
 `;
@@ -124,22 +134,21 @@ const MoonStarContainer = styled.div`
     display: flex;
     width: 15%;
 
-    @media ${device.tablet} {
+    @media ${device.tabletXXL} {
       display: none;
     }  
 `;
 
 const MoonStarImg = styled.img`
-    width: 73%;
+    width: 70%;
 
     @media ${device.laptopL} {
-      width: 95%;
-      height: 95%;
+      width: 90%;
     }   
 
     @media ${device.laptop} {
       width: 100%;
-    }   
+    } 
 `;
 
 const TitelsContainer = styled.div`
@@ -148,7 +157,7 @@ const TitelsContainer = styled.div`
     justify-content: flex-start;
 
     @media ${device.mobileXL} {
-      padding-left: 1rem;
+      align-items: center;
     }  
 `;
 
@@ -162,7 +171,7 @@ const Title1 = styled.h1`
       font-size: 3.5rem;
     }   
 
-    @media ${device.tabletXXL} {
+    @media ${device.tabletXL} {
       font-size: 3.2rem;
     } 
 
@@ -182,25 +191,26 @@ const Title1 = styled.h1`
 const Title2 = styled.h1`
     font-family: 'Tenor Sans', sans-serif;
     padding-left: 4rem;
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-weight: 300;
     margin: 0;
 
-    @media ${device.tabletXXL} {
-      font-size: 2.5rem;
+    @media ${device.laptop} {
+      font-size: 2.3rem;
     } 
 
     @media ${device.tabletXXL} {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }  
 
     @media ${device.tablet} {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       padding-left: 0rem;
     }  
 
     @media ${device.mobileXL} {
-      font-size: 2rem;
+      font-size: 2.1rem;
+      text-align: center; 
     }  
 
     @media ${device.mobileL} {
