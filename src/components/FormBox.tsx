@@ -5,23 +5,30 @@ import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { Button } from "./Button";
 import ZodiacDropdown from "./ZodiacDropDown";
 
+/**
+ * Form Box
+ * @returns a component that renders a form with an input field where the user's can type in their name
+ * * Also renders a drop down list (separate component) and a button (separate component)
+ */
 
 function FormBox() {
     const [name, setName] = useLocalStorageState('', 'name');
 
+    // checks if the value of name is "Hello" and sets it back to an empty string if so :-D
     useEffect(() => {
         if (name === "Hello") {
           setName("");
         }
       }, [name]);
 
+    // updates the value of name using the setName function returned from the useLocalStorageState hook
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
     };
 
+    // prevents default form submission behavior 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(name);
   };
 
     return(
@@ -43,6 +50,7 @@ function FormBox() {
 
 export default FormBox;
 
+//-------------Styling-------------//
 
 const Form = styled.form`
     background-color:#FFFFFF;
