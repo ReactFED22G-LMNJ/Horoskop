@@ -135,6 +135,7 @@ const Title1 = styled.h1`
   }
 
   @media ${device.mobileXL} {
+    text-align: center;
     font-size: 2.6rem;
   }
 
