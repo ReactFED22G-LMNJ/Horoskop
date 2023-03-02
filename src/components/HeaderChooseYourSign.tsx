@@ -16,7 +16,6 @@ function HeaderChooseYourSign() {
 
   return (
     <Container>
-      <EmptyDiv />
       <TitelsContainer>
         <TitelTop>
           <Title1>{storedName}, choose your</Title1>
@@ -38,8 +37,8 @@ export default HeaderChooseYourSign;
 const Container = styled.header`
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100vw;
-    height: 8rem;
     -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
     -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
     box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
@@ -47,54 +46,46 @@ const Container = styled.header`
     padding-bottom: 1.4rem;
     margin-bottom: 1.8rem;
 
-    @media ${device.mobileXL} {
-        padding-bottom: 0;
-    }
+    @media ${device.mobileM} {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+  }
 `;
 
 const StarImgContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
 
   @media ${device.mobileXL} {
-    align-items: center;
-    margin-left: 1rem;
+    padding-left: 1rem;
   }
 `;
 
 const StarsImg = styled.img`
-  height: 100%;
+  height: 8rem;
 
   @media ${device.tabletXXL} {
-    height: 80%;
+    height: 7rem;
   }
 
   @media ${device.tablet} {
-    height: 70%;
+    height: 6rem;
   }
 
   @media ${device.mobileXL} {
-    height: 60%;
+    height: 5rem;
   }
 
   @media ${device.mobileM} {
-    height: 45%;
-  }
-`;
-
-const EmptyDiv = styled.div`
-  width: 4rem;
-
-  @media ${device.mobileL} {
-    width: 2rem;
+    height: 4rem;
   }
 `;
 
 const TitelsContainer = styled.div`
   display: flex;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     flex-direction: column;
   }
 
@@ -107,6 +98,11 @@ const TitelTop = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media ${device.mobileM} {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const TitelBottom = styled.div`
@@ -114,12 +110,9 @@ const TitelBottom = styled.div`
   flex-direction: column;
   justify-content: flex-end;
 
-  @media ${device.tablet} {
-    padding-left: 5rem;
-  }
-
-  @media ${device.mobileXL} {
-    padding-left: 1rem;
+  @media ${device.mobileM} {
+    justify-content: center;
+    align-items: center;
   }
 `;
 
