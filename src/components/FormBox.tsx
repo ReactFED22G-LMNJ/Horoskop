@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import styled from "styled-components";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { device } from "./Breakpoints";
 import { Button } from "./Button";
 import ZodiacDropdown from "./ZodiacDropDown";
@@ -9,7 +11,25 @@ import MoonStar from '/assets/moonstar.png';
 import Sun from '/assets/sun.png';
 import ThreeStars from '/assets/threesmallstars.png';
 
+
 function FormBox() {
+    const [name, setName] = useLocalStorageState('', 'name');
+
+    useEffect(() => {
+        if (name === "Hello") {
+          setName("");
+        }
+      }, [name]);
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+    };
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(name);
+  };
+
     return(
         <Container>
             <LeftSmallContainer >
@@ -27,10 +47,10 @@ function FormBox() {
             </LeftSmallContainer >
 
             <FormContainer>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <EnterYourNameInput>
                         <label>Enter your name</label>
-                        <Input type="text" />
+                        <Input type="text" value={name} onChange={handleChange} />
                     </EnterYourNameInput>
                     <ChooseYourSignInput>
                         <label>Choose your sign</label>
@@ -59,6 +79,8 @@ function FormBox() {
         </Container>
     );
 }
+
+export default FormBox;
 
 // STYLING
 const Container = styled.div`
@@ -150,7 +172,7 @@ const FormContainer = styled.div`
     align-items: center;
 `;
 
-const Form = styled.div`
+const Form = styled.form`
     background-color: white;
     font-family: 'Tenor Sans', sans-serif;
     box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
@@ -178,17 +200,15 @@ const Form = styled.div`
 `;
 
 const Input = styled.input`
-    padding: 0.3rem;
+    padding: 0.5rem;
+    width: 8.9rem;
+    font-size: 1rem;
     font-family: 'Tenor Sans', sans-serif;
-    border: 0.05rem solid grey;
+    border: 0.05rem solid black;
     border-radius: 0.3rem;
     box-shadow: 0px 0.5px 1px 0px rgba(0,0,0,0.61);
     -webkit-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
     -moz-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
-
-    @media ${device.tabletXL} {
-        padding: 0.4rem;
-    }
 `;
 
 const EnterYourNameInput = styled.div`
@@ -307,5 +327,3 @@ const ThreeStarsImgRight = styled.img`
         height: 45%;
     }
 `;  
-
-export default FormBox;

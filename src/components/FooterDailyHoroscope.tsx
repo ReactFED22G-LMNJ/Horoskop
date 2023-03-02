@@ -12,7 +12,6 @@ function FooterDailyHoroscope() {
 
 export default FooterDailyHoroscope;
 
-
 const FooterContainer = styled.footer`
     display: flex;
     justify-content: center;

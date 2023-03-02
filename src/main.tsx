@@ -8,11 +8,15 @@ import ChooseYourSign from './pages/ChooseYourSign';
 import DailyHoroscope from './pages/DailyHoroscope';
 import StartPage from './pages/StartPage';
 
+//const [name, setName] = useState("");
+
 const router = createBrowserRouter (
   createRoutesFromElements (
   <Route>
+    {/* <Route index element={<StartPage name={name} onName={setName} />}/>  */}
     <Route index element={<StartPage />}/> 
-    <Route path="dailyhoroscope/:sign/:day/" element={<DailyHoroscope />}>
+    {/* <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope name={name} />}> */}
+    <Route path="dailyhoroscope/:sign/:day?/*" element={<DailyHoroscope />}>
     </Route> 
     <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
     <Route path="*" element={<h3>404 Not Found</h3>}/> 
