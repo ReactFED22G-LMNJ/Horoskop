@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from './Breakpoints';
 
 interface Props {
     image: string;
@@ -44,6 +45,10 @@ const ZodiacSignColumn = styled.div`
     background-color: #fffaf0;
     color: #163952;
   }
+
+  @media ${device.mobileXL} {
+      width: 7.8rem;
+    } 
 `;
 
 const ZodiacCircle = styled.div`
@@ -71,4 +76,8 @@ const Name = styled.h2`
 const DateText = styled.div`
   font-family: 'Tenor Sans', sans-serif;
   font-size: 0.9rem;
+
+  @media ${device.mobileXL} {
+      font-size: 0.8rem;
+    } 
 `;
