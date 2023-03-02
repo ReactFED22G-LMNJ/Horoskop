@@ -44,7 +44,9 @@ function HeaderDailyHoroscope() {
 }
 export default HeaderDailyHoroscope;
 
-// STYLING
+
+//-------------Styling-------------//
+
 const Container = styled.header`
     display: flex;
     justify-content: center;
