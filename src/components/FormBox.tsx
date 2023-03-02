@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
+import { device } from "../data/Breakpoints";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
-import { device } from "./Breakpoints";
 import { Button } from "./Button";
 import ZodiacDropdown from "./ZodiacDropDown";
 

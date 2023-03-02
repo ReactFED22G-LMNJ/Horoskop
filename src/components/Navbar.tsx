@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { device } from './Breakpoints';
+import { device } from '../data/Breakpoints';
 
 
 interface Props {

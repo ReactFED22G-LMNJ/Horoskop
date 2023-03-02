@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { Button } from "./Button";
 
-function FooterDailyHoroscope() {
+interface Props {
+    children?: React.ReactNode;
+}
+
+function FooterDailyHoroscope({children}: Props) {
     return(
     <FooterContainer>
         <Button to="/">Back</Button>
-        <Button to="/chooseyoursign">All Zodiac Signs</Button>
+        {children}
     </FooterContainer>
     );
 }

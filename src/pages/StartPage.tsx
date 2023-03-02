@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { device } from "../components/Breakpoints";
 import FormBox from "../components/FormBox";
 import HeaderStartPage from "../components/HeaderStartPage";
+import { device } from "../data/Breakpoints";
 import ErrorBoundary from "../ErrorBoundry";
 import BigMoon from "/assets/bigMoon.png";
 import MiddleStar from "/assets/middlestar.png";
