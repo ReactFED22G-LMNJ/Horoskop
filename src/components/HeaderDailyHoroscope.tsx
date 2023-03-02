@@ -19,19 +19,26 @@ function HeaderDailyHoroscope() {
 
     return (
         <Container>
+
             <TitelsContainer>
                 <Title1>{storedName}, here is your</Title1> 
                 <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
             </TitelsContainer>
+
             <DropDownAndStarsImgContainer>
+
                 <StarsImg src={Stars} alt="stars" />
+                
                 <DropDownContainer>
                     <ZodiacDropdown label="Change sign" />
                 </DropDownContainer>
+
             </DropDownAndStarsImgContainer>
+
             <MoonStarContainer>
                 <MoonStarImg src={MoonStar} alt="moonstar" />
             </MoonStarContainer>
+
         </Container>
     );
 }
