@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { device } from '../data/Breakpoints';
 
-/** Navigation bar */
+
 
 interface Props {
   sign: string | undefined;
@@ -10,6 +10,7 @@ interface Props {
 }
 
 /**
+ * Navigation bar
  * Component that renders the navigation bar with links to view horoscopes for the selected day
  * @param sign The zodiac sign for which the horoscope is being displayed
  * @param onDaySelect Callback function to handle selection of the day to display
