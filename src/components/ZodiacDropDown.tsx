@@ -77,7 +77,7 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
   * clicking on a zodiac sign calls the handleZodiacSelect function with the corresponding zodiac sign as an argument */
 
   return (
-    <Dropdown ref={dropdownRef}>
+    <DropdownNav ref={dropdownRef}>
       <DropdownButton onClick={() => setShowDropdown(!showDropdown)}>
         {label}
         <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
@@ -91,16 +91,16 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
           </ZodiacLink>
         ))}
       </DropdownContent>
-    </Dropdown>
+    </DropdownNav>
   );
 };
+
+export default ZodiacDropdown;
 
 
 //-------------Styling-------------//
 
-export default ZodiacDropdown;
-
-const Dropdown = styled.div`
+const DropdownNav = styled.nav`
   position: relative;
   display: inline-block;
 `;
