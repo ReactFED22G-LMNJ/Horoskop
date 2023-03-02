@@ -31,10 +31,10 @@ const NavContainer = styled.nav`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 1rem 0;
   background: #FFFFFF;
   height: 4rem;
   margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
   -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
   -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
   box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);

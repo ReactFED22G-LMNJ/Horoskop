@@ -28,9 +28,7 @@ interface Props {
 const StatCardContainer = styled.div`
     background-color: white;
     border-radius: 0.5rem;
-    box-shadow: -1px 6px 5px -4px rgba(0,0,0,0.75);
-    -webkit-box-shadow: -1px 6px 5px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: -1px 6px 5px -4px rgba(0,0,0,0.75);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 `;
 
 const Img = styled.img`

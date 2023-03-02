@@ -17,9 +17,6 @@ const FooterContainer = styled.footer`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    -webkit-box-shadow: 0.063rem -0.125rem 0.313rem 0 rgba(0,0,0,0.37);
-    -moz-box-shadow: 0.063rem -0.125rem 0.313rem 0 rgba(0,0,0,0.37);
-    box-shadow: 0.063rem -0.125rem 0.313rem 0 rgba(0,0,0,0.37);
     height: 5rem;
     margin-top: 1.8rem;
 `;
