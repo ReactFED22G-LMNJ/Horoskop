@@ -35,7 +35,7 @@ function FormBox() {
                 <ZodiacDropdown label="Zodiac Sign" />
             </ChooseYourSignInput>
             <BtnContainer>
-                <Button to="chooseyoursign">What's my sign?</Button>
+                <Button to="chooseyoursign" hoverColor="#f3e7dc">What's my sign?</Button>
             </BtnContainer>
         </Form>
     );
