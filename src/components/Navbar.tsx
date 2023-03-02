@@ -52,7 +52,6 @@ const NavLinkStyled = styled(NavLink)`
   border-radius: 5px;
   margin: 0 1rem;
   font-weight: 400;
-  /*text-transform: uppercase;*/
   font-size: 1.125rem;
 
   &:hover {
