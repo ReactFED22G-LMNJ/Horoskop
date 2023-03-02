@@ -14,8 +14,7 @@ const router = createBrowserRouter (
   createRoutesFromElements (
   <Route>
     <Route index element={<StartPage />}/> 
-    <Route path="dailyhoroscope/:sign/:day/" element={<DailyHoroscope />}>
-    </Route> 
+    <Route path="dailyhoroscope/:sign/:day/" element={<DailyHoroscope />}/>
     <Route path="chooseyoursign" element={<ChooseYourSign />}/> 
     <Route path="*" element={<h3>404 Not Found</h3>}/> 
   </Route>
