@@ -1,156 +1,50 @@
+import { useEffect } from "react";
 import styled from "styled-components";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { device } from "./Breakpoints";
 import { Button } from "./Button";
 import ZodiacDropdown from "./ZodiacDropDown";
-import BigMoon from '/assets/bigMoon.png';
-import MiddleStar from '/assets/middlestar.png';
-import MiniStar from '/assets/ministar.png';
-import MoonStar from '/assets/moonstar.png';
-import Sun from '/assets/sun.png';
-import ThreeStars from '/assets/threesmallstars.png';
+
 
 function FormBox() {
+    const [name, setName] = useLocalStorageState('', 'name');
+
+    useEffect(() => {
+        if (name === "Hello") {
+          setName("");
+        }
+      }, [name]);
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+    };
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(name);
+  };
+
     return(
-        <Container>
-            <LeftSmallContainer >
-                <SunImgContainer>
-                    <SunImg src={Sun} alt="sun" />
-                </SunImgContainer>
-
-                <MiddleStarImgContainer>
-                    <MiddleStarImg src={MiddleStar} alt="middlestar" />
-                </MiddleStarImgContainer>
-
-                <ThreeStarsImgContainer>
-                    <ThreeStarsImgLeft src={ThreeStars} alt="threestars" />
-                </ThreeStarsImgContainer>
-            </LeftSmallContainer >
-
-            <FormContainer>
-                <Form>
-                    <EnterYourNameInput>
-                        <label>Enter your name</label>
-                        <Input type="text" />
-                    </EnterYourNameInput>
-                    <ChooseYourSignInput>
-                        <label>Choose your sign</label>
-                        <ZodiacDropdown label="Zodiac Sign" />
-                    </ChooseYourSignInput>
-                    <BtnContainer>
-                        <Button to="chooseyoursign">What's my sign?</Button>
-                    </BtnContainer>
-                </Form>
-            </FormContainer>
-
-            <RightSmallContainer>
-                <MiniStarContainer>
-                    <MiniStarImg src={MiniStar} alt="ministar" />
-                </MiniStarContainer>
-
-                <MoonStarContainer>
-                    <MoonStarImg src={MoonStar} alt="moonstar" />
-                </MoonStarContainer>
-
-                <BigMoonAndThreeStarsImgContainer>
-                    <ThreeStarsImgRight src={ThreeStars} alt="threestars" />
-                    <BigMoonImg src={BigMoon} alt="bigmoon" />
-                </BigMoonAndThreeStarsImgContainer>
-            </RightSmallContainer>
-        </Container>
+        <Form onSubmit={handleSubmit}>
+            <EnterYourNameInput>
+                <label>Enter your name</label>
+                <Input type="text" value={name} onChange={handleChange} />
+            </EnterYourNameInput>
+            <ChooseYourSignInput>
+                <label>Choose your sign</label>
+                <ZodiacDropdown label="Zodiac Sign" />
+            </ChooseYourSignInput>
+            <BtnContainer>
+                <Button to="chooseyoursign">What's my sign?</Button>
+            </BtnContainer>
+        </Form>
     );
 }
 
-// STYLING
-const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
+export default FormBox;
 
-    @media ${device.mobileXXL} {
-        margin-top: 1.5rem;
-    }
-`;
 
-// EVERYTHING IN LEFT COINTAINER
-const LeftSmallContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 34%;
-
-    @media ${device.tabletXL} {
-        width: 52%;
-    }
-
-    @media ${device.mobileXXL} {
-        width: 75%;
-    }
-
-    @media ${device.mobileXL} {
-        display: none;
-    }
-`;
-
-const SunImgContainer = styled.div`
-    display: flex;
-    justify-content: center;
-
-    @media ${device.mobileXXL} {
-       justify-content: flex-end;
-       padding-right: 10%;
-    }
-`;
-
-const SunImg = styled.img`
-    width: 45%;
-
-    @media ${device.tabletXL} {
-        width: 70%;
-    }
-`;
-
-const MiddleStarImgContainer = styled.div`
-    display: flex;
-    align-items: flex-start;
-
-    @media ${device.tabletXL} {
-        justify-content: center;
-    }
-`;
-
-const MiddleStarImg = styled.img`
-    width: 20%;
-
-    @media ${device.tabletXL} {
-        width: 30%;
-    }
-
-    @media ${device.mobileXXL} {
-        width: 25%;
-    }
-`;
-
-const ThreeStarsImgContainer = styled.div`
-    display: flex;
-    justify-content: center;
-
-    @media ${device.mobileXXL} {
-       justify-content: flex-end;
-       padding-right: 10%;
-    }
-`;
-
-const ThreeStarsImgLeft = styled.img`
-    width: 40%;
-`;
-
-// EVERYTHING IN FORMCONTAINER
-const FormContainer = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
-const Form = styled.div`
+const Form = styled.form`
     background-color: white;
     font-family: 'Tenor Sans', sans-serif;
     box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
@@ -178,17 +72,15 @@ const Form = styled.div`
 `;
 
 const Input = styled.input`
-    padding: 0.3rem;
+    padding: 0.5rem;
+    width: 8.9rem;
+    font-size: 1rem;
     font-family: 'Tenor Sans', sans-serif;
-    border: 0.05rem solid grey;
+    border: 0.05rem solid black;
     border-radius: 0.3rem;
     box-shadow: 0px 0.5px 1px 0px rgba(0,0,0,0.61);
     -webkit-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
     -moz-box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.61);
-
-    @media ${device.tabletXL} {
-        padding: 0.4rem;
-    }
 `;
 
 const EnterYourNameInput = styled.div`
@@ -220,92 +112,3 @@ const BtnContainer = styled.div`
     justify-content: center;
 `;
 
-// EVERYTHING IN RIGHT COINTAINER
-const RightSmallContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    @media ${device.tabletXL} {
-        justify-content: space-evenly;
-    }
-
-    @media ${device.mobileXL} {
-        display: none;
-    }
-`;
-
-const MiniStarContainer = styled.div`
-    display: flex;
-    justify-content: flex-end;
-`;
-
-const MiniStarImg = styled.img`
-    width: 15%;
-    padding-right: 3rem;
-
-    @media ${device.tabletXL} {
-        width: 20%;
-    }
-
-    @media ${device.mobileXXL} {
-        width: 30%;
-    }
-`;
-
-const MoonStarContainer = styled.div`
-    display: flex;
-    justify-content: center;
-
-    @media ${device.tabletXL} {
-        padding-left: 10%;
-        justify-content: flex-start;
-    }
-`;
-
-const MoonStarImg = styled.img`
-    width: 30%;
-    padding-right: 8%;
-
-    @media ${device.tabletXL} {
-        width: 40%;
-    }
-
-    @media ${device.mobileXXL} {
-        width: 50%;
-    }
-`;  
-
-const BigMoonAndThreeStarsImgContainer = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    @media ${device.mobileXXL} {
-        justify-content: flex-start;
-        padding-left: 12%;
-    }
-`;
-
-const BigMoonImg = styled.img`
-    width: 40%;
-
-    @media ${device.mobileXXL} {
-        width: 55%;
-    }
-
-    @media ${device.mobileXL} {
-        display: none;
-    }
-`;  
-
-const ThreeStarsImgRight = styled.img`
-    width: 30%;
-    height: 60%;
-
-    @media ${device.mobileXXL} {
-        height: 45%;
-    }
-`;  
-
-export default FormBox;

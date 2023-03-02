@@ -10,16 +10,21 @@ interface Props {
 function HoroscopeStatCards({ image, color, name, children }: Props) {
 
     return(
-        <StatCardContainer> 
+        <StatCardContainer>
+
             <SignHeader color={color}>
                 <Img src={image} alt={name}/>
             </SignHeader>
+
             <StatsContainer>
                 {children}
             </StatsContainer>
+            
         </StatCardContainer>
     );
 } 
+
+export default HoroscopeStatCards;
 
 interface Props {
     color: string;
@@ -50,5 +55,3 @@ const StatsContainer = styled.div`
     flex-direction: column;
 `;
 
-
-export default HoroscopeStatCards;

@@ -1,33 +1,48 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
-import { device } from './Breakpoints';
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
+import { device } from "./Breakpoints";
 import ZodiacDropdown from "./ZodiacDropDown";
 import MoonStar from '/assets/moonstar.png';
 import Stars from '/assets/treStars.png';
 
 function HeaderDailyHoroscope() {
   const { sign } = useParams<{ sign: string}>();
+  const [storedName, setStoredName] = useLocalStorageState("", "name");
 
-  //throw new Error('Ops....');
+  useEffect(() => {
+    if (storedName === "") {
+      setStoredName("Hello");
+    }
+  }, [storedName]);
 
     return (
         <Container>
+
             <TitelsContainer>
-                <Title1>Hello, here is your</Title1> 
+                <Title1>{storedName}, here is your</Title1> 
                 <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
             </TitelsContainer>
+
             <DropDownAndStarsImgContainer>
+
                 <StarsImg src={Stars} alt="stars" />
+                
                 <DropDownContainer>
                     <ZodiacDropdown label="Change sign" />
                 </DropDownContainer>
+
             </DropDownAndStarsImgContainer>
+
             <MoonStarContainer>
                 <MoonStarImg src={MoonStar} alt="moonstar" />
             </MoonStarContainer>
+
         </Container>
     );
 }
+export default HeaderDailyHoroscope;
 
 // STYLING
 const Container = styled.header`
@@ -95,26 +110,26 @@ const DropDownContainer = styled.div`
 const StarsImg = styled.img`
     width: 60%;
 
-    @media ${device.tabletXXL} {
-      width: 45%;
-    }    
+  @media ${device.tabletXXL} {
+    width: 45%;
+  }    
 
-    @media ${device.tablet} {
-      width: 35%;
-    }  
+  @media ${device.tablet} {
+    width: 35%;
+  }
 
-    @media ${device.mobileXXL} {
-      width: 20%;
-    }  
+  @media ${device.mobileXXL} {
+    width: 20%;
+  } 
 `;
 
 const MoonStarContainer = styled.div`
-    display: flex;
-    width: 15%;
+  display: flex;
+  width: 15%;
 
-    @media ${device.tabletXXL} {
-      display: none;
-    }  
+  @media ${device.tabletXXL} {
+    display: none;
+  }
 `;
 
 const MoonStarImg = styled.img`
@@ -126,44 +141,44 @@ const MoonStarImg = styled.img`
 
     @media ${device.laptop} {
       width: 100%;
-    } 
+    }
 `;
 
 const TitelsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
     @media ${device.mobileXL} {
       align-items: center;
-    }  
+    }
 `;
 
 const Title1 = styled.h1`
-    font-family: 'Monsieur La Doulaise';
-    font-size: 4rem;
-    font-weight: 400;
-    margin: 0;
+  font-family: "Monsieur La Doulaise";
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 0;
 
-    @media ${device.tabletXXL} {
-      font-size: 3.5rem;
-    }   
+  @media ${device.tabletXXL} {
+    font-size: 3.5rem;
+  }
 
-    @media ${device.tabletXL} {
-      font-size: 3.2rem;
-    } 
+  @media ${device.tabletXL} {
+    font-size: 3.2rem;
+  } 
 
-    @media ${device.tablet} {
-      font-size: 3rem;
-    }  
+  @media ${device.tablet} {
+    font-size: 3rem;
+  }
 
-    @media ${device.tablet} {
-      font-size: 2.5rem;
-    }  
+  @media ${device.tablet} {
+    font-size: 2.5rem;
+  }
 
-    @media ${device.mobileXL} {
-      font-size: 2.8rem;
-    }  
+  @media ${device.mobileXL} {
+    font-size: 2.8rem;
+  }
 `;
 
 const Title2 = styled.h1`
@@ -195,5 +210,3 @@ const Title2 = styled.h1`
       font-size: 1.9rem;
     }  
 `;
-
-export default HeaderDailyHoroscope;

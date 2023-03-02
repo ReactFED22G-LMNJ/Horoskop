@@ -18,26 +18,17 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     setSelectedZodiac(zodiac);
     setShowDropdown(false);
   };
-
-  const handleClickOutsideDropdown = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setShowDropdown(false);
-    }
-  };
-
+  
   useEffect(() => {
+    const handleClickOutsideDropdown = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+
     window.addEventListener('click', handleClickOutsideDropdown);
     return () => window.removeEventListener('click', handleClickOutsideDropdown);
   }, []);
-
-  useEffect(() => {
-    if (selectedZodiac !== null) {
-      const timer = setTimeout(() => {
-        setSelectedZodiac(null);
-      }, 500); // delay 500 milliseconds for the menu to close once the user has chosen their sign when the user is on page /dailyhoroscope
-      return () => clearTimeout(timer);
-    }
-  }, [selectedZodiac]);
 
   useEffect(() => {
     if (dropdownContentRef.current && showDropdown && selectedZodiac !== null) {
@@ -46,8 +37,9 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     }
   }, [showDropdown, selectedZodiac]);
 
-
   const handleScrollDown = () => {
+    console.log(dropdownRef.current)
+
     const dropdownContent = dropdownRef.current?.querySelector('.dropdown-content');
     if (dropdownContent) {
       dropdownContent.scrollTop += 50; 
@@ -72,7 +64,7 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
   return (
     <Dropdown ref={dropdownRef}>
       <DropdownButton onClick={() => setShowDropdown(!showDropdown)}>
-        {selectedZodiac || label }
+        {label}
         <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
       </DropdownButton>
       <DropdownContent show={showDropdown} onClick={handleScrollDown}>
@@ -89,7 +81,6 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
 };
 
 export default ZodiacDropdown;
-
 
 const Dropdown = styled.div`
   position: relative;

@@ -4,21 +4,27 @@ import Moon from '/assets/moon.png';
 import Star from '/assets/star.png';
 
 function HeaderStartPage() {
-    return (
-        <Container>
+   return (
+      <Container>
+
             <MoonImgContainer>
                 <MoonImg src={Moon} alt="moon" />
             </MoonImgContainer>
+
             <TitelContainer>
                 <Title1>Welcome to your</Title1>
                 <Title2>DAILY HOROSCOPE</Title2>
             </TitelContainer>
+
             <StarImgContainer>
                 <StarImg src={Star} alt="star" />
             </StarImgContainer>
+            
         </Container>
     );
-}
+   }
+   
+export default HeaderStartPage;
 
 // STYLING
 const Container = styled.header`
@@ -137,5 +143,3 @@ const Title2 = styled.h1`
    }
 `;
 
-
-export default HeaderStartPage;
