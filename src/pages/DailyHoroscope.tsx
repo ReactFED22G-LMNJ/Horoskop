@@ -133,7 +133,7 @@ const SignName = styled.div`
 `;
 
 const AstrologyDataContainer = styled.div`
-  font-family: 'Lora', serif;
+  font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 2.2rem;
@@ -141,7 +141,8 @@ const AstrologyDataContainer = styled.div`
 `;
 
 const AstologyDate = styled.span`
-  font-family: 'Lora', serif;
+  font-family: 'Libre Baskerville', serif;
+  line-height: 2.2rem;
   font-weight: 700;
 `;
 
