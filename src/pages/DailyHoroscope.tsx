@@ -56,9 +56,11 @@ function DailyHoroscope() {
       <ErrorBoundary>
         <HeaderDailyHoroscope />
       </ErrorBoundary>
+
       <ErrorBoundary>
         <Navbar sign={sign} onDaySelect={handleDaySelect} />
       </ErrorBoundary>
+      
       <ErrorBoundary>
         <HoroscopeContainer>
           <HStatsContainer>

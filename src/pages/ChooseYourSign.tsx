@@ -13,6 +13,7 @@ function ChooseYourSign() {
         <HeaderChooseYourSign />
       </ErrorBoundary>
       <ErrorBoundary>
+        <ZodiacZignWrapper>
         <ZodiacSignContainer>
           {ZodiacSigns.map((zodiacSign) => (
             <ZodiacLink
@@ -27,6 +28,7 @@ function ChooseYourSign() {
             </ZodiacLink>
           ))}
         </ZodiacSignContainer>
+        </ZodiacZignWrapper>
       </ErrorBoundary>
       <FooterChooseYourSign/>
     </div>
@@ -35,12 +37,22 @@ function ChooseYourSign() {
 
 export default ChooseYourSign;
 
+ const ZodiacZignWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ `;
+
+
 const ZodiacSignContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1280px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1250px;
+
 `;
 
 export const ZodiacLink = styled(Link)`
