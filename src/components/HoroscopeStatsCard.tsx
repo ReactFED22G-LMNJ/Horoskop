@@ -7,6 +7,12 @@ interface Props {
     children: React.ReactNode;
 }
 
+/**
+ * Horoscope Stat Cards
+ * @param image, color, name, children (Props) 
+ * the children passed in consists of astrologyData fetched with API
+ * @returns renders a card about the chosen zodiac sign with parameters above passed in as Props 
+ */
 function HoroscopeStatCards({ image, color, name, children }: Props) {
 
     return(
@@ -26,9 +32,8 @@ function HoroscopeStatCards({ image, color, name, children }: Props) {
 
 export default HoroscopeStatCards;
 
-interface Props {
-    color: string;
-}
+
+//-------------Styling-------------//
 
 const StatCardContainer = styled.div`
     background-color: white;
