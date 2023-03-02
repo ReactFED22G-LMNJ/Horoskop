@@ -7,10 +7,15 @@ import ZodiacDropdown from "./ZodiacDropDown";
 import MoonStar from '/assets/moonstar.png';
 import Stars from '/assets/treStars.png';
 
+/**
+ * Header Daily Horoscope
+ * @returns a header component that displays the name of the user and the name of the chosen sign with "horoscope"
+ */
 function HeaderDailyHoroscope() {
-  const { sign } = useParams<{ sign: string}>();
-  const [storedName, setStoredName] = useLocalStorageState("", "name");
+  const { sign } = useParams<{ sign: string}>(); // extracts the sign parameter from the URL path
+  const [storedName, setStoredName] = useLocalStorageState("", "name"); // displays the stored name from to Local Storage
 
+  // if stored name is an empty string "Hello" will be displayed instead
   useEffect(() => {
     if (storedName === "") {
       setStoredName("Hello");
