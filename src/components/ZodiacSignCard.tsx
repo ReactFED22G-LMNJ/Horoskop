@@ -21,11 +21,8 @@ function ZodiacSignCard({ name, image, color, date, onClick }: Props) {
   );
 }
   
-  export default ZodiacSignCard;
+export default ZodiacSignCard;
 
-  interface Props {
-    color: string;
-  }
 
 const ZodiacSignColumn = styled.div`
   display: flex;

@@ -35,7 +35,7 @@ function FormBox() {
                 <ZodiacDropdown label="Zodiac Sign" />
             </ChooseYourSignInput>
             <BtnContainer>
-                <Button to="chooseyoursign">What's my sign?</Button>
+                <Button to="chooseyoursign" hoverColor="#f3e7dc">What's my sign?</Button>
             </BtnContainer>
         </Form>
     );
@@ -45,7 +45,7 @@ export default FormBox;
 
 
 const Form = styled.form`
-    background-color: white;
+    background-color:#FFFFFF;
     font-family: 'Tenor Sans', sans-serif;
     box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
     -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
