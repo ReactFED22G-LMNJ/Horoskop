@@ -43,7 +43,6 @@ export function useAstrologyData() {
         const response = await fetch(apiUrl, options);
         const data: AstrologyData = await response.json();
         setAstrologyData(data);
-        //console.log(data);
       } catch (error) {
         console.error(error);
       }

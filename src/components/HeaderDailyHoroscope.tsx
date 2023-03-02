@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
+import { device } from "../data/Breakpoints";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
-import { device } from "./Breakpoints";
 import ZodiacDropdown from "./ZodiacDropDown";
 import MoonStar from '/assets/moonstar.png';
 import Stars from '/assets/treStars.png';

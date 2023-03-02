@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { device } from "../components/Breakpoints";
-import FooterDailyHoroscope from "../components/FooterDailyHoroscope";
+import { Button } from "../components/Button";
+import Footer from "../components/Footer";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
 import Navbar from "../components/Navbar";
+import { device } from "../data/Breakpoints";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
 import ErrorBoundary from "../ErrorBoundry";
 import { useAstrologyData } from "../hooks/useAstrologyData";
@@ -33,9 +34,6 @@ function DailyHoroscope() {
       }
     }
     fetchData();
-    console.log(sign);
-    //console.log(ZodiacSigns[0].image)
-    console.log(ZodiacSigns[0].name);
   }, [sign, day]);
 
   if (isLoading) {
@@ -63,7 +61,6 @@ function DailyHoroscope() {
 
       <ErrorBoundary>
         <HoroscopeContainer>
-
           <HStatsContainer>
             {ZodiacSigns.map((zodiacSign) =>
               zodiacSign.name === sign ? (
@@ -71,15 +68,14 @@ function DailyHoroscope() {
                   key={zodiacSign.image}
                   image={`${window.location.origin}${zodiacSign.image}`}
                   name={zodiacSign.name}
-                  color={zodiacSign.color}
-                >
+                  color={zodiacSign.color}>
                   <SignName>{sign?.toUpperCase()}</SignName>
                   <p>Mood: {astrologyData?.mood}</p>
                   <p>Lucky Number: {astrologyData?.lucky_number}</p>
                   <p>Compatible with: {astrologyData?.compatibility}</p>
                 </HoroscopeStatCards>
               ) : null
-              )}
+            )}
           </HStatsContainer>
 
           <HDescriptionContainer>
@@ -88,12 +84,13 @@ function DailyHoroscope() {
               {astrologyData?.description}
             </AstrologyDataContainer>
           </HDescriptionContainer>
-          
         </HoroscopeContainer>
       </ErrorBoundary>
 
       <ErrorBoundary>
-      <FooterDailyHoroscope/>
+        <Footer>
+          <Button to="/chooseyoursign">All Zodiac Signs</Button>
+        </Footer>
       </ErrorBoundary>
     </div>
   );
@@ -105,13 +102,13 @@ const HoroscopeContainer = styled.div`
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 
   @media ${device.tablet} {
-      flex-direction: column;
-        align-items: center;
-    }
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const HDescriptionContainer = styled.div`
@@ -121,14 +118,14 @@ const HDescriptionContainer = styled.div`
   padding-top: 2rem;
 
   @media ${device.tablet} {
-      width: 70%;
-      padding-top: 0;
-      padding-bottom: 2rem;
-    }
+    width: 70%;
+    padding-top: 0;
+    padding-bottom: 2rem;
+  }
 
   @media ${device.mobileM} {
-      width: 80%;
-    }
+    width: 80%;
+  }
 `;
 
 const HStatsContainer = styled.div`
@@ -142,7 +139,7 @@ const SignName = styled.div`
 `;
 
 const AstrologyDataContainer = styled.div`
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 2.2rem;
@@ -150,8 +147,7 @@ const AstrologyDataContainer = styled.div`
 `;
 
 const AstologyDate = styled.span`
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   line-height: 2.2rem;
   font-weight: 700;
 `;
-
