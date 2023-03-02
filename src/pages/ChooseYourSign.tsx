@@ -44,6 +44,9 @@ function ChooseYourSign() {
 
 export default ChooseYourSign;
 
+
+//-------------Styling-------------//
+
  const ZodiacZignWrapper = styled.div`
     display: flex;
     justify-content: center;
