@@ -26,7 +26,9 @@ function HeaderStartPage() {
    
 export default HeaderStartPage;
 
-// STYLING
+
+//-------------Styling-------------//
+
 const Container = styled.header`
    display: flex;
    justify-content: space-evenly;
