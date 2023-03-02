@@ -7,17 +7,18 @@ interface Props {
   to?: string;
   onClick?: () => void;
   children: React.ReactNode;
+  hoverColor?: string;
 }
 
-export function Button({ to = "", children }: Props) {
-  return <StyledButton to={to}>{children}</StyledButton>;
+export function Button({ to = "", children, hoverColor }: Props) {
+  return <StyledButton to={to} hoverColor={hoverColor}>{children}</StyledButton>;
 }
 
 //-------------Styling-------------//
 
-const StyledButton = styled(NavLink)`
-  color: white;
-  background-color: black;
+const StyledButton = styled(NavLink)<{ hoverColor?: string }>`
+  color: #FFFFFF;
+  background-color: #000000;
   font-family: "Tenor Sans", sans-serif;
   font-size: 1.1rem;
   border-radius: 0.5rem;
@@ -33,12 +34,8 @@ const StyledButton = styled(NavLink)`
   text-decoration: none;
 
   &:hover {
-    background-color: #f3e7dc;
-    color: black;
-  }
-
-  &.active {
-    background-color: gray;
+    background-color: ${props => props.hoverColor || '#FFFFFF'}; 
+    color: #000000;
   }
 
   @media ${device.mobileXXL} {
