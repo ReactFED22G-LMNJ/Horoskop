@@ -48,6 +48,7 @@ const ZodiacSignContainer = styled.div`
   flex-wrap: wrap;
   padding-left: 1rem;
   padding-right: 1rem;
+  max-width: 1250px;
 
 `;
 

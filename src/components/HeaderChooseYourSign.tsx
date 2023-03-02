@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Stars from '/assets/stars.png';
 import { device } from './Breakpoints';
+import Stars from '/assets/stars.png';
 
 function HeaderChooseYourSign() {
     return (
@@ -25,6 +25,7 @@ function HeaderChooseYourSign() {
 const Container = styled.header`
     display: flex;
     justify-content: center;
+    width: 100vw;
     height: 8rem;
     -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
     -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
