@@ -49,6 +49,11 @@ const ZodiacSignColumn = styled.div`
   @media ${device.mobileXL} {
       width: 7.8rem;
     } 
+
+    @media ${device.mobileM} {
+      width: 7.3rem;
+    } 
+
 `;
 
 const ZodiacCircle = styled.div`
