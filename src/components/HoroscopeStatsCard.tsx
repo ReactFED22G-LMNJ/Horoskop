@@ -10,13 +10,16 @@ interface Props {
 function HoroscopeStatCards({ image, color, name, children }: Props) {
 
     return(
-        <StatCardContainer> 
+        <StatCardContainer>
+
             <SignHeader color={color}>
                 <Img src={image} alt={name}/>
             </SignHeader>
+
             <StatsContainer>
                 {children}
             </StatsContainer>
+            
         </StatCardContainer>
     );
 } 

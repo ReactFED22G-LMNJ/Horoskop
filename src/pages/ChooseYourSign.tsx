@@ -4,7 +4,7 @@ import FooterChooseYourSign from "../components/FooterChooseYourSign";
 import HeaderChooseYourSign from "../components/HeaderChooseYourSign";
 import ZodiacSignCard from "../components/ZodiacSignCard";
 import { ZodiacSigns } from "../data/ZodiacSignsData";
-import ErrorBoundary from "../ErrorBoundry";
+import { default as ErrorBoundary, default as ErrorBoundry } from "../ErrorBoundry";
 
 function ChooseYourSign() {
   return (
@@ -12,6 +12,7 @@ function ChooseYourSign() {
       <ErrorBoundary>
         <HeaderChooseYourSign />
       </ErrorBoundary>
+
       <ErrorBoundary>
         <ZodiacSignContainer>
           {ZodiacSigns.map((zodiacSign) => (
@@ -28,7 +29,12 @@ function ChooseYourSign() {
           ))}
         </ZodiacSignContainer>
       </ErrorBoundary>
+
+
+      <ErrorBoundry>
       <FooterChooseYourSign/>
+      </ErrorBoundry>
+
     </div>
   );
 }
