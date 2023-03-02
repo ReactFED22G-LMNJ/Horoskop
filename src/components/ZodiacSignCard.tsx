@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { device } from '../data/Breakpoints';
 
+
 interface Props {
     image: string;
     name: string;
@@ -9,11 +10,17 @@ interface Props {
     onClick?: () => void;
 }
 
+/**
+ * Zodiac Sign Card 
+ * @param name, image, color, date, onClick (Props)
+ * @returns a component that renders a zodiac sign card with parameters above passed in as Props
+ */
+
 function ZodiacSignCard({ name, image, color, date, onClick }: Props) {
   return (
       <ZodiacSignColumn color={color}>
         <ZodiacCircle color={color}>
-          <Img src={image} alt={name} onClick={onClick} />
+          <Img src={image} alt={name} onClick={onClick} /> 
         </ZodiacCircle>
         <Name color={color}>{name}</Name>
         <DateText>{date}</DateText>
@@ -23,6 +30,8 @@ function ZodiacSignCard({ name, image, color, date, onClick }: Props) {
   
 export default ZodiacSignCard;
 
+
+//-------------Styling-------------//
 
 const ZodiacSignColumn = styled.div`
   display: flex;
