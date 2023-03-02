@@ -1,3 +1,5 @@
+// Breakpoints for responsitivity
+
 const size = {
     mobileS: '320px',
     mobileM: '375px',
