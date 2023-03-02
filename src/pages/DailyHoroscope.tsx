@@ -72,7 +72,7 @@ function DailyHoroscope() {
                   image={`${window.location.origin}${zodiacSign.image}`}
                   name={zodiacSign.name}
                   color={zodiacSign.color}
-                  >
+                >
                   <SignName>{sign?.toUpperCase()}</SignName>
                   <p>Mood: {astrologyData?.mood}</p>
                   <p>Lucky Number: {astrologyData?.lucky_number}</p>

@@ -15,26 +15,27 @@ function ChooseYourSign() {
 
       <ErrorBoundary>
         <ZodiacZignWrapper>
-        <ZodiacSignContainer>
-          {ZodiacSigns.map((zodiacSign) => (
-            <ZodiacLink
-              key={zodiacSign.name}
-              to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}/today`}>
-              <ZodiacSignCard
-                image={zodiacSign.image}
-                name={zodiacSign.name}
-                color={zodiacSign.color}
-                date={zodiacSign.date}
-              />
-            </ZodiacLink>
-          ))}
-        </ZodiacSignContainer>
+          <ZodiacSignContainer>
+            {ZodiacSigns.map((zodiacSign) => (
+              <ZodiacLink
+                key={zodiacSign.name}
+                to={`/dailyhoroscope/${zodiacSign.name.toLowerCase()}/today`}
+              >
+                <ZodiacSignCard
+                  image={zodiacSign.image}
+                  name={zodiacSign.name}
+                  color={zodiacSign.color}
+                  date={zodiacSign.date}
+                />
+              </ZodiacLink>
+            ))}
+          </ZodiacSignContainer>
         </ZodiacZignWrapper>
       </ErrorBoundary>
 
 
       <ErrorBoundary>
-      <FooterChooseYourSign/>
+        <FooterChooseYourSign/>
       </ErrorBoundary>
 
     </div>

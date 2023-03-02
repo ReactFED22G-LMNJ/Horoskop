@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter, createRoutesFromElements, Route, RouterProvider
 } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundry';
 import './index.css';
 import ChooseYourSign from './pages/ChooseYourSign';
 import DailyHoroscope from './pages/DailyHoroscope';
@@ -23,6 +24,8 @@ const router = createBrowserRouter (
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <ErrorBoundary>
+      <RouterProvider router={router}/>
+    </ErrorBoundary>
   </React.StrictMode>,
 );
