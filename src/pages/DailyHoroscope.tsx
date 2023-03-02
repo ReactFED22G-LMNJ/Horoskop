@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { device } from "../components/Breakpoints";
-import { Button } from "../components/Button";
 import FooterDailyHoroscope from "../components/FooterDailyHoroscope";
 import HeaderDailyHoroscope from "../components/HeaderDailyHoroscope";
 import HoroscopeStatCards from "../components/HoroscopeStatsCard";
@@ -97,7 +96,8 @@ const HoroscopeContainer = styled.div`
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  background-color: white;
+  background-color: #FFFFFF;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 
   @media ${device.tablet} {
       flex-direction: column;
