@@ -34,7 +34,9 @@ function HeaderChooseYourSign() {
 
 export default HeaderChooseYourSign;
 
-// STYLING
+
+//-------------Styling-------------//
+
 const Container = styled.header`
     display: flex;
     justify-content: center;
