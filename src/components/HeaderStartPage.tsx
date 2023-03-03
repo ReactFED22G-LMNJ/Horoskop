@@ -40,6 +40,7 @@ const Container = styled.header`
 const MoonImgContainer = styled.div`
    display: flex;
    align-items: center;
+   width: 16%;
 
    @media ${device.mobileXXL} {
       margin-top: 1rem;
