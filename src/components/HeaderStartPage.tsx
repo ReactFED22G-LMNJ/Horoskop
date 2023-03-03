@@ -6,7 +6,6 @@ import Star from '/assets/star.png';
 function HeaderStartPage() {
    return (
       <Container>
-
             <MoonImgContainer>
                 <MoonImg src={Moon} alt="moon" />
             </MoonImgContainer>
@@ -19,13 +18,11 @@ function HeaderStartPage() {
             <StarImgContainer>
                 <StarImg src={Star} alt="star" />
             </StarImgContainer>
-            
         </Container>
     );
    }
    
 export default HeaderStartPage;
-
 
 //-------------Styling-------------//
 

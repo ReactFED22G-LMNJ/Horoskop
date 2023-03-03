@@ -13,10 +13,10 @@ import Stars from '/assets/treStars.png';
  */
 
 function HeaderDailyHoroscope() {
-  const { sign } = useParams<{ sign: string}>(); // extracts the sign parameter from the URL path
-  const [storedName, setStoredName] = useLocalStorageState("", "name"); // displays the stored name from to Local Storage
+  const { sign } = useParams<{ sign: string}>(); // Extracts the sign parameter from the URL path
+  const [storedName, setStoredName] = useLocalStorageState("", "name"); // Displays the stored name from to Local Storage
 
-  // if stored name is an empty string "Hello" will be displayed instead
+  // If stored name is an empty string "Hello" will be displayed instead
   useEffect(() => {
     if (storedName === "") {
       setStoredName("Hello");
@@ -49,7 +49,6 @@ function HeaderDailyHoroscope() {
     );
 }
 export default HeaderDailyHoroscope;
-
 
 //-------------Styling-------------//
 
