@@ -59,8 +59,6 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
 
   // Scrolls down the dropdown content when the user clicks on it
   const handleScrollDown = () => {
-    console.log(dropdownRef.current);
-
     const dropdownContent =
       dropdownRef.current?.querySelector(".dropdown-content");
     if (dropdownContent) {
