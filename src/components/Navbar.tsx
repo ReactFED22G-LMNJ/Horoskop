@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { device } from '../data/Breakpoints';
+import { device } from "../data/Breakpoints";
 
 interface Props {
   sign: string | undefined;
@@ -8,24 +8,36 @@ interface Props {
 }
 
 /**
- * Navigation bar
  * Component that renders the navigation bar with links to view horoscopes for the selected day
  * @param sign The zodiac sign for which the horoscope is being displayed
  * @param onDaySelect Callback function to handle selection of the day to display
  */
 function Navbar({ sign, onDaySelect }: Props) {
-
   return (
     <NavContainer>
-    <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/yesterday`} onClick={() => onDaySelect('yesterday')}>Yesterday</NavLinkStyled>
-    <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/today`} onClick={() => onDaySelect('today')}>Today</NavLinkStyled>
-    <NavLinkStyled to={`/dailyhoroscope/${sign?.toLowerCase()}/tomorrow`} onClick={() => onDaySelect('tomorrow')}>Tomorrow</NavLinkStyled>
-  </NavContainer>
+      <NavLinkStyled
+        to={`/dailyhoroscope/${sign?.toLowerCase()}/yesterday`}
+        onClick={() => onDaySelect("yesterday")}
+      >
+        Yesterday
+      </NavLinkStyled>
+      <NavLinkStyled
+        to={`/dailyhoroscope/${sign?.toLowerCase()}/today`}
+        onClick={() => onDaySelect("today")}
+      >
+        Today
+      </NavLinkStyled>
+      <NavLinkStyled
+        to={`/dailyhoroscope/${sign?.toLowerCase()}/tomorrow`}
+        onClick={() => onDaySelect("tomorrow")}
+      >
+        Tomorrow
+      </NavLinkStyled>
+    </NavContainer>
   );
 }
 
 export default Navbar;
-
 
 //-------------Styling-------------//
 
@@ -34,13 +46,13 @@ const NavContainer = styled.nav`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: #FFFFFF;
+  background: #ffffff;
   height: 4rem;
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
-  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
-  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
-  box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
+  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0, 0, 0, 0.37);
+  box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0, 0, 0, 0.37);
 `;
 
 const NavLinkStyled = styled(NavLink)`
@@ -53,7 +65,7 @@ const NavLinkStyled = styled(NavLink)`
   font-size: 1.125rem;
 
   &:hover {
-    background-color: #F6F3EF;
+    background-color: #f6f3ef;
   }
 
   &.active {
@@ -62,8 +74,8 @@ const NavLinkStyled = styled(NavLink)`
   }
 
   @media ${device.mobileXL} {
-      font-size: 1rem;
-    }  
+    font-size: 1rem;
+  }
 
   @media ${device.mobileL} {
     font-size: 0.9rem;
@@ -71,4 +83,3 @@ const NavLinkStyled = styled(NavLink)`
     margin-right: 0.6rem;
   }
 `;
-

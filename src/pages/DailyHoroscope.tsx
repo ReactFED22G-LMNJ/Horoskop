@@ -49,16 +49,19 @@ function DailyHoroscope() {
 
   return (
     <div>
+      {/* //-------------Header-------------// */}
       <ErrorBoundary>
         <HeaderDailyHoroscope />
       </ErrorBoundary>
 
+      {/* //-------------Navbar-------------// */}
       <ErrorBoundary>
         <Navbar sign={sign} onDaySelect={handleDaySelect} />
       </ErrorBoundary>
 
       <ErrorBoundary>
         <HoroscopeContainer>
+          {/* //-------------Horoscope card-------------// */}
           <HStatsContainer>
             {ZodiacSigns.map((zodiacSign) =>
               zodiacSign.name === sign ? (
@@ -77,6 +80,7 @@ function DailyHoroscope() {
             )}
           </HStatsContainer>
 
+          {/* //-------------Daily reading-------------// */}
           <HDescriptionContainer>
             <AstrologyDataContainer>
               <AstologyDate>{astrologyData?.current_date} - </AstologyDate>
@@ -86,6 +90,7 @@ function DailyHoroscope() {
         </HoroscopeContainer>
       </ErrorBoundary>
 
+      {/* //-------------Footer-------------// */}
       <ErrorBoundary>
         <Footer>
           <Button to="/chooseyoursign">All Zodiac Signs</Button>
@@ -96,7 +101,6 @@ function DailyHoroscope() {
 }
 
 export default DailyHoroscope;
-
 
 //-------------Styling-------------//
 

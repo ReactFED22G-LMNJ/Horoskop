@@ -13,10 +13,13 @@ import ThreeStars from "/assets/threesmallstars.png";
 function StartPage() {
   return (
     <div>
+      {/* //-------------Header-------------// */}
       <ErrorBoundary>
         <HeaderStartPage />
       </ErrorBoundary>
+
       <Container>
+        {/* //-------------Images left-------------// */}
         <LeftSmallContainer>
           <SunImgContainer>
             <SunImg src={Sun} alt="sun" />
@@ -31,12 +34,14 @@ function StartPage() {
           </ThreeStarsImgContainer>
         </LeftSmallContainer>
 
+        {/* //-------------Form-------------// */}
         <FormContainer>
           <ErrorBoundary>
             <FormBox />
           </ErrorBoundary>
         </FormContainer>
 
+        {/* //-------------Images right-------------// */}
         <RightSmallContainer>
           <MiniStarContainer>
             <MiniStarImg src={MiniStar} alt="ministar" />
@@ -57,7 +62,6 @@ function StartPage() {
 }
 
 export default StartPage;
-
 
 //-------------Styling-------------//
 
@@ -237,5 +241,3 @@ const ThreeStarsImgRight = styled.img`
     height: 45%;
   }
 `;
-
-
