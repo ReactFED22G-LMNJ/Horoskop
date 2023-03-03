@@ -58,30 +58,33 @@ export default FormBox;
 //-------------Styling-------------//
 
 const Form = styled.form`
-  background-color: #ffffff;
-  font-family: "Tenor Sans", sans-serif;
-  box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.37);
-  -webkit-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.37);
-  -moz-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.37);
-  font-size: 1.4rem;
-  margin-bottom: 4rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0.5rem;
-  padding: 4.5rem;
-  gap: 2rem;
+    background-color: #FFFFFF;
+    font-family: 'Tenor Sans', sans-serif;
+    box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.37);
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    padding: 4.5rem;
+    gap: 2rem;
 
-  @media ${device.tabletXL} {
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
+    @media ${device.laptop} {
+      padding: 3rem 2rem ;
+    }
 
-  @media ${device.mobileXXL} {
-    font-size: 1.2rem;
-    padding: 3rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
+    @media ${device.tabletXL} {
+      padding: 3rem 2rem ;
+    }
+
+    @media ${device.mobileXXL} {
+      font-size: 1.2rem;
+      padding: 3rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
 `;
 
 const Input = styled.input`

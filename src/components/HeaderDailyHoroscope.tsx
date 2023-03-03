@@ -59,7 +59,6 @@ const Container = styled.header`
 
   @media ${device.mobileXL} {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -152,6 +151,7 @@ const TitelsContainer = styled.div`
   justify-content: flex-start;
 
   @media ${device.mobileXL} {
+    padding-top: 1rem;
     align-items: center;
   }
 `;
@@ -179,12 +179,13 @@ const Title1 = styled.h1`
   }
 
   @media ${device.mobileXL} {
-    font-size: 2.8rem;
+    text-align: center;
+    font-size: 2.3rem;
   }
 `;
 
-const Title2 = styled.h1`
-  font-family: "Tenor Sans", sans-serif;
+const Title2 = styled.h2`
+  font-family: 'Tenor Sans', sans-serif;
   padding-left: 4rem;
   font-size: 2.6rem;
   font-weight: 300;
@@ -192,21 +193,21 @@ const Title2 = styled.h1`
 
   @media ${device.laptop} {
     font-size: 2.3rem;
-  }
+  } 
 
   @media ${device.tabletXXL} {
     font-size: 2rem;
-  }
+  }  
 
   @media ${device.tablet} {
     font-size: 1.6rem;
     padding-left: 0rem;
-  }
+  }  
 
   @media ${device.mobileXL} {
     font-size: 2.1rem;
-    text-align: center;
-  }
+    text-align: center; 
+  }  
 
   @media ${device.mobileL} {
     font-size: 1.9rem;

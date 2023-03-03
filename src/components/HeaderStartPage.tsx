@@ -27,56 +27,55 @@ export default HeaderStartPage;
 //-------------Styling-------------//
 
 const Container = styled.header`
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 1rem;
+   display: flex;
+   justify-content: space-evenly;
+   margin-top: 1rem;
 
-  @media ${device.mobileXXL} {
-    margin-top: 2rem;
-    gap: 5%;
-  }
-
-  @media ${device.mobileM} {
-    gap: 2%;
-  }
+   @media ${device.mobileXXL} {
+      margin-top: 2rem;
+   }
 `;
 
 const MoonImgContainer = styled.div`
-  display: flex;
-  align-items: center;
+   display: flex;
+   align-items: center;
+   width: 16%;
 
-  @media ${device.mobileXXL} {
-    margin-top: 1rem;
-    align-items: flex-start;
-    justify-content: flex-end;
-  }
+   @media ${device.mobileXXL} {
+      margin-top: 1rem;
+      align-items: flex-start;
+      justify-content: flex-end;
+      width: 19%;
+   }
+
+   @media ${device.mobileL} {
+      display: none;
+   }
 `;
 
 const StarImgContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   width: 20%;
 
-  @media ${device.mobileXXL} {
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  @media ${device.mobileXXL} {
-    justify-content: flex-start;
-  }
+   @media ${device.mobileXXL} {
+      align-items: center;
+      justify-content: flex-start;
+      width: 15%;
+   }
 `;
 
 const MoonImg = styled.img`
   height: 50%;
 
-  @media ${device.mobileXXL} {
-    height: 40%;
-  }
-
-  @media ${device.mobileL} {
-    height: 30%;
-  }
+   @media ${device.mobileXXL} {
+      height: 40%;
+   }
+   
+   @media ${device.mobileL} {
+      height: 30%;
+   }
 `;
 
 const StarImg = styled.img`
@@ -86,58 +85,82 @@ const StarImg = styled.img`
     height: 45%;
   }
 
-  @media ${device.mobileL} {
-    height: 35%;
-  }
+   @media ${device.mobileXL} {
+       height: 40%;
+   }
+
+   @media ${device.mobileL} {
+       height: 30%;
+   }
 `;
 
 const TitelContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+   display: flex;
+   flex-direction: column;
+
+   @media ${device.mobileXXL} {
+      justify-content: center;
+   }
+
+   @media ${device.mobileXL} {
+      justify-content: center;
+   }
+
+   @media ${device.mobileL} {
+      padding-left: 0.5rem;
+   }
 `;
 
 const Title1 = styled.h1`
-  font-family: "Monsieur La Doulaise";
-  font-size: 4rem;
-  font-weight: 400;
-  margin: 0;
+   font-family: 'Monsieur La Doulaise';
+   font-size: 4rem;
+   font-weight: 400;
+   margin: 0;
 
-  @media ${device.tablet} {
-    font-size: 3.6rem;
-  }
+   @media ${device.tablet} {
+      font-size: 3.6rem;
+   }
 
-  @media ${device.mobileXXL} {
-    font-size: 2.8rem;
-  }
+   @media ${device.mobileXXL} {
+      font-size: 2.8rem;
+   }
 
-  @media ${device.mobileXL} {
-    font-size: 2.6rem;
-  }
+   @media ${device.mobileXL} {
+      font-size: 2.3rem;
+   }
 
-  @media ${device.mobileL} {
-    font-size: 2.4rem;
-  }
+   @media ${device.mobileL} {
+      font-size: 2.4rem;
+   }
 `;
 
-const Title2 = styled.h1`
-  font-family: "Tenor Sans", sans-serif;
-  font-size: 3rem;
-  font-weight: 300;
-  margin: 0;
+const Title2 = styled.h2`
+   font-family: 'Tenor Sans', sans-serif;
+   font-size: 3rem;
+   font-weight: 300;
+   margin: 0;
 
-  @media ${device.tabletXL} {
-    font-size: 2.5rem;
-  }
+   @media ${device.tabletXL} {
+      font-size: 2.5rem;
+   }
 
-  @media ${device.tablet} {
-    font-size: 2.3rem;
-  }
+   @media ${device.tablet} {
+      font-size: 2.3rem;
+   }
 
-  @media ${device.mobileXXL} {
-    font-size: 2rem;
-  }
+   @media ${device.mobileXXL} {
+      font-size: 1.4rem;
+   }
 
-  @media ${device.mobileL} {
-    font-size: 1.8rem;
-  }
+   @media ${device.mobileXL} {
+      font-size: 1.2rem;
+   }
+
+   @media ${device.mobileL} {
+      font-size: 1.8rem;
+   }
+
+   @media ${device.mobileM} {
+      font-size: 1.5rem;
+   }
 `;
