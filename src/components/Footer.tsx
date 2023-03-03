@@ -16,6 +16,9 @@ function FooterDailyHoroscope({children}: Props) {
 
 export default FooterDailyHoroscope;
 
+
+//-------------Styling-------------//
+
 const FooterContainer = styled.footer`
     display: flex;
     justify-content: center;
@@ -23,5 +26,4 @@ const FooterContainer = styled.footer`
     flex-wrap: wrap;
     height: 5rem;
     margin-top: 0.2rem;
-
 `;

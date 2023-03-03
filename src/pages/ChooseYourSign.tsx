@@ -9,10 +9,12 @@ import { default as ErrorBoundary } from "../ErrorBoundry";
 function ChooseYourSign() {
   return (
     <div>
+      {/* //-------------Header-------------// */}
       <ErrorBoundary>
         <HeaderChooseYourSign />
       </ErrorBoundary>
 
+      {/* //-------------Horoscope cards-------------// */}
       <ErrorBoundary>
         <ZodiacZignWrapper>
           <ZodiacSignContainer>
@@ -33,23 +35,23 @@ function ChooseYourSign() {
         </ZodiacZignWrapper>
       </ErrorBoundary>
 
-
+      {/* //-------------Footer-------------// */}
       <ErrorBoundary>
-        <Footer/>
+        <Footer />
       </ErrorBoundary>
-
     </div>
   );
 }
 
 export default ChooseYourSign;
 
- const ZodiacZignWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
- `;
+//-------------Styling-------------//
 
+const ZodiacZignWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const ZodiacSignContainer = styled.div`
   display: flex;
@@ -59,11 +61,9 @@ const ZodiacSignContainer = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
   max-width: 1250px;
-
 `;
 
 export const ZodiacLink = styled(Link)`
   color: #000000;
   text-decoration: none;
 `;
-

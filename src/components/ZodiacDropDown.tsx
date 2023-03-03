@@ -1,35 +1,55 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import TriangleArrow from '/assets/triangle-arrow.png';
+import { useEffect, useRef, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import styled from "styled-components";
+import TriangleArrow from "/assets/triangle-arrow.png";
+
+/** A component that renders a drop down list for selecting a particular zodiac sign */
 
 interface Props {
-  label: string;
+  label: string; // String that will be displayed on the button that toggles the drop down
 }
 
 const ZodiacDropdown: React.FC<Props> = ({ label }) => {
+  // Manages whether or not the drop down is currently being shown
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownContentRef = useRef<HTMLDivElement>(null);
-  const { day } = useParams<{ day: string}>();
 
+  // Manages which zodiac sign has been selected
+  const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null);
+
+  // Creates references to the dropdown container
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Creates references to the dropdown content container
+  const dropdownContentRef = useRef<HTMLDivElement>(null);
+
+  // Gets the day parameter from the current URL
+  const { day } = useParams<{ day: string }>();
+
+  // Gets called when the user selects a zodiac sign from the dropdown list
+  // Updates the ZelectedZodiac state variable and hides the dropdown list
   const handleZodiacSelect = (zodiac: string) => {
     setSelectedZodiac(zodiac);
     setShowDropdown(false);
   };
-  
+
+  // Adds an event listener to the window to handle clicking outside of the dropdown to close it
   useEffect(() => {
     const handleClickOutsideDropdown = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setShowDropdown(false);
       }
     };
 
-    window.addEventListener('click', handleClickOutsideDropdown);
-    return () => window.removeEventListener('click', handleClickOutsideDropdown);
+    window.addEventListener("click", handleClickOutsideDropdown);
+    return () =>
+      window.removeEventListener("click", handleClickOutsideDropdown);
   }, []);
 
+  // Resets the dropdown and deselects the selected zodiac sign
+  // If the dropdown is being shown and a zodiac sign has been selected
   useEffect(() => {
     if (dropdownContentRef.current && showDropdown && selectedZodiac !== null) {
       setShowDropdown(false);
@@ -37,52 +57,62 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     }
   }, [showDropdown, selectedZodiac]);
 
+  // Scrolls down the dropdown content when the user clicks on it
   const handleScrollDown = () => {
-    console.log(dropdownRef.current)
+    console.log(dropdownRef.current);
 
-    const dropdownContent = dropdownRef.current?.querySelector('.dropdown-content');
+    const dropdownContent =
+      dropdownRef.current?.querySelector(".dropdown-content");
     if (dropdownContent) {
-      dropdownContent.scrollTop += 50; 
+      dropdownContent.scrollTop += 50; // Scrolls the dropdown list down by 50px
     }
   };
 
+  // Array of the names of the zodiac signs displayed in the drop down list
   const zodiacs = [
-    'Aries',
-    'Taurus',    
-    'Gemini',    
-    'Cancer',    
-    'Leo',    
-    'Virgo',    
-    'Libra',    
-    'Scorpio',    
-    'Sagittarius',    
-    'Capricorn',    
-    'Aquarius',    
-    'Pisces'
-    ];
+    "Aries",
+    "Taurus",
+    "Gemini",
+    "Cancer",
+    "Leo",
+    "Virgo",
+    "Libra",
+    "Scorpio",
+    "Sagittarius",
+    "Capricorn",
+    "Aquarius",
+    "Pisces",
+  ];
 
+  /** Zodiac signs drop down list
+   * Contains links to the daily horoscope page for each zodiac sign */
   return (
-    <Dropdown ref={dropdownRef}>
+    <DropdownNav ref={dropdownRef}>
       <DropdownButton onClick={() => setShowDropdown(!showDropdown)}>
         {label}
         <TriangleArrowIcon src={TriangleArrow} alt="arrow down icon" />
       </DropdownButton>
       <DropdownContent show={showDropdown} onClick={handleScrollDown}>
         {zodiacs.map((zodiac: string) => (
-          <ZodiacLink key={zodiac} to={`/dailyhoroscope/${zodiac.toLowerCase()}/${day || 'today'}`}>
-          <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
-            {zodiac}
-          </ZodiacSign>
+          <ZodiacLink
+            key={zodiac}
+            to={`/dailyhoroscope/${zodiac.toLowerCase()}/${day || "today"}`}
+          >
+            <ZodiacSign key={zodiac} onClick={() => handleZodiacSelect(zodiac)}>
+              {zodiac}
+            </ZodiacSign>
           </ZodiacLink>
         ))}
       </DropdownContent>
-    </Dropdown>
+    </DropdownNav>
   );
 };
 
 export default ZodiacDropdown;
 
-const Dropdown = styled.div`
+//-------------Styling-------------//
+
+const DropdownNav = styled.nav`
   position: relative;
   display: inline-block;
 `;
@@ -93,7 +123,7 @@ const DropdownButton = styled.button`
   padding: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  font-family: 'Tenor Sans', sans-serif;
+  font-family: "Tenor Sans", sans-serif;
   border: 0.08rem solid;
   border-radius: 0.5rem;
   width: 10rem;
@@ -104,16 +134,16 @@ const DropdownButton = styled.button`
 `;
 
 const TriangleArrowIcon = styled.img`
-    height: 1.2rem;
-`; 
+  height: 1.2rem;
+`;
 
 export const ZodiacLink = styled(Link)`
-   color: #000000;
-   text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 `;
 
 const DropdownContent = styled.div`
-  display: ${(props: { show: boolean }) => (props.show ? 'block' : 'none')};
+  display: ${(props: { show: boolean }) => (props.show ? "block" : "none")};
   position: absolute;
   z-index: 1;
   background-color: #ffffff;
@@ -121,7 +151,7 @@ const DropdownContent = styled.div`
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
   padding: 0.75rem 1rem;
   margin-top: 0.5rem;
-  font-family: 'Tenor Sans', sans-serif;
+  font-family: "Tenor Sans", sans-serif;
   border-radius: 0.5rem;
   font-size: 1rem;
   max-height: 12rem;
@@ -132,7 +162,7 @@ const DropdownContent = styled.div`
 const ZodiacSign = styled.div`
   padding: 0.4rem;
   &:hover {
-    background-color: #F6F3EF;
+    background-color: #f6f3ef;
     border-radius: 0.5rem;
   }
 `;

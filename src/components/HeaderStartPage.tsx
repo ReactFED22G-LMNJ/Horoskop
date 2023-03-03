@@ -1,32 +1,31 @@
-import styled from 'styled-components';
-import { device } from '../data/Breakpoints';
-import Moon from '/assets/moon.png';
-import Star from '/assets/star.png';
+import styled from "styled-components";
+import { device } from "../data/Breakpoints";
+import Moon from "/assets/moon.png";
+import Star from "/assets/star.png";
 
 function HeaderStartPage() {
-   return (
-      <Container>
+  return (
+    <Container>
+      <MoonImgContainer>
+        <MoonImg src={Moon} alt="moon" />
+      </MoonImgContainer>
 
-            <MoonImgContainer>
-                <MoonImg src={Moon} alt="moon" />
-            </MoonImgContainer>
+      <TitelContainer>
+        <Title1>Welcome to your</Title1>
+        <Title2>DAILY HOROSCOPE</Title2>
+      </TitelContainer>
 
-            <TitelContainer>
-                <Title1>Welcome to your</Title1>
-                <Title2>DAILY HOROSCOPE</Title2>
-            </TitelContainer>
+      <StarImgContainer>
+        <StarImg src={Star} alt="star" />
+      </StarImgContainer>
+    </Container>
+  );
+}
 
-            <StarImgContainer>
-                <StarImg src={Star} alt="star" />
-            </StarImgContainer>
-            
-        </Container>
-    );
-   }
-   
 export default HeaderStartPage;
 
-// STYLING
+//-------------Styling-------------//
+
 const Container = styled.header`
    display: flex;
    justify-content: space-evenly;
@@ -68,7 +67,7 @@ const StarImgContainer = styled.div`
 `;
 
 const MoonImg = styled.img`
-   height: 50%;
+  height: 50%;
 
    @media ${device.mobileXXL} {
       height: 40%;
@@ -80,11 +79,11 @@ const MoonImg = styled.img`
 `;
 
 const StarImg = styled.img`
-   height: 55%;
+  height: 55%;
 
-   @media ${device.mobileXXL} {
-       height: 45%;
-   }
+  @media ${device.mobileXXL} {
+    height: 45%;
+  }
 
    @media ${device.mobileXL} {
        height: 40%;
@@ -165,4 +164,3 @@ const Title2 = styled.h2`
       font-size: 1.5rem;
    }
 `;
-

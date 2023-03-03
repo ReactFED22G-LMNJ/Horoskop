@@ -4,10 +4,10 @@ import { device } from "../data/Breakpoints";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import Stars from "/assets/stars.png";
 
-
 function HeaderChooseYourSign() {
   const [storedName, setStoredName] = useLocalStorageState("", "name");
 
+  // Checks if the value of name is ampty and sets it to "Hello" if so :-D
   useEffect(() => {
     if (storedName === "") {
       setStoredName("Hello");
@@ -33,20 +33,21 @@ function HeaderChooseYourSign() {
 
 export default HeaderChooseYourSign;
 
-// STYLING
-const Container = styled.header`
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100vw;
-    -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
-    -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
-    box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
-    padding-top: 1.4rem;
-    padding-bottom: 1.4rem;
-    margin-bottom: 1.8rem;
+//-------------Styling-------------//
 
-    @media ${device.mobileM} {
+const Container = styled.header`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
+  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
+  box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+
+  @media ${device.mobileM} {
     flex-direction: column;
     align-items: center;
     padding-top: 1rem;

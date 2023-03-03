@@ -4,114 +4,116 @@ import styled from "styled-components";
 import { device } from "../data/Breakpoints";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import ZodiacDropdown from "./ZodiacDropDown";
-import MoonStar from '/assets/moonstar.png';
-import Stars from '/assets/treStars.png';
+import MoonStar from "/assets/moonstar.png";
+import Stars from "/assets/treStars.png";
+
+/**
+ * Renders a header component that displays the name of the user and the name of the chosen sign with "horoscope"
+ */
 
 function HeaderDailyHoroscope() {
-  const { sign } = useParams<{ sign: string}>();
-  const [storedName, setStoredName] = useLocalStorageState("", "name");
+  const { sign } = useParams<{ sign: string }>(); // Extracts the sign parameter from the URL path
+  const [storedName, setStoredName] = useLocalStorageState("", "name"); // Displays the stored name from to Local Storage
 
+  // If stored name is an empty string "Hello" will be displayed instead
   useEffect(() => {
     if (storedName === "") {
       setStoredName("Hello");
     }
   }, [storedName]);
 
-    return (
-        <Container>
+  return (
+    <Container>
+      <TitelsContainer>
+        <Title1>{storedName}, here is your</Title1>
+        <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
+      </TitelsContainer>
 
-            <TitelsContainer>
-                <Title1>{storedName}, here is your</Title1> 
-                <Title2>{sign?.toUpperCase()} HOROSCOPE</Title2>
-            </TitelsContainer>
+      <DropDownAndStarsImgContainer>
+        <StarsImg src={Stars} alt="stars" />
 
-            <DropDownAndStarsImgContainer>
+        <DropDownContainer>
+          <ZodiacDropdown label="Change sign" />
+        </DropDownContainer>
+      </DropDownAndStarsImgContainer>
 
-                <StarsImg src={Stars} alt="stars" />
-                
-                <DropDownContainer>
-                    <ZodiacDropdown label="Change sign" />
-                </DropDownContainer>
-
-            </DropDownAndStarsImgContainer>
-
-            <MoonStarContainer>
-                <MoonStarImg src={MoonStar} alt="moonstar" />
-            </MoonStarContainer>
-
-        </Container>
-    );
+      <MoonStarContainer>
+        <MoonStarImg src={MoonStar} alt="moonstar" />
+      </MoonStarContainer>
+    </Container>
+  );
 }
 export default HeaderDailyHoroscope;
 
-// STYLING
-const Container = styled.header`
-    display: flex;
-    justify-content: center;
-    padding-top: 1.4rem;
-    padding-bottom: 1rem;
-    flex-wrap: wrap;
-    -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0,0,0,0.37);
-    -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
-    box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0,0,0,0.37);
+//-------------Styling-------------//
 
-    @media ${device.mobileXL} {
-      flex-direction: column;
-      align-items: center;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }  
+const Container = styled.header`
+  display: flex;
+  justify-content: center;
+  padding-top: 1.4rem;
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+  -webkit-box-shadow: 0 0.625rem 0.375rem -0.375rem rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0, 0, 0, 0.37);
+  box-shadow: 0 0.625rem 0.375 -0.375rem rgba(0, 0, 0, 0.37);
+
+  @media ${device.mobileXL} {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 const DropDownAndStarsImgContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 9rem;
-    align-items: flex-end;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 9rem;
+  align-items: flex-end;
+  justify-content: space-between;
 
-    @media ${device.laptop} {
-      height: 8.7rem;
-    }
+  @media ${device.laptop} {
+    height: 8.7rem;
+  }
 
-    @media ${device.tabletXXL} {
-      height: 7.8rem;
-    } 
+  @media ${device.tabletXXL} {
+    height: 7.8rem;
+  }
 
-    @media ${device.tabletXL} {
-      height: 7.3rem;
-    } 
+  @media ${device.tabletXL} {
+    height: 7.3rem;
+  }
 
-    @media ${device.tablet} {
-      height: 6rem;
-    } 
+  @media ${device.tablet} {
+    height: 6rem;
+  }
 
-    @media ${device.mobileXXL} {
-      align-items: center;
-      flex-direction: row-reverse;
-      justify-content: center;
-      gap: 1rem;
-    }  
+  @media ${device.mobileXXL} {
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 1rem;
+  }
 `;
 
 const DropDownContainer = styled.div`
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media ${device.mobileXXL} {
     justify-content: center;
-    align-items: center;
-    
-    @media ${device.mobileXXL} {
-      justify-content: center;
-      width: fit-content;
-    } 
+    width: fit-content;
+  }
 `;
 
 const StarsImg = styled.img`
-    width: 60%;
+  width: 60%;
 
   @media ${device.tabletXXL} {
     width: 45%;
-  }    
+  }
 
   @media ${device.tablet} {
     width: 35%;
@@ -119,7 +121,7 @@ const StarsImg = styled.img`
 
   @media ${device.mobileXXL} {
     width: 20%;
-  } 
+  }
 `;
 
 const MoonStarContainer = styled.div`
@@ -132,15 +134,15 @@ const MoonStarContainer = styled.div`
 `;
 
 const MoonStarImg = styled.img`
-    width: 70%;
+  width: 70%;
 
-    @media ${device.laptopL} {
-      width: 90%;
-    }   
+  @media ${device.laptopL} {
+    width: 90%;
+  }
 
-    @media ${device.laptop} {
-      width: 100%;
-    }
+  @media ${device.laptop} {
+    width: 100%;
+  }
 `;
 
 const TitelsContainer = styled.div`
@@ -148,10 +150,10 @@ const TitelsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-    @media ${device.mobileXL} {
-      padding-top: 1rem;
-      align-items: center;
-    }
+  @media ${device.mobileXL} {
+    padding-top: 1rem;
+    align-items: center;
+  }
 `;
 
 const Title1 = styled.h1`
@@ -166,7 +168,7 @@ const Title1 = styled.h1`
 
   @media ${device.tabletXL} {
     font-size: 3.2rem;
-  } 
+  }
 
   @media ${device.tablet} {
     font-size: 3rem;
@@ -183,31 +185,31 @@ const Title1 = styled.h1`
 `;
 
 const Title2 = styled.h2`
-    font-family: 'Tenor Sans', sans-serif;
-    padding-left: 4rem;
-    font-size: 2.6rem;
-    font-weight: 300;
-    margin: 0;
+  font-family: 'Tenor Sans', sans-serif;
+  padding-left: 4rem;
+  font-size: 2.6rem;
+  font-weight: 300;
+  margin: 0;
 
-    @media ${device.laptop} {
-      font-size: 2.3rem;
-    } 
+  @media ${device.laptop} {
+    font-size: 2.3rem;
+  } 
 
-    @media ${device.tabletXXL} {
-      font-size: 2rem;
-    }  
+  @media ${device.tabletXXL} {
+    font-size: 2rem;
+  }  
 
-    @media ${device.tablet} {
-      font-size: 1.6rem;
-      padding-left: 0rem;
-    }  
+  @media ${device.tablet} {
+    font-size: 1.6rem;
+    padding-left: 0rem;
+  }  
 
-    @media ${device.mobileXL} {
-      font-size: 2.1rem;
-      text-align: center; 
-    }  
+  @media ${device.mobileXL} {
+    font-size: 2.1rem;
+    text-align: center; 
+  }  
 
-    @media ${device.mobileL} {
-      font-size: 1.9rem;
-    }  
+  @media ${device.mobileL} {
+    font-size: 1.9rem;
+  }
 `;

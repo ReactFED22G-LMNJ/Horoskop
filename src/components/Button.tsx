@@ -14,6 +14,7 @@ export function Button({ to = "", children, hovercolor }: Props) {
   return <StyledButton to={to} hovercolor={hovercolor}>{children}</StyledButton>;
 }
 
+
 //-------------Styling-------------//
 
 const StyledButton = styled(NavLink)<{ hovercolor?: string }>`
