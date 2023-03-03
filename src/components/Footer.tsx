@@ -16,6 +16,7 @@ function FooterDailyHoroscope({children}: Props) {
 
 export default FooterDailyHoroscope;
 
+
 //-------------Styling-------------//
 
 const FooterContainer = styled.footer`

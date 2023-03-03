@@ -50,6 +50,7 @@ function FormBox() {
 
 export default FormBox;
 
+
 //-------------Styling-------------//
 
 const Form = styled.form`

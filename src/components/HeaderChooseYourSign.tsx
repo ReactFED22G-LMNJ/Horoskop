@@ -33,6 +33,7 @@ function HeaderChooseYourSign() {
 
 export default HeaderChooseYourSign;
 
+
 //-------------Styling-------------//
 
 const Container = styled.header`

@@ -50,6 +50,7 @@ function HeaderDailyHoroscope() {
 }
 export default HeaderDailyHoroscope;
 
+
 //-------------Styling-------------//
 
 const Container = styled.header`

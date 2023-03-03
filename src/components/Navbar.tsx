@@ -2,8 +2,6 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { device } from '../data/Breakpoints';
 
-
-
 interface Props {
   sign: string | undefined;
   onDaySelect: (day: string) => void;
@@ -67,10 +65,10 @@ const NavLinkStyled = styled(NavLink)`
       font-size: 1rem;
     }  
 
-    @media ${device.mobileL} {
-      font-size: 0.9rem;
-      margin-left: 0.6rem;
-      margin-right: 0.6rem;
-    }
+  @media ${device.mobileL} {
+    font-size: 0.9rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
 `;
 

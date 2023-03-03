@@ -24,6 +24,7 @@ function HeaderStartPage() {
    
 export default HeaderStartPage;
 
+
 //-------------Styling-------------//
 
 const Container = styled.header`

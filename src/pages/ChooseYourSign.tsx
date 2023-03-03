@@ -33,11 +33,9 @@ function ChooseYourSign() {
         </ZodiacZignWrapper>
       </ErrorBoundary>
 
-
       <ErrorBoundary>
         <Footer/>
       </ErrorBoundary>
-
     </div>
   );
 }
@@ -47,12 +45,11 @@ export default ChooseYourSign;
 
 //-------------Styling-------------//
 
- const ZodiacZignWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
- `;
-
+const ZodiacZignWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const ZodiacSignContainer = styled.div`
   display: flex;
@@ -62,7 +59,6 @@ const ZodiacSignContainer = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
   max-width: 1250px;
-
 `;
 
 export const ZodiacLink = styled(Link)`

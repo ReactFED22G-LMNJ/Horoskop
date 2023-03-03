@@ -7,24 +7,24 @@ import TriangleArrow from '/assets/triangle-arrow.png';
  * A component that renders a drop down list for selecting a particular zodiac sign */
 
 interface Props {
-  label: string; // string that will be displayed on the button that toggles the drop down
+  label: string; // String that will be displayed on the button that toggles the drop down
 }
 
 const ZodiacDropdown: React.FC<Props> = ({ label }) => {
-  const [showDropdown, setShowDropdown] = useState(false); // manages whether or not the drop down is currently being shown
-  const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null); //manages which zodiac sign has been selected
-  const dropdownRef = useRef<HTMLDivElement>(null); // creates references to the dropdown container
-  const dropdownContentRef = useRef<HTMLDivElement>(null); // creates references to the dropdown content container
-  const { day } = useParams<{ day: string}>(); // gets the day parameter from the current URL
+  const [showDropdown, setShowDropdown] = useState(false); // Manages whether or not the drop down is currently being shown
+  const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null); // Manages which zodiac sign has been selected
+  const dropdownRef = useRef<HTMLDivElement>(null); // Creates references to the dropdown container
+  const dropdownContentRef = useRef<HTMLDivElement>(null); // Creates references to the dropdown content container
+  const { day } = useParams<{ day: string}>(); // Gets the day parameter from the current URL
 
-  // gets called when the user selects a zodiac sign from the dropdown list
-  // updates the ZelectedZodiac state variable and hides the dropdown list
+  // Gets called when the user selects a zodiac sign from the dropdown list
+  // Updates the ZelectedZodiac state variable and hides the dropdown list
   const handleZodiacSelect = (zodiac: string) => {
     setSelectedZodiac(zodiac);
     setShowDropdown(false);
   };
   
-  // adds an event listener to the window to handle clicking outside of the dropdown to close it
+  // Adds an event listener to the window to handle clicking outside of the dropdown to close it
   useEffect(() => {
     const handleClickOutsideDropdown = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -36,8 +36,8 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     return () => window.removeEventListener('click', handleClickOutsideDropdown);
   }, []);
 
-  // resets the dropdown and deselects the selected zodiac sign 
-  // if the dropdown is being shown and a zodiac sign has been selected
+  // Resets the dropdown and deselects the selected zodiac sign 
+  // If the dropdown is being shown and a zodiac sign has been selected
   useEffect(() => {
     if (dropdownContentRef.current && showDropdown && selectedZodiac !== null) {
       setShowDropdown(false);
@@ -45,17 +45,17 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     }
   }, [showDropdown, selectedZodiac]);
 
-  // scrolls down the dropdown content when the user clicks on it
+  // Scrolls down the dropdown content when the user clicks on it
   const handleScrollDown = () => {
     console.log(dropdownRef.current)
 
     const dropdownContent = dropdownRef.current?.querySelector('.dropdown-content');
     if (dropdownContent) {
-      dropdownContent.scrollTop += 50; //scrolls the dropdown list down by 50px
+      dropdownContent.scrollTop += 50; // Scrolls the dropdown list down by 50px
     }
   };
 
-  // array of the names of the zodiac signs displayed in the drop down list
+  // Array of the names of the zodiac signs displayed in the drop down list
   const zodiacs = [
     'Aries',
     'Taurus',    
@@ -71,10 +71,10 @@ const ZodiacDropdown: React.FC<Props> = ({ label }) => {
     'Pisces'
     ];
 
-  /** zodiac signs drop down list
-  * contains links to the daily horoscope page for each zodiac sign
-  * the links are created using the map function on the names of the zodiacs signs array above 
-  * clicking on a zodiac sign calls the handleZodiacSelect function with the corresponding zodiac sign as an argument */
+  /** Zodiac signs drop down list
+  * Contains links to the daily horoscope page for each zodiac sign
+  * The links are created using the map function on the names of the zodiacs signs array above 
+  * Clicking on a zodiac sign calls the handleZodiacSelect function with the corresponding zodiac sign as an argument */
 
   return (
     <DropdownNav ref={dropdownRef}>
@@ -122,12 +122,12 @@ const DropdownButton = styled.button`
 `;
 
 const TriangleArrowIcon = styled.img`
-    height: 1.2rem;
+  height: 1.2rem;
 `; 
 
 export const ZodiacLink = styled(Link)`
-   color: #000000;
-   text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 `;
 
 const DropdownContent = styled.div`

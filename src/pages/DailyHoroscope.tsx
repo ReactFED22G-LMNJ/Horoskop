@@ -11,8 +11,6 @@ import { ZodiacSigns } from "../data/ZodiacSignsData";
 import ErrorBoundary from "../ErrorBoundry";
 import { useAstrologyData } from "../hooks/useAstrologyData";
 
-//Tänker att vi ska göra en egen sida/komponent istället för att rendera allt här, man gör det så länge.
-
 /**
  * Displays the daily horoscope for the given zodiac sign.
  * @param sign - The zodiac sign.
@@ -68,7 +66,8 @@ function DailyHoroscope() {
                   key={zodiacSign.image}
                   image={`${window.location.origin}${zodiacSign.image}`}
                   name={zodiacSign.name}
-                  color={zodiacSign.color}>
+                  color={zodiacSign.color}
+                >
                   <SignName>{sign?.toUpperCase()}</SignName>
                   <p>Mood: {astrologyData?.mood}</p>
                   <p>Lucky Number: {astrologyData?.lucky_number}</p>
@@ -104,7 +103,6 @@ export default DailyHoroscope;
 const HoroscopeContainer = styled.div`
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   background-color: #ffffff;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 
