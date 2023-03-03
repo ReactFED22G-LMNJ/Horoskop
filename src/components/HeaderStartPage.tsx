@@ -134,7 +134,7 @@ const Title1 = styled.h1`
    }
 `;
 
-const Title2 = styled.h1`
+const Title2 = styled.h2`
    font-family: 'Tenor Sans', sans-serif;
    font-size: 3rem;
    font-weight: 300;

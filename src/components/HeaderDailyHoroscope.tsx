@@ -57,7 +57,6 @@ const Container = styled.header`
 
     @media ${device.mobileXL} {
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       padding-left: 1rem;
       padding-right: 1rem;
@@ -150,6 +149,7 @@ const TitelsContainer = styled.div`
   justify-content: flex-start;
 
     @media ${device.mobileXL} {
+      padding-top: 1rem;
       align-items: center;
     }
 `;
@@ -177,11 +177,12 @@ const Title1 = styled.h1`
   }
 
   @media ${device.mobileXL} {
-    font-size: 2.8rem;
+    text-align: center;
+    font-size: 2.3rem;
   }
 `;
 
-const Title2 = styled.h1`
+const Title2 = styled.h2`
     font-family: 'Tenor Sans', sans-serif;
     padding-left: 4rem;
     font-size: 2.6rem;
