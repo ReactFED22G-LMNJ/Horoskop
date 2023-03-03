@@ -14,19 +14,19 @@ import ZodiacDropdown from "./ZodiacDropDown";
 function FormBox() {
     const [name, setName] = useLocalStorageState('', 'name');
 
-    // checks if the value of name is "Hello" and sets it back to an empty string if so :-D
+    // Checks if the value of name is "Hello" and sets it back to an empty string if so :-D
     useEffect(() => {
         if (name === "Hello") {
           setName("");
         }
       }, [name]);
 
-    // updates the value of name using the setName function returned from the useLocalStorageState hook
+    // Updates the value of name using the setName function returned from the useLocalStorageState hook
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
     };
 
-    // prevents default form submission behavior 
+    // Prevents default form submission behavior 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
