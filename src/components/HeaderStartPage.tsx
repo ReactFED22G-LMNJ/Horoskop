@@ -82,7 +82,7 @@ const StarImg = styled.img`
   height: 55%;
 
   @media ${device.mobileXXL} {
-    height: 45%;
+      height: 45%;
   }
 
    @media ${device.mobileXL} {
